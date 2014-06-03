@@ -81,3 +81,52 @@ create table estados_inmueble (
     nombre varchar(100) not null unique,
     descripcion varchar(1024)
 );
+
+create table inmuebles (
+    id integer not null primary key auto_increment unique,
+    titulo varchar(100) not null,
+    descripcion varchar(2048) not null,
+    tipo_inmueble varchar(50) not null,
+    vista_al_mar boolean,
+    tiene_calefaccion boolean,
+    gastos_comunes double,
+    anio_construccion_aproximado integer,
+    coord_latitud long,
+    coord_longitud long,
+    cant_banios integer,
+
+    /* casa */
+    mts2_edificados integer,
+    cant_plantas_casa integer,
+    es_propiedad_horizontal boolean,
+    cant_dormitorios integer,
+
+    /* apartamento */
+    numero_de_piso integer,
+    tiene_ascensor boolean,
+    tiene_porteria boolean,
+    tiene_portero_electrico boolean,
+    tiene_vigilancia boolean,
+
+    /* local */
+    tipo_local varchar(50),
+    tipo_local_observacion varchar(1024),
+    tiene_planta_alta boolean,
+    altura_salon_principal integer,
+    cant_plantas_local integer,
+    tiene_estacionamiento boolean,
+    tiene_deposito boolean,
+    potencia_contratada varchar(10)
+
+);
+
+
+alter table inmuebles add fk_estado integer not null;
+alter table inmuebles add foreign key (fk_estado) references estados_inmueble(id);
+
+create table imagenes_inmueble (
+    id integer not null primary key auto_increment unique,
+    id_inmueble integer not null,
+    ruta varchar(512) not null,
+	foreign key (id_inmueble) references inmuebles(id)
+);

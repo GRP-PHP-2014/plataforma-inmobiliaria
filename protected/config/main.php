@@ -18,7 +18,6 @@ return array(
         'application.models.auditoria.*',
         'application.models.cliente.*',
         'application.models.inmueble.*',
-        'application.models.estadoinmueble.*',
         'application.components.*',
         'application.extensions.MDBSuite.*',
         'application.extensions.XTChilen.*',

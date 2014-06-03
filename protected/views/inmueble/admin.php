@@ -1,6 +1,16 @@
 <?php
-/* @var $this ClienteController */
-/* @var $model Cliente */
+/* @var $this InmuebleController */
+/* @var $model Inmueble */
+
+$this->breadcrumbs=array(
+	'Inmuebles'=>array('index'),
+	'Manage',
+);
+
+$this->menu=array(
+	array('label'=>'List Inmueble', 'url'=>array('index')),
+	array('label'=>'Create Inmueble', 'url'=>array('create')),
+);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -8,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#cliente-grid').yiiGridView('update', {
+	$('#inmueble-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -16,79 +26,58 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<div class="row-fluid">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Administrar inmuebles</h1>
+<h1>Manage Inmuebles</h1>
 
-                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
-                <div class="search-form" style="display:none">
-                    <?php
-                    $this->renderPartial('_search', array(
-                        'model' => $model,
-                    ));
-                    ?>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="pull-right"><a href="<?php echo Yii::app()->createUrl("inmueble/create")?>"><span title="nuevo" class="glyphicon glyphicon-plus"></span></a></div>
-            </div>
-        </div>
-        <div class="col-lg-12">
+<p>
+You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
 
-            <?php
-            $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'user-grid',
-                'summaryText' => '',
-                'dataProvider' => $model->search(),
-                'columns' => array(
-                    'nombre',
-                    'descripcion',
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{ver}',
-                        'buttons' => array
-                            (
-                            'ver' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaVer"],
-                                'options'=>array('title'=>'ver'),
-                                'url' => 'Yii::app()->createUrl("inmueble/view", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ),                               
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{editar}',
-                        'buttons' => array
-                            (
-                            'editar' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaEditar"],
-                                'options'=>array('title'=>'editar'),
-                                'url' => 'Yii::app()->createUrl("inmueble/update", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ),
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{eliminar}',
-                        'buttons' => array
-                            (
-                            'eliminar' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaEliminar"],
-                                'options'=>array('title'=>'eliminar'),
-                                'url' => 'Yii::app()->createUrl("inmueble/delete", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ),         
-                ),
-            ));
-            ?>
-        </div>
-    </div>
-    <div class="col-lg-2"></div>
-</div>
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<div class="search-form" style="display:none">
+<?php $this->renderPartial('_search',array(
+	'model'=>$model,
+)); ?>
+</div><!-- search-form -->
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'inmueble-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'titulo',
+		'descripcion',
+		'tipo_inmueble',
+		'vista_al_mar',
+		'tiene_calefaccion',
+		/*
+		'gastos_comunes',
+		'anio_construccion_aproximado',
+		'coord_latitud',
+		'coord_longitud',
+		'cant_banios',
+		'mts2_edificados',
+		'cant_plantas_casa',
+		'es_propiedad_horizontal',
+		'cant_dormitorios',
+		'numero_de_piso',
+		'tiene_ascensor',
+		'tiene_porteria',
+		'tiene_portero_electrico',
+		'tiene_vigilancia',
+		'tipo_local',
+		'tipo_local_observacion',
+		'tiene_planta_alta',
+		'altura_salon_principal',
+		'cant_plantas_local',
+		'tiene_estacionamiento',
+		'tiene_deposito',
+		'potencia_contratada',
+		'fk_estado',
+		*/
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
+)); ?>
