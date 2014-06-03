@@ -75,3 +75,9 @@ create table clientes (
 alter table clientes add direccion varchar(2048);
 
 alter table clientes add comentarios varchar(2048);
+
+create table estados_inmueble (
+    id integer not null primary key auto_increment unique,
+    nombre varchar(100) not null unique,
+    descripcion varchar(1024)
+);

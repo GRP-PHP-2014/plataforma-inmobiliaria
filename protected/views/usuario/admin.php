@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
             <div class="col-lg-12">
                 <h1>Administrar empleados</h1>
 
-                <?php echo CHtml::link('Busqueda avanzada', '#', array('class' => 'search-button')); ?>
+                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php
                     $this->renderPartial('_search', array(
@@ -45,20 +45,7 @@ $('.search-form form').submit(function(){
                 'columns' => array(
                     'usuario',
                     'nombre',
-                    'apellido',
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{eliminar}',
-                        'buttons' => array
-                            (
-                            'eliminar' => array
-                                (
-                                'label' => '<span class="glyphicon glyphicon-remove"></span>',
-                                'options'=>array('title'=>'eliminar'),
-                                'url' => 'Yii::app()->createUrl("usuario/delete", array("id"=>$data->usuario))',
-                            ),
-                        ),
-                    ),
+                    'apellido',                    
                     array(
                         'class' => 'CButtonColumn',
                         'template' => '{ver}',
@@ -66,7 +53,7 @@ $('.search-form form').submit(function(){
                             (
                             'ver' => array
                                 (
-                                'label' => '<span class="glyphicon glyphicon-search"></span>',
+                                'label' => Yii::app()->params["labelBotonGrillaVer"],
                                 'options'=>array('title'=>'ver'),
                                 'url' => 'Yii::app()->createUrl("usuario/view", array("id"=>$data->usuario))',
                             ),
@@ -79,9 +66,22 @@ $('.search-form form').submit(function(){
                             (
                             'editar' => array
                                 (
-                                'label' => '<span class="glyphicon glyphicon-pencil"></span>',
+                                'label' => Yii::app()->params["labelBotonGrillaEditar"],
                                 'options'=>array('title'=>'editar'),
                                 'url' => 'Yii::app()->createUrl("usuario/update", array("id"=>$data->usuario))',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'class' => 'CButtonColumn',
+                        'template' => '{eliminar}',
+                        'buttons' => array
+                            (
+                            'eliminar' => array
+                                (
+                                'label' => Yii::app()->params["labelBotonGrillaEliminar"],
+                                'options'=>array('title'=>'eliminar'),
+                                'url' => 'Yii::app()->createUrl("usuario/delete", array("id"=>$data->usuario))',
                             ),
                         ),
                     ),

@@ -23,7 +23,7 @@ $('.search-form form').submit(function(){
             <div class="col-lg-12">
                 <h1>Administrar clientes</h1>
 
-                <?php echo CHtml::link('Búsqueda avanzada', '#', array('class' => 'search-button')); ?>
+                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php
                     $this->renderPartial('_search', array(
@@ -54,7 +54,7 @@ $('.search-form form').submit(function(){
                             (
                             'ver' => array
                                 (
-                                'label' => '<span class="glyphicon glyphicon-search"></span>',
+                                'label' => Yii::app()->params["labelBotonGrillaVer"],
                                 'options'=>array('title'=>'ver'),
                                 'url' => 'Yii::app()->createUrl("cliente/view", array("id"=>$data->id))',
                             ),
@@ -67,7 +67,7 @@ $('.search-form form').submit(function(){
                             (
                             'editar' => array
                                 (
-                                'label' => '<span class="glyphicon glyphicon-pencil"></span>',
+                                'label' => Yii::app()->params["labelBotonGrillaEditar"],
                                 'options'=>array('title'=>'editar'),
                                 'url' => 'Yii::app()->createUrl("cliente/update", array("id"=>$data->id))',
                             ),
@@ -80,7 +80,7 @@ $('.search-form form').submit(function(){
                             (
                             'eliminar' => array
                                 (
-                                'label' => '<span class="glyphicon glyphicon-remove"></span>',
+                                'label' => Yii::app()->params["labelBotonGrillaEliminar"],
                                 'options'=>array('title'=>'eliminar'),
                                 'url' => 'Yii::app()->createUrl("cliente/delete", array("id"=>$data->id))',
                             ),

@@ -6,8 +6,8 @@ class Inmueble extends EMongoDocument {
     public $nombre;
     public $descripcion;
     
-    public $attributes;
-    public $errors;
+    public $attributes = array();
+    public $errors = array();
     
     public function rules()
     {
@@ -60,7 +60,14 @@ class Inmueble extends EMongoDocument {
     }
     
     public function cSave(){
+        $a = array_keys($this->attributes);
+        if (!in_array("Inmueble_nombre" , array_keys($this->attributes)) || !in_array("Inmueble_descripcion" , array_keys($this->attributes))){
+            array_push($this->errors, "El nombre y la descripcion del inmueble son obligatorios");   
+            return false;
+        }
         
+        $collection = Yii::app()->getComponent('mongodb')->getConnection();
+        $collection->save($this->attributes);
         
         return true;
     }

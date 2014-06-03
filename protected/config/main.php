@@ -18,6 +18,7 @@ return array(
         'application.models.auditoria.*',
         'application.models.cliente.*',
         'application.models.inmueble.*',
+        'application.models.estadoinmueble.*',
         'application.components.*',
         'application.extensions.MDBSuite.*',
         'application.extensions.XTChilen.*',
@@ -45,7 +46,6 @@ return array(
         'urlManager' => array(
             'urlFormat' => 'path',
             'rules' => array(
-                array('rinmueble/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',                
@@ -92,8 +92,5 @@ return array(
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
-    'params' => array(
-        // this is used in contact page
-        'adminEmail' => 'webmaster@example.com',
-    ),
+    "params"=>include(dirname(__FILE__)."/parameters.php" ),//<– here is our file
 );

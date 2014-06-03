@@ -46,8 +46,8 @@
             array("class" => "form-control")); ?>       
     </div>
     
-    <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=usuario/admin">Volver</a>
-    <?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array("class" => "btn btn-default")); ?>
+    <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=usuario/admin"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
+    <?php echo CHtml::submitButton($model->isNewRecord ? Yii::app()->params["labelBotonCrear"] : Yii::app()->params["labelBotonGuardar"], array("class" => "btn btn-default")); ?>
 
     <?php $this->endWidget(); ?>
 

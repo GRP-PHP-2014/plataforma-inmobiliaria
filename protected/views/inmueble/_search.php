@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="form-group col-lg-12">
-		<?php echo CHtml::submitButton('Buscar', array("class" => "btn btn-default")); ?>
+		<?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default")); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

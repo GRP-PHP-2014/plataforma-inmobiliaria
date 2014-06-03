@@ -1,14 +1,12 @@
 <?php
 
-class UsuarioController extends Controller {
+class EstadoInmuebleController extends Controller {
 
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
     public $layout = '//layouts/adminMasterPage';
-    
-    public $defaultAction = 'admin';
 
     /**
      * @return array action filters
@@ -27,18 +25,10 @@ class UsuarioController extends Controller {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('login'),
-                'users' => array('?'),
-            ),
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'view', 'admin'),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions' => array('admin', 'delete', 'create', 'view' , 'update'),
                 'users' => array('director'),
             ),
-            array('allow', 
-                'actions' => array('logout'),
-                'users' => array('@'),
-            ),                
             array('deny', // deny all users
                 'users' => array('*'),
             ),
@@ -60,22 +50,17 @@ class UsuarioController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-        $model = new Usuario;
+        $model = new EstadoInmueble;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Usuario'])) {
-            $model->attributes = $_POST['Usuario'];
-            $model->contrasenia = $model->usuario;
-            if ($model->save()) {
-                $authAssign = new AuthAssignment();
-                $authAssign->itemname = $model->rol;
-                $authAssign->userid = $model->usuario;
-                $authAssign->save();
-                $this->redirect(array('view', 'id' => $model->usuario));
-            }
+        if (isset($_POST['EstadoInmueble'])) {
+            $model->attributes = $_POST['EstadoInmueble'];
+            if ($model->save())
+                $this->redirect(array('view', 'id' => $model->id));
         }
+
         $this->render('create', array(
             'model' => $model,
         ));
@@ -92,16 +77,10 @@ class UsuarioController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Usuario'])) {
-            $model->attributes = $_POST['Usuario'];
-            if ($model->save()) {
-
-                $authAsign = AuthAssignment::model()->findByAttributes(array('userid' => $model->usuario));
-                $authAsign->itemname = $model->rol;
-                $authAsign->save();
-
-                $this->redirect(array('view', 'id' => $model->usuario));
-            }
+        if (isset($_POST['EstadoInmueble'])) {
+            $model->attributes = $_POST['EstadoInmueble'];
+            if ($model->save())
+                $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('update', array(
@@ -126,7 +105,7 @@ class UsuarioController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Usuario');
+        $dataProvider = new CActiveDataProvider('EstadoInmueble');
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));
@@ -136,10 +115,10 @@ class UsuarioController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-        $model = new Usuario('search');
+        $model = new EstadoInmueble('search');
         $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['Usuario']))
-            $model->attributes = $_GET['Usuario'];
+        if (isset($_GET['EstadoInmueble']))
+            $model->attributes = $_GET['EstadoInmueble'];
 
         $this->render('admin', array(
             'model' => $model,
@@ -150,11 +129,11 @@ class UsuarioController extends Controller {
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.
      * @param integer $id the ID of the model to be loaded
-     * @return Usuario the loaded model
+     * @return EstadoInmueble the loaded model
      * @throws CHttpException
      */
     public function loadModel($id) {
-        $model = Usuario::model()->findByPk($id);
+        $model = EstadoInmueble::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -162,41 +141,13 @@ class UsuarioController extends Controller {
 
     /**
      * Performs the AJAX validation.
-     * @param Usuario $model the model to be validated
+     * @param EstadoInmueble $model the model to be validated
      */
     protected function performAjaxValidation($model) {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'usuario-form') {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'estado-inmueble-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-    }
-
-    /**
-     * Displays the login page
-     */
-    public function actionLogin() {
-        $model = new LoginForm;
-
-        // if it is ajax validation request
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-
-        // collect user input data
-        if (isset($_POST['LoginForm'])) {
-            $model->attributes = $_POST['LoginForm'];
-            // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
-                $this->redirect(Yii::app()->user->returnUrl);
-        }
-        $this->layout = '//layouts/oneColumn';
-        $this->render('login', array('model' => $model));
-    }
-
-    public function actionLogout() {
-        Yii::app()->user->logout();
-        $this->redirect(array('login'));
     }
 
 }

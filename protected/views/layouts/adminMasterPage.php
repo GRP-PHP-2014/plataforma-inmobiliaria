@@ -40,6 +40,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">Configurar portada</a></li>
                                 <li class="divider"></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
+                                <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">P&aacute;rametros</a></li>
                             </ul>
                         </li>

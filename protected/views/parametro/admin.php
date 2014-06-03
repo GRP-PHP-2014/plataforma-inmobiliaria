@@ -33,7 +33,7 @@ $('.search-form form').submit(function(){
             <div class="col-lg-12">
                 <h1>Administrar par&aacute;metros</h1>
 
-                <?php echo CHtml::link('B&uacute;squeda avanzada', '#', array('class' => 'search-button')); ?>
+                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php
                     $this->renderPartial('_search', array(
@@ -60,7 +60,7 @@ $('.search-form form').submit(function(){
                                 (
                                 'editar' => array
                                     (
-                                    'label' => '<span class="glyphicon glyphicon-pencil"></span>',
+                                    'label' => Yii::app()->params["labelBotonGrillaEditar"],
                                     'options'=>array('title'=>'editar'),
                                     'url' => 'Yii::app()->createUrl("parametro/update", array("id"=>$data->nombre))',
                                 ),

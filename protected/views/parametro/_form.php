@@ -34,8 +34,8 @@
         <?php echo $form->error($model, 'valor'); ?>
     </div>
 
-    <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=parametro/admin">Volver</a>
-    <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Guardar', array("class" => "btn btn-default")); ?>
+    <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=parametro/admin"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
+    <?php echo CHtml::submitButton($model->isNewRecord ? Yii::app()->params["labelBotonCrear"] : Yii::app()->params["labelBotonGuardar"], array("class" => "btn btn-default")); ?>
 
     <?php $this->endWidget(); ?>
 

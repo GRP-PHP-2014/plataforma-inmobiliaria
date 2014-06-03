@@ -27,7 +27,7 @@
 		<?php echo $form->textField($model,'apellido',array('size'=>60,'maxlength'=>100,"class" => "form-control")); ?>
 	</div>
 	<div class="form-group col-lg-12">
-		<?php echo CHtml::submitButton('Buscar', array("class" => "btn btn-default")); ?>
+		<?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default")); ?>
 	</div>
 <?php $this->endWidget(); ?>
 

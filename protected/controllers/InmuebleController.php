@@ -45,7 +45,7 @@ class InmuebleController extends Controller {
         //$this->performAjaxValidation($model);
 
         if (filter_input(INPUT_SERVER, "REQUEST_METHOD") == "POST"){
-            $model->attributes = json_decode($_POST["data"]);
+            $model->attributes = json_decode($_POST["data"] , true);
             if ($model->cSave()){
                 Response::send(json_encode($model->attributes) , 200 , Response::CONTENT_TYPE_JSON);
             } else {

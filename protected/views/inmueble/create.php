@@ -17,7 +17,7 @@
                 <label for="inputDescripcionInmueble" class="control-label">Descripci&oacute;n</label>
                 <textarea name="Inmueble_descripcion" type="text" class="form-control" id="inputDescripcionInmueble" ></textarea>
             </div>
-            <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>">Volver</a>
+            <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
             <button type="button" onclick="ingresarInmueble()" class="btn btn-default">Guardar</button>
         </form>
 
