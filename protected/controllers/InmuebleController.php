@@ -1,5 +1,6 @@
 <?php
 
+Yii::import("xupload.models.XUploadForm");
 class InmuebleController extends Controller {
 
     /**
@@ -7,6 +8,10 @@ class InmuebleController extends Controller {
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
     public $layout = '//layouts/adminMasterPage';
+
+    public function actions() {
+        return array('upload' => array('class' => 'xupload.actions.XUploadAction', 'path' => Yii::app()->getBasePath() . "/../images/uploads", "publicPath" => Yii::app()->getBaseUrl() . "/images/uploads"),);
+    }
 
     /**
      * @return array action filters
@@ -34,7 +39,7 @@ class InmuebleController extends Controller {
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete'),
+                'actions' => array('admin', 'delete', 'upload'),
                 'users' => array('director'),
             ),
             array('deny', // deny all users

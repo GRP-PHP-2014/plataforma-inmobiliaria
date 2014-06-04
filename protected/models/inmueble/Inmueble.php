@@ -38,7 +38,15 @@
  * @property ImagenesInmueble[] $imagenesInmuebles
  * @property EstadosInmueble $fkEstado
  */
+
+Yii::import("xupload.models.XUploadForm");
 class Inmueble extends CActiveRecord {
+    
+    private $modelImagenes;
+    
+    public function __construct() {
+        $this->modelImagenes = new XUploadForm;
+    }
 
     /**
      * @return string the associated database table name
@@ -178,6 +186,10 @@ class Inmueble extends CActiveRecord {
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
+    }
+    
+    public function getModeloImagenes(){
+        return $this->modelImagenes;
     }
 
 }

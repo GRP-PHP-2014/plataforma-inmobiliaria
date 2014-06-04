@@ -51,6 +51,7 @@ $('.search-form form').submit(function(){
             $this->widget('zii.widgets.grid.CGridView', array(
                 'id' => 'estado-inmueble-grid',
                 'summaryText' => '',
+                'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                 'dataProvider' => $model->search(),
                 'columns' => array(
                     'nombre',

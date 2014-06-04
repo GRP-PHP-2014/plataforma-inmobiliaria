@@ -53,7 +53,7 @@ create table parametros (
     descripcion varchar(1024),
     valor varchar(512) not null,
     primary key (nombre)
-);
+)
 
 -- TABLA DE AUDITORIA DEL SISTEMA
 create table auditoria (
@@ -62,7 +62,7 @@ create table auditoria (
     objeto varchar(100) not null,
 	operacion varchar(100) not null,
     primary key (id)
-);
+)
 
 -- TABLA DE CLIENTES
 create table clientes (
