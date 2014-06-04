@@ -24,7 +24,7 @@ values('director','director','','');
 -- PARAMETROS DEL SISTEMA
 insert into parametros(nombre,descripcion,valor) values ('cantidadBienesPortada' , 'Cantidad de bienes a mostrar en la portada del sitio' , '6');
 insert into parametros(nombre,descripcion,valor) values ('emailAdminitrador' , 'Email del administrador del sitio' , 'admin@inmobiliaria.com');
-insert into parametros(nombre,descripcion,valor) values ('cantidadBienesPortada' , 'Cantidad de bienes a mostrar en la portada del sitio' , '6');
+insert into parametros(nombre,descripcion,valor) values ('directorioBaseImagenes' , 'Ruta base para las imagenes subidas en el sistema de archivos' , 'C:\\uploads');
 
 
 

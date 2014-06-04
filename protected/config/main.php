@@ -21,6 +21,7 @@ return array(
         'application.components.*',
         'application.extensions.MDBSuite.*',
         'application.extensions.XTChilen.*',
+        'application.extensions.fileupload.*',
     ),
     'aliases' => array(
         'xupload' => 'ext.xupload'
@@ -94,5 +95,5 @@ return array(
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
-    "params" => include(dirname(__FILE__) . "/parameters.php" ), //<– here is our file
+    "params" => include(dirname(__FILE__) . "/parameters.php" ), //<ï¿½ here is our file
 );

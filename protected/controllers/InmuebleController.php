@@ -10,7 +10,11 @@ class InmuebleController extends Controller {
     public $layout = '//layouts/adminMasterPage';
 
     public function actions() {
-        return array('upload' => array('class' => 'xupload.actions.XUploadAction', 'path' => Yii::app()->getBasePath() . "/../images/uploads", "publicPath" => Yii::app()->getBaseUrl() . "/images/uploads"),);
+        return array('upload' => array(
+            'class' => 'xupload.actions.XUploadAction', 
+            'path' => "c:\\uploads", 
+            "publicPath" => "c:\\uploads"),
+        );
     }
 
     /**
@@ -39,7 +43,7 @@ class InmuebleController extends Controller {
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete', 'upload'),
+                'actions' => array('admin', 'delete', 'upload', 'uploadImages'),
                 'users' => array('director'),
             ),
             array('deny', // deny all users
@@ -99,6 +103,12 @@ class InmuebleController extends Controller {
         $this->render('update', array(
             'model' => $model,
         ));
+    }
+    
+    public function actionUploadImages() {
+        error_reporting(E_ALL | E_STRICT);
+        require('UploadHandler.php');
+        $upload_handler = new UploadHandler();
     }
 
     /**
