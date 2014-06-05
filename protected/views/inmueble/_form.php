@@ -10,7 +10,7 @@
     <li><a href="#imagenes" data-toggle="tab">Im&aacute;genes</a></li>
 </ul>
 <div class="tab-content">
-    <div class="tab-pane fade in active" id="datos-comunes">
+    <div class="tab-pane fade in active inmueble-tab-container" id="datos-comunes">
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'inmueble-form',
@@ -190,12 +190,12 @@
         </div>
         <?php $this->endWidget(); ?>
     </div>
-    <div class="tab-pane fade in active" id="ubicacion">
+    <div class="tab-pane fade in inmueble-tab-container" id="ubicacion">
         <div id="mapa-ubicacion">
 
         </div>
     </div>
-    <div class="tab-pane fade in active" id="imagenes">
+    <div class="tab-pane fade in inmueble-tab-container" id="imagenes">
 
         <div class="row">
             <div class="col-lg-12">
@@ -208,20 +208,20 @@
                             <!-- The fileinput-button span is used to style the file input field as button -->
                             <span class="btn btn-success fileinput-button">
                                 <i class="glyphicon glyphicon-plus"></i>
-                                <span>Add files...</span>
+                                <span>Agregar im&aacute;genes</span>
                                 <input type="file" name="files[]" multiple>
                             </span>
                             <button type="submit" class="btn btn-primary start">
                                 <i class="glyphicon glyphicon-upload"></i>
-                                <span>Start upload</span>
+                                <span>Subir</span>
                             </button>
                             <button type="reset" class="btn btn-warning cancel">
                                 <i class="glyphicon glyphicon-ban-circle"></i>
-                                <span>Cancel upload</span>
+                                <span>Cancelar</span>
                             </button>
                             <button type="button" class="btn btn-danger delete">
                                 <i class="glyphicon glyphicon-trash"></i>
-                                <span>Delete</span>
+                                <span>Eliminar</span>
                             </button>
                             <input type="checkbox" class="toggle">
                             <!-- The global file processing state -->
@@ -363,9 +363,8 @@
     </div>
 </div>
 
-</div>
-<div class="row">
-    <div class="col-lg-6">
+<div class="row row-botonera-inferior">
+    <div class="col-lg-12">
         <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
         <?php echo CHtml::submitButton($model->isNewRecord ? Yii::app()->params["labelBotonCrear"] : Yii::app()->params["labelBotonGuardar"], array("class" => "btn btn-default")); ?>
     </div>
@@ -373,7 +372,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    initOpenStreetMapIngresoInmueble();
+        //initOpenStreetMapIngresoInmueble();
     });
 </script>
 

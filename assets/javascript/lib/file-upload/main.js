@@ -31,7 +31,7 @@ $(function () {
         )
     );
 
-    if (window.location.hostname === 'localhost:88/') {
+    if (window.location.hostname === 'localhost/') {
         // Demo settings:
         $('#images-upload').fileupload('option', {
             url: 'uploadImages',

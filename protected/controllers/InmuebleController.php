@@ -9,14 +9,6 @@ class InmuebleController extends Controller {
      */
     public $layout = '//layouts/adminMasterPage';
 
-    public function actions() {
-        return array('upload' => array(
-            'class' => 'xupload.actions.XUploadAction', 
-            'path' => "c:\\uploads", 
-            "publicPath" => "c:\\uploads"),
-        );
-    }
-
     /**
      * @return array action filters
      */

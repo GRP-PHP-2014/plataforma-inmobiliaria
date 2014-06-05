@@ -247,10 +247,13 @@ class UploadHandler
     }
 
     protected function set_additional_file_properties($file) {
+        /*
         $file->deleteUrl = $this->options['script_url']
             .$this->get_query_separator($this->options['script_url'])
             .$this->get_singular_param_name()
             .'='.rawurlencode($file->name);
+         */
+        $file->deleteUrl = Yii::app()->createUrl("inmueble/uploadImages" , array('file' => rawurlencode($file->name)));
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';

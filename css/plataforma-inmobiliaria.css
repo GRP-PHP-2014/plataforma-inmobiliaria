@@ -2,3 +2,12 @@
     width: 100%;
     height: 500px;
 }
+
+.inmueble-tab-container{
+    padding: 20px;
+}
+
+.row-botonera-inferior{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
