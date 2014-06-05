@@ -39,14 +39,9 @@
  * @property EstadosInmueble $fkEstado
  */
 
-Yii::import("xupload.models.XUploadForm");
 class Inmueble extends CActiveRecord {
     
     private $modelImagenes;
-    
-    public function __construct() {
-        $this->modelImagenes = new XUploadForm;
-    }
 
     /**
      * @return string the associated database table name

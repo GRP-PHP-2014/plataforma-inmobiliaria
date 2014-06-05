@@ -6,7 +6,7 @@
 
 <ul id="myTab" class="nav nav-tabs">
     <li class="active"><a href="#datos-comunes" data-toggle="tab">Datos com&uacute;nes</a></li>
-    <li><a href="#ubicacion" data-toggle="tab">Ubicaci&oacute;n</a></li>
+    <li><a id="tab-ubicacion" href="#ubicacion" data-toggle="tab">Ubicaci&oacute;n</a></li>
     <li><a href="#imagenes" data-toggle="tab">Im&aacute;genes</a></li>
 </ul>
 <div class="tab-content">

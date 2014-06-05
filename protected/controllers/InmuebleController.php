@@ -1,6 +1,5 @@
 <?php
 
-Yii::import("xupload.models.XUploadForm");
 class InmuebleController extends Controller {
 
     /**
