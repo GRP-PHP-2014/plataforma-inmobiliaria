@@ -18,7 +18,7 @@ $(function () {
     $('#images-upload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'uploadImages'
+        url: '/plataforma-inmobiliaria/index.php/file/upload'
     });
 
     // Enable iframe cross-domain access via redirect option:

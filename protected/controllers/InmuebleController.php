@@ -95,13 +95,13 @@ class InmuebleController extends Controller {
             'model' => $model,
         ));
     }
-    
+/*
     public function actionUploadImages() {
         error_reporting(E_ALL | E_STRICT);
         require('UploadHandler.php');
         $upload_handler = new UploadHandler();
     }
-
+*/
     /**
      * Deletes a particular model.
      * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -129,6 +129,7 @@ class InmuebleController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+
         $model = new Inmueble('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Inmueble']))

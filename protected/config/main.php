@@ -21,7 +21,6 @@ return array(
         'application.components.*',
         'application.extensions.MDBSuite.*',
         'application.extensions.XTChilen.*',
-        'application.extensions.fileupload.*',
     ),
     'aliases' => array(
         'xupload' => 'ext.xupload'
@@ -48,11 +47,19 @@ return array(
         'defaultController' => 'usuario',
         'urlManager' => array(
             'urlFormat' => 'path',
-            'rules' => array(
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+            'rules' => array(                
+                'parametro/admin' => 'parametro/admin',
+                'usuario/admin' => 'usuario/admin',
+                
+                'parametro/<id:\w+>' => 'parametro/view',  
+                'usuario/<id:\w+>' => 'usuario/view',
+                
+                'parametro/<action:\w+>/<id:\w+>' => 'parametro/<action>',
+                'usuario/<action:\w+>/<id:\w+>' => 'usuario/<action>',
+                
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',                
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                'inmueble/<file>'=>'inmueble/uploadImages',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',  
             ),
         ),
         'db' => array(

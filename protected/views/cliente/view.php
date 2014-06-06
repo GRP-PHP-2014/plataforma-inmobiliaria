@@ -29,7 +29,7 @@
                 <label for="inputComentarios">Comentarios</label>
                 <textarea disabled="true" type="text" class="form-control" id="inputComentarios" ><?php echo $model->comentarios; ?></textarea>
             </div>
-            <a href="<?php echo Yii::app()->createUrl("estadoInmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
+            <a href="<?php echo Yii::app()->createUrl("cliente/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
         </form>
     </div>
     <div class="col-lg-6"></div>

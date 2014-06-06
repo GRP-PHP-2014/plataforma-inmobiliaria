@@ -38,9 +38,8 @@
  * @property ImagenesInmueble[] $imagenesInmuebles
  * @property EstadosInmueble $fkEstado
  */
-
 class Inmueble extends CActiveRecord {
-    
+
     private $modelImagenes;
 
     /**
@@ -182,9 +181,8 @@ class Inmueble extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-    
-    public function getModeloImagenes(){
-        return $this->modelImagenes;
-    }
 
+    public function getListaEstadosInmueble() {
+        return CHtml::listData(EstadoInmueble::model()->findAll(), 'id', 'nombre');
+    }
 }

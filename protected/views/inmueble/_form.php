@@ -25,167 +25,187 @@
         <?php echo $form->errorSummary($model); ?>
         <div class="row">
             <div class="col-lg-6">
-                <div class="form-group">
+                <div id="grp-inmueble-titulo" class="form-group">
                     <?php echo $form->labelEx($model, 'titulo'); ?>
                     <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 100, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'titulo'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-descripcion" class="form-group">
                     <?php echo $form->labelEx($model, 'descripcion'); ?>
                     <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 2048, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'descripcion'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tipo" class="form-group">
                     <?php echo $form->labelEx($model, 'tipo_inmueble'); ?>
                     <?php
                     echo CHtml::dropDownList('Inmueble[tipo_inmueble]', $model->tipo_inmueble, array(
                         'apartamento' => 'APARTAMENTO',
                         'casa' => 'CASA',
-                        'local' => 'LOCAL COMERCIAL'), array("class" => "form-control"));
+                        'local' => 'LOCAL COMERCIAL'), array("class" => "form-control", "onchange" => "configurarFormularioSegunTipo()"));
                     ?>  
                     <?php echo $form->error($model, 'tipo_inmueble'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-vista_al_mar" class="form-group">
                     <?php echo $form->labelEx($model, 'vista_al_mar'); ?>
                     <?php echo $form->checkBox($model, 'vista_al_mar'); ?>
                     <?php echo $form->error($model, 'vista_al_mar'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_calefaccion" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_calefaccion'); ?>
                     <?php echo $form->checkBox($model, 'tiene_calefaccion'); ?>
                     <?php echo $form->error($model, 'tiene_calefaccion'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-gastos_comunes" class="form-group">
                     <?php echo $form->labelEx($model, 'gastos_comunes'); ?>
                     <?php echo $form->textField($model, 'gastos_comunes', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'gastos_comunes'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-anio_construccion_aproximado" class="form-group">
                     <?php echo $form->labelEx($model, 'anio_construccion_aproximado'); ?>
                     <?php echo $form->textField($model, 'anio_construccion_aproximado', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'anio_construccion_aproximado'); ?>
                 </div>
 
 
-                <div class="form-group">
+                <div id="grp-inmueble-coord_latitud" class="form-group">
                     <?php echo $form->labelEx($model, 'coord_latitud'); ?>
                     <?php echo $form->textField($model, 'coord_latitud', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'coord_latitud'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-coord_longitud" class="form-group">
                     <?php echo $form->labelEx($model, 'coord_longitud'); ?>
                     <?php echo $form->textField($model, 'coord_longitud', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'coord_longitud'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-cant_banios" class="form-group">
                     <?php echo $form->labelEx($model, 'cant_banios'); ?>
                     <?php echo $form->textField($model, 'cant_banios', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'cant_banios'); ?>
                 </div>                
             </div>
             <div class="col-lg-6">
-                <div class="form-group">
+                <div id="grp-inmueble-cant_dormitorios" class="form-group">
                     <?php echo $form->labelEx($model, 'cant_dormitorios'); ?>
                     <?php echo $form->textField($model, 'cant_dormitorios', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'cant_dormitorios'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-numero_de_piso" class="form-group">
                     <?php echo $form->labelEx($model, 'numero_de_piso'); ?>
                     <?php echo $form->textField($model, 'numero_de_piso', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'numero_de_piso'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_ascensor" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_ascensor'); ?>
                     <?php echo $form->checkBox($model, 'tiene_ascensor'); ?>
                     <?php echo $form->error($model, 'tiene_ascensor'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_porteria" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_porteria'); ?>
                     <?php echo $form->checkBox($model, 'tiene_porteria'); ?>
                     <?php echo $form->error($model, 'tiene_porteria'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_portero_electrico" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_portero_electrico'); ?>
                     <?php echo $form->checkBox($model, 'tiene_portero_electrico'); ?>
                     <?php echo $form->error($model, 'tiene_portero_electrico'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_vigilancia" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_vigilancia'); ?>
                     <?php echo $form->checkBox($model, 'tiene_vigilancia'); ?>
                     <?php echo $form->error($model, 'tiene_vigilancia'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tipo_local" class="form-group">
                     <?php echo $form->labelEx($model, 'tipo_local'); ?>
                     <?php echo $form->textField($model, 'tipo_local', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'tipo_local'); ?>
                 </div>
+                
+                <div id="grp-inmueble-mts2_edificados" class="form-group">
+                    <?php echo $form->labelEx($model, 'mts2_edificados'); ?>
+                    <?php echo $form->textField($model, 'mts2_edificados', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
+                    <?php echo $form->error($model, 'mts2_edificados'); ?>
+                </div>
+                
+                <div id="grp-inmueble-cant_plantas_casa" class="form-group">
+                    <?php echo $form->labelEx($model, 'cant_plantas_casa'); ?>
+                    <?php echo $form->textField($model, 'cant_plantas_casa', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
+                    <?php echo $form->error($model, 'cant_plantas_casa'); ?>
+                </div>
+                
 
-                <div class="form-group">
+                <div id="grp-inmueble-tipo_local_observacion" class="form-group">
                     <?php echo $form->labelEx($model, 'tipo_local_observacion'); ?>
                     <?php echo $form->textField($model, 'tipo_local_observacion', array('size' => 60, 'maxlength' => 1024, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'tipo_local_observacion'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_planta_alta" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_planta_alta'); ?>
                     <?php echo $form->checkBox($model, 'tiene_planta_alta'); ?>
                     <?php echo $form->error($model, 'tiene_planta_alta'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-altura_salon_principal" class="form-group">
                     <?php echo $form->labelEx($model, 'altura_salon_principal'); ?>
                     <?php echo $form->textField($model, 'altura_salon_principal', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'altura_salon_principal'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-cant_plantas_local" class="form-group">
                     <?php echo $form->labelEx($model, 'cant_plantas_local'); ?>
                     <?php echo $form->textField($model, 'cant_plantas_local', array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'cant_plantas_local'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_estacionamiento" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_estacionamiento'); ?>
                     <?php echo $form->checkBox($model, 'tiene_estacionamiento'); ?>
                     <?php echo $form->error($model, 'tiene_estacionamiento'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-tiene_deposito" class="form-group">
                     <?php echo $form->labelEx($model, 'tiene_deposito'); ?>
                     <?php echo $form->checkBox($model, 'tiene_deposito'); ?>
                     <?php echo $form->error($model, 'tiene_deposito'); ?>
                 </div>
+                
+                <div id="grp-inmueble-es_propiedad_horizontal" class="form-group">
+                    <?php echo $form->labelEx($model, 'es_propiedad_horizontal'); ?>
+                    <?php echo $form->checkBox($model, 'es_propiedad_horizontal'); ?>
+                    <?php echo $form->error($model, 'es_propiedad_horizontal'); ?>
+                </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-potencia_contratada" class="form-group">
                     <?php echo $form->labelEx($model, 'potencia_contratada'); ?>
                     <?php echo $form->textField($model, 'potencia_contratada', array('size' => 10, 'maxlength' => 10, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'potencia_contratada'); ?>
                 </div>
 
-                <div class="form-group">
+                <div id="grp-inmueble-fk_estado" class="form-group">
                     <?php echo $form->labelEx($model, 'fk_estado'); ?>
-                    <?php
-                    echo CHtml::dropDownList('Inmueble[fk_estado]', $model->fk_estado, array(
-                        'bueno' => 'bueno',
-                        'medio' => 'medio',
-                        'malo' => 'malo'), array("class" => "form-control"));
-                    ?> 
+                    <?php echo $form->dropDownList($model,'fk_estado', $model->getListaEstadosInmueble(), array( "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'fk_estado'); ?>
                 </div>
+            </div>
+        </div>
+        <div class="row row-botonera-inferior">
+            <div class="col-lg-12">
+                <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
+                <?php echo CHtml::submitButton($model->isNewRecord ? Yii::app()->params["labelBotonCrear"] : Yii::app()->params["labelBotonGuardar"], array("class" => "btn btn-default")); ?>
             </div>
         </div>
         <?php $this->endWidget(); ?>
@@ -363,15 +383,10 @@
     </div>
 </div>
 
-<div class="row row-botonera-inferior">
-    <div class="col-lg-12">
-        <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
-        <?php echo CHtml::submitButton($model->isNewRecord ? Yii::app()->params["labelBotonCrear"] : Yii::app()->params["labelBotonGuardar"], array("class" => "btn btn-default")); ?>
-    </div>
-</div>
+
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
         //initOpenStreetMapIngresoInmueble();
     });
 </script>

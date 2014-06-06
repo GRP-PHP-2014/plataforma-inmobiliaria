@@ -1,6 +1,7 @@
 
 -- CREACION DE LA BASE DE DATOS
 create database plataforma_inmobiliaria;
+use plataforma_inmobiliaria;
 
 -- CREACION DE LAS TABLAS NECESARIAS PARA EL MANEJO DE PERMISOS EN YII
 create table AuthItem
@@ -53,7 +54,7 @@ create table parametros (
     descripcion varchar(1024),
     valor varchar(512) not null,
     primary key (nombre)
-)
+);
 
 -- TABLA DE AUDITORIA DEL SISTEMA
 create table auditoria (
@@ -62,7 +63,7 @@ create table auditoria (
     objeto varchar(100) not null,
 	operacion varchar(100) not null,
     primary key (id)
-)
+);
 
 -- TABLA DE CLIENTES
 create table clientes (

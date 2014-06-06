@@ -43,7 +43,7 @@ class UploadHandler
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
+            'upload_dir' => (new FileSystemUtil)->getCurrentUserTmpFolder(),
             'upload_url' => $this->get_full_url().'/files/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
@@ -253,7 +253,7 @@ class UploadHandler
             .$this->get_singular_param_name()
             .'='.rawurlencode($file->name);
          */
-        $file->deleteUrl = Yii::app()->createUrl("inmueble/uploadImages" , array('file' => rawurlencode($file->name)));
+        $file->deleteUrl = Yii::app()->createUrl("file/upload" , array('file' => rawurlencode($file->name)));
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';
