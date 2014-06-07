@@ -386,8 +386,24 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        //initOpenStreetMapIngresoInmueble();
+    
+    $("#tab-ubicacion").on('click', function(){
+       initWithDelay();
+    });    
+    
+    function initWithDelay()
+    {
+      setTimeout(wrapperInit, 500); //wait ten seconds before continuing
+    };
+
+    function wrapperInit()
+    {
+       initOpenStreetMapIngresoInmueble();
+    };
+    
+    $(document).ready(function(){
+        configurarFormularioSegunTipo();
     });
+    
 </script>
 
