@@ -129,7 +129,7 @@ class InmuebleController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
-
+        
         $model = new Inmueble('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Inmueble']))

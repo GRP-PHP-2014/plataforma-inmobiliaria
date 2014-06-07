@@ -47,9 +47,12 @@ return array(
         'defaultController' => 'usuario',
         'urlManager' => array(
             'urlFormat' => 'path',
-            'rules' => array(                
+            'rules' => array(
+
                 'parametro/admin' => 'parametro/admin',
                 'usuario/admin' => 'usuario/admin',
+                
+                'image/<id:.*\S.*>' => 'file/display',
                 
                 'parametro/<id:\w+>' => 'parametro/view',  
                 'usuario/<id:\w+>' => 'usuario/view',
@@ -60,6 +63,8 @@ return array(
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',                
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',  
+                
+
             ),
         ),
         'db' => array(

@@ -40,6 +40,7 @@ $('.search-form form').submit(function(){
             <?php
             $this->widget('zii.widgets.grid.CGridView', array(
                 'id' => 'inmueble-grid',
+                'summaryText' => '',
                 'dataProvider' => $model->search(),
                 'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                 'columns' => array(

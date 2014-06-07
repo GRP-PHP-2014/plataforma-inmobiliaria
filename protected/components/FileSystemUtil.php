@@ -29,14 +29,19 @@ class FileSystemUtil {
     }
     
     function getCurrentUserTmpFolder(){
-        $userTmpFile = '/opt/lampp/htdocs/plataforma-inmobiliaria/files/' . FileSystemUtil::TMP_FOLDER_NAME . '/' . Yii::app()->user->title;
-        if (!file_exists($userTmpFile)) {
-            mkdir($userTmpFile, 0777, true);
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        $userTmpFolder = join(DIRECTORY_SEPARATOR , array($rutaBase, 'tmp', Yii::app()->user->title));
+        if (!file_exists($userTmpFolder)) {
+            mkdir($userTmpFolder, 0700);
         }
-        return $userTmpFile . "/";
+        return $userTmpFolder;
     }
     
-    
+    function getTmpFile($fileName){
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        $file = join(DIRECTORY_SEPARATOR , array($rutaBase, 'tmp', Yii::app()->user->title , $fileName)); 
+        return $file;
+    }
     
     
 }

@@ -26,4 +26,12 @@ class Response {
         echo $data;
     }
     
+    public static function sendImage($imageUrl , $contentType = 'image/jpg'){
+        header('Content-type: ' . $contentType);
+        http_response_code(200);
+        header('Content-Type:'.$contentType);
+        header('Content-Length: ' . filesize($imageUrl));
+        readfile($imageUrl);
+    }
+    
 }

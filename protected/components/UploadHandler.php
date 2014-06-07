@@ -41,10 +41,11 @@ class UploadHandler
     protected $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        $fsu = new FileSystemUtil;
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => (new FileSystemUtil)->getCurrentUserTmpFolder(),
-            'upload_url' => $this->get_full_url().'/files/',
+            'upload_dir' => $fsu->getCurrentUserTmpFolder(),
+            'upload_url' => $this->get_full_url().'/index.php/image/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -214,8 +215,10 @@ class UploadHandler
             }
             $version_path = $version.'/';
         }
-        return $this->options['upload_dir'].$this->get_user_path()
-            .$version_path.$file_name;
+        
+        //$dsdd = $this->get_user_path();
+        //return $this->options['upload_dir'].$this->get_user_path().$version_path.$file_name;
+        return join(DIRECTORY_SEPARATOR , array($this->options['upload_dir'] , $file_name));
     }
 
     protected function get_query_separator($url) {
@@ -242,8 +245,8 @@ class UploadHandler
             }
             $version_path = rawurlencode($version).'/';
         }
-        return $this->options['upload_url'].$this->get_user_path()
-            .$version_path.rawurlencode($file_name);
+        //return $this->options['upload_url'].$this->get_user_path().$version_path.rawurlencode($file_name);
+        return $this->options['upload_url'].rawurlencode($file_name);
     }
 
     protected function set_additional_file_properties($file) {
@@ -1021,8 +1024,7 @@ class UploadHandler
         $this->destroy_image_object($file_path);
     }
 
-    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
-            $index = null, $content_range = null) {
+    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
         $file = new \stdClass();
         $file->name = $this->get_file_name($uploaded_file, $name, $size, $type, $error,
             $index, $content_range);
@@ -1313,9 +1315,10 @@ class UploadHandler
             $file_names = array($this->get_file_name_param());
         }
         $response = array();
-        foreach($file_names as $file_name) {
+        foreach($file_names as $file_name) {            
             $file_path = $this->get_upload_path($file_name);
-            $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
+            $decodedFilePath = urldecode($file_path);
+            $success = is_file($decodedFilePath) && $file_name[0] !== '.' && unlink($decodedFilePath);
             if ($success) {
                 foreach($this->options['image_versions'] as $version => $options) {
                     if (!empty($version)) {
