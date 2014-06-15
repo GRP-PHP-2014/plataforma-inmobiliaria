@@ -13,6 +13,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/js-extend.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/open-street-map.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/inmueble/logica-inmueble.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/eventos.js"></script>
         
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/bootstrap.min.css" media="screen, projection" />
@@ -52,7 +53,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">                        
-                        <li class="dropdown">
+                        <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "configuracion") == 0){  echo 'active'; }  ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">Configurar portada</a></li>
@@ -62,10 +63,10 @@
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">P&aacute;rametros</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
-                        <li><a href="#">Calendario</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "usuarios") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "clientes") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "inmuebles") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "calendario") == 0){  echo 'active'; }  ?>"><a href="#">Calendario</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

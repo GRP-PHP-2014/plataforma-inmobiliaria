@@ -21,7 +21,7 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Administrar usuarios</h1>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar usuarios<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">

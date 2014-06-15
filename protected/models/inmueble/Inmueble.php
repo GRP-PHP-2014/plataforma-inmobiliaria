@@ -168,6 +168,7 @@ class Inmueble extends CActiveRecord {
         $criteria->compare('fk_estado', $this->fk_estado);
 
         return new CActiveDataProvider($this, array(
+            'pagination' => array('pageSize' => 10),
             'criteria' => $criteria,
         ));
     }

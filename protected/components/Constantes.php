@@ -16,4 +16,6 @@ class Constantes {
     
     const PARAMETRO_RUTA_BASE = "directorioBaseImagenes";
     
+    const SESSION_CURRENT_TAB = 'sess_curr_tab';
+    
 }

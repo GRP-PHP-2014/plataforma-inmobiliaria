@@ -2,16 +2,6 @@
 /* @var $this ParametroController */
 /* @var $model Parametro */
 
-$this->breadcrumbs = array(
-    'Parametros' => array('index'),
-    'Manage',
-);
-
-$this->menu = array(
-    array('label' => 'List Parametro', 'url' => array('index')),
-    array('label' => 'Create Parametro', 'url' => array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
@@ -31,7 +21,7 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Administrar par&aacute;metros</h1>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar par&aacute;metros<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">

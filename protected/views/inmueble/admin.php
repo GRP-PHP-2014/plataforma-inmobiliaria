@@ -20,9 +20,9 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Administrar inmuebles</h1>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar inmuebles<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
-                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
+                <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php
                     $this->renderPartial('_search', array(
@@ -42,7 +42,14 @@ $('.search-form form').submit(function(){
                 'id' => 'inmueble-grid',
                 'summaryText' => '',
                 'dataProvider' => $model->search(),
-                'emptyText' => Yii::app()->params["labelTablaSinResultados"],
+                'emptyText' => Yii::app()->params["labelTablaSinResultados"],                
+                'pager' => array(
+                    'header' => Yii::app()->params["labelPaginacionTabla"],
+                    'firstPageLabel' => '&lt;&lt;',
+                    'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                    'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                    'lastPageLabel' => '&gt;&gt;',
+                ),
                 'columns' => array(
                     'titulo',
                     'descripcion',
@@ -55,7 +62,7 @@ $('.search-form form').submit(function(){
                             'ver' => array
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaVer"],
-                                'options'=>array('title'=>'ver'),
+                                'options' => array('title' => 'ver'),
                                 'url' => 'Yii::app()->createUrl("inmueble/view", array("id"=>$data->id))',
                             ),
                         ),
@@ -68,7 +75,7 @@ $('.search-form form').submit(function(){
                             'editar' => array
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaEditar"],
-                                'options'=>array('title'=>'editar'),
+                                'options' => array('title' => 'editar'),
                                 'url' => 'Yii::app()->createUrl("inmueble/update", array("id"=>$data->id))',
                             ),
                         ),
@@ -81,7 +88,7 @@ $('.search-form form').submit(function(){
                             'eliminar' => array
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaEliminar"],
-                                'options'=>array('title'=>'eliminar'),
+                                'options' => array('title' => 'eliminar'),
                                 'url' => 'Yii::app()->createUrl("inmueble/delete", array("id"=>$data->id))',
                             ),
                         ),

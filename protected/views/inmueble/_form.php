@@ -133,19 +133,19 @@
                     <?php echo $form->textField($model, 'tipo_local', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'tipo_local'); ?>
                 </div>
-                
+
                 <div id="grp-inmueble-mts2_edificados" class="form-group">
                     <?php echo $form->labelEx($model, 'mts2_edificados'); ?>
                     <?php echo $form->textField($model, 'mts2_edificados', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'mts2_edificados'); ?>
                 </div>
-                
+
                 <div id="grp-inmueble-cant_plantas_casa" class="form-group">
                     <?php echo $form->labelEx($model, 'cant_plantas_casa'); ?>
                     <?php echo $form->textField($model, 'cant_plantas_casa', array('size' => 50, 'maxlength' => 50, "class" => "form-control")); ?>
                     <?php echo $form->error($model, 'cant_plantas_casa'); ?>
                 </div>
-                
+
 
                 <div id="grp-inmueble-tipo_local_observacion" class="form-group">
                     <?php echo $form->labelEx($model, 'tipo_local_observacion'); ?>
@@ -182,7 +182,7 @@
                     <?php echo $form->checkBox($model, 'tiene_deposito'); ?>
                     <?php echo $form->error($model, 'tiene_deposito'); ?>
                 </div>
-                
+
                 <div id="grp-inmueble-es_propiedad_horizontal" class="form-group">
                     <?php echo $form->labelEx($model, 'es_propiedad_horizontal'); ?>
                     <?php echo $form->checkBox($model, 'es_propiedad_horizontal'); ?>
@@ -197,7 +197,7 @@
 
                 <div id="grp-inmueble-fk_estado" class="form-group">
                     <?php echo $form->labelEx($model, 'fk_estado'); ?>
-                    <?php echo $form->dropDownList($model,'fk_estado', $model->getListaEstadosInmueble(), array( "class" => "form-control")); ?>
+                    <?php echo $form->dropDownList($model, 'fk_estado', $model->getListaEstadosInmueble(), array("class" => "form-control")); ?>
                     <?php echo $form->error($model, 'fk_estado'); ?>
                 </div>
             </div>
@@ -284,20 +284,20 @@
                 <strong class="error text-danger"></strong>
                 </td>
                 <td>
-                <p class="size">Processing...</p>
+                <p class="size">Procesando...</p>
                 <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
                 </td>
                 <td>
                 {% if (!i && !o.options.autoUpload) { %}
                 <button class="btn btn-primary start" disabled>
                 <i class="glyphicon glyphicon-upload"></i>
-                <span>Start</span>
+                <span>Subir</span>
                 </button>
                 {% } %}
                 {% if (!i) { %}
                 <button class="btn btn-warning cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
-                <span>Cancel</span>
+                <span>Cancelar</span>
                 </button>
                 {% } %}
                 </td>
@@ -386,24 +386,37 @@
 
 
 <script type="text/javascript">
-    
-    $("#tab-ubicacion").on('click', function(){
-       initWithDelay();
-    });    
-    
-    function initWithDelay()
-    {
-      setTimeout(wrapperInit, 500); //wait ten seconds before continuing
-    };
 
-    function wrapperInit()
-    {
-       initOpenStreetMapIngresoInmueble();
-    };
-    
-    $(document).ready(function(){
-        configurarFormularioSegunTipo();
+$("#tab-ubicacion").on('click', function() {
+    initWithDelay();
+});
+
+function initWithDelay()
+{
+    setTimeout(wrapperInit, 500); //wait ten seconds before continuing
+}
+;
+
+function wrapperInit()
+{
+    initOpenStreetMapIngresoInmueble();
+}
+;
+
+$(document).ready(function() {
+    configurarFormularioSegunTipo();
+
+    $("#inmueble-form").submit(function(event) {
+        var latitud = $("#Inmueble_coord_latitud").val();
+        var longitud = $("#Inmueble_coord_longitud").val();
+        if (longitud !== "" && latitud !== "") {
+            return;
+        }
+        alertify.error("Debe ingresar la ubicaci&oacute;n geogr&aacute;fica del inmueble");
+        event.preventDefault();
     });
-    
+
+});
+
 </script>
 

@@ -6,7 +6,7 @@
 <div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
-        <h1>Informaci&oacute;n de usuario</h1>
+        <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Informaci&oacute;n de usuario<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
         <form role="form">
             <div class="form-group">

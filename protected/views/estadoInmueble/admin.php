@@ -2,16 +2,6 @@
 /* @var $this EstadoInmuebleController */
 /* @var $model EstadoInmueble */
 
-$this->breadcrumbs = array(
-    'Estado Inmuebles' => array('index'),
-    'Manage',
-);
-
-$this->menu = array(
-    array('label' => 'List EstadoInmueble', 'url' => array('index')),
-    array('label' => 'Create EstadoInmueble', 'url' => array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
@@ -30,7 +20,7 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Administrar estados de inmueble</h1>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar estados de inmueble<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">

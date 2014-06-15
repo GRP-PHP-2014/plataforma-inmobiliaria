@@ -12,7 +12,12 @@ return array(
     "labelBotonGrillaVer" => '<span class="glyphicon glyphicon-search"></span>',
     "labelBotonGrillaEliminar" => '<span class="glyphicon glyphicon-remove"></span>',
     
-    /* TEXTO DE TABLA SIN RESUTLADOS */
-    "labelTablaSinResultados" => 'Sin resultados encontrados' 
+    "labelTablaSinResultados" => 'Sin resultados encontrados',
+    "labelPaginacionTabla" => '',
+    "prevPageLabel" => '&lt;',
+    "nextPageLabel" => '&gt;',
+    
+    "UiHeadersWrapperOMarkup" => '<h3>',
+    "UiHeadersWrapperCMarkup" => '</h3>',
     
 );

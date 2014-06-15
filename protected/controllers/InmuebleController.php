@@ -12,6 +12,7 @@ class InmuebleController extends Controller {
      * @return array action filters
      */
     public function filters() {
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = "inmuebles";
         return array(
             'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
@@ -63,15 +64,32 @@ class InmuebleController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
+        $fsUtil = new FileSystemUtil;        
+        
         if (isset($_POST['Inmueble'])) {
             $model->attributes = $_POST['Inmueble'];
-            if ($model->save())
+            if ($model->save()){
+                
+                //creo el directorio para las imagenes del inmueble
+                $fsUtil->createInmuebleImageFolder($model->id);
+                
+                //guardo las imagenes para el inmueble
+                $images = $fsUtil->getTmpFilesNames();
+                foreach($images as $img){
+                    $imgInm = new ImagenInmueble;
+                    $imgInm->id_inmueble = $model->id;
+                    $imgInm->ruta = $img;
+                    if ($imgInm->save()){
+                        $fsUtil->copyFileFromTmpToFs($imgInm->ruta, $model->id);
+                    }
+                }
+                
                 $this->redirect(array('view', 'id' => $model->id));
+            }
         }
 
-        $this->render('create', array(
-            'model' => $model,
-        ));
+        $fsUtil->clearUserTmpFolder();
+        $this->render('create', array('model' => $model,));
     }
 
     /**
@@ -87,8 +105,12 @@ class InmuebleController extends Controller {
 
         if (isset($_POST['Inmueble'])) {
             $model->attributes = $_POST['Inmueble'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+            if ($model->save()){
+                
+                
+                
+                $this->redirect(array('view', 'id' => $model->id));                
+            }
         }
 
         $this->render('update', array(
