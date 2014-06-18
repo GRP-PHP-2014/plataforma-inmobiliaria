@@ -193,6 +193,29 @@
 
                 <div class="row">
                     <div class="col-lg-12">
+                        <div id="carousel-imagenes" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="http://www.arqhys.com/general/imagenes/Inmuebles.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="http://www.sanmartinenred.com/noticia/Foto_Portada/Full/NP00942_propietarios-de-inmuebles-deben-presentar-declaracion-desde-el-30-de-mayo-hasta-el-12-de-junio-de-este-ano.jpg" alt="...">
+                                    <div class="carousel-caption">                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-imagenes" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-imagenes" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

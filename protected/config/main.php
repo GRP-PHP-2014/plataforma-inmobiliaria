@@ -54,8 +54,8 @@ return array(
                 
                 'image/<id:.*\S.*>' => 'file/display',
                 
-                'parametro/<id:\w+>' => 'parametro/view',  
-                'usuario/<id:\w+>' => 'usuario/view',
+                /*'parametro/<id:\w+>' => 'parametro/view',*/
+                /*'usuario/<id:\w+>' => 'usuario/view',*/
                 
                 'parametro/<action:\w+>/<id:\w+>' => 'parametro/<action>',
                 'usuario/<action:\w+>/<id:\w+>' => 'usuario/<action>',
