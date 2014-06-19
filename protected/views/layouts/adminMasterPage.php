@@ -56,10 +56,9 @@
                         <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "configuracion") == 0){  echo 'active'; }  ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                <li><a href="<?php echo Yii::app()->createUrl('auditoria/admin'); ?>">Auditor&iacute;a</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">Configurar portada</a></li>
-                                <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
-                                <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">P&aacute;rametros</a></li>
                             </ul>
                         </li>

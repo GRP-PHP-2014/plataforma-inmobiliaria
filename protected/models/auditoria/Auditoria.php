@@ -8,93 +8,106 @@
  * @property string $fecha
  * @property string $objeto
  * @property string $operacion
+ * @property string $descripcion
  */
-class Auditoria extends CActiveRecord
-{
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'auditoria';
-	}
+class Auditoria extends CActiveRecord {
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('fecha, objeto, operacion', 'required'),
-			array('objeto, operacion', 'length', 'max'=>100),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, fecha, objeto, operacion', 'safe', 'on'=>'search'),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName() {
+        return 'auditoria';
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-		);
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules() {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('fecha, objeto, operacion', 'required'),
+            array('objeto, operacion', 'length', 'max' => 100),
+            array('descripcion', 'length', 'max' => 512),
+            // The following rule is used by search().
+            // @todo Please remove those attributes that should not be searched.
+            array('id, fecha, objeto, operacion, descripcion', 'safe', 'on' => 'search'),
+        );
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'fecha' => 'Fecha',
-			'objeto' => 'Objeto',
-			'operacion' => 'Operacion',
-		);
-	}
+    /**
+     * @return array relational rules.
+     */
+    public function relations() {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+        );
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels() {
+        return array(
+            'id' => 'ID',
+            'fecha' => 'Fecha',
+            'objeto' => 'Objeto',
+            'operacion' => 'Operacion',
+            'descripcion' => 'Descripcion',
+            'usuario' => 'Usuario',
+        );
+    }
 
-		$criteria=new CDbCriteria;
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     *
+     * Typical usecase:
+     * - Initialize the model fields with values from filter form.
+     * - Execute this method to get CActiveDataProvider instance which will filter
+     * models according to data in model fields.
+     * - Pass data provider to CGridView, CListView or any similar widget.
+     *
+     * @return CActiveDataProvider the data provider that can return the models
+     * based on the search/filter conditions.
+     */
+    public function search() {
+        // @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('fecha',$this->fecha,true);
-		$criteria->compare('objeto',$this->objeto,true);
-		$criteria->compare('operacion',$this->operacion,true);
+        $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        $criteria->compare('id', $this->id, true);
+        $criteria->compare('fecha', $this->fecha, true);
+        $criteria->compare('objeto', $this->objeto, true);
+        $criteria->compare('operacion', $this->operacion, true);
+        $criteria->compare('descripcion', $this->descripcion, true);
+        $criteria->compare('usuario', $this->usuario, true);
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Auditoria the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
+    /**
+     * Returns the static model of the specified AR class.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param string $className active record class name.
+     * @return Auditoria the static model class
+     */
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+    
+    public function registrarAuditoria($usuario, $fecha, $objeto, $operacion, $descripcion){
+        $a = new Auditoria;
+        
+        $a->descripcion = $descripcion;
+        $a->fecha = $fecha->format(Constantes::DATETIME_STRING_FORMAT);
+        $a->usuario = $usuario;
+        $a->objeto = $objeto;
+        $a->operacion = $operacion;
+        
+        $a->save();
+    }
+
 }
