@@ -53,6 +53,7 @@ return array(
                 'usuario/admin' => 'usuario/admin',
                 
                 'image/<id:.*\S.*>' => 'file/display',
+                'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
                 /*'parametro/<id:\w+>' => 'parametro/view',*/
                 /*'usuario/<id:\w+>' => 'usuario/view',*/
