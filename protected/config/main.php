@@ -18,6 +18,7 @@ return array(
         'application.models.auditoria.*',
         'application.models.cliente.*',
         'application.models.inmueble.*',
+        'application.models.notificacion.*',
         'application.components.*',
         'application.extensions.MDBSuite.*',
         'application.extensions.XTChilen.*',
@@ -56,7 +57,7 @@ return array(
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
                 /*'parametro/<id:\w+>' => 'parametro/view',*/
-                /*'usuario/<id:\w+>' => 'usuario/view',*/
+                /*'usuario/<id:\w+>' => 'usuario/view',*/                
                 
                 'parametro/<action:\w+>/<id:\w+>' => 'parametro/<action>',
                 'usuario/<action:\w+>/<id:\w+>' => 'usuario/<action>',

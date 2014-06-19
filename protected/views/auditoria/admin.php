@@ -40,6 +40,13 @@ $('.search-form form').submit(function(){
                 'dataProvider' => $model->search(),
                 'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                 'summaryText' => '',
+                'pager' => array(
+                    'header' => Yii::app()->params["labelPaginacionTabla"],
+                    'firstPageLabel' => '&lt;&lt;',
+                    'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                    'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                    'lastPageLabel' => '&gt;&gt;',
+                ),
                 'columns' => array(
                     'fecha',
                     'usuario',

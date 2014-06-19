@@ -1,13 +1,14 @@
 <?php
-/* @var $this InmuebleController */
-/* @var $model Inmueble */
+/* @var $this TipoNotificacionController */
+/* @var $model TipoNotificacion */
+
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#cliente-grid').yiiGridView('update', {
+	$('#tipo-notificacion-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -20,7 +21,7 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar inmuebles<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar tipos de notificaci&oacute;n<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
@@ -29,19 +30,18 @@ $('.search-form form').submit(function(){
                         'model' => $model,
                     ));
                     ?>
-                </div><!-- search-form -->
+                </div>
             </div>
             <div class="col-lg-12">
-                <div class="pull-right"><a href="<?php echo Yii::app()->createUrl('inmueble/create'); ?>"><span title="nuevo" class="glyphicon glyphicon-plus"></span></a></div>
+                <div class="pull-right"><a href="<?php echo Yii::app()->createUrl('tipoNotificacion/create'); ?>"><span title="nuevo" class="glyphicon glyphicon-plus"></span></a></div>
             </div>
         </div>
         <div class="col-lg-12">
-
             <?php
             $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'inmueble-grid',
-                'summaryText' => '',
+                'id' => 'tipo-notificacion-grid',
                 'dataProvider' => $model->search(),
+                'summaryText' => '',
                 'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                 'pager' => array(
                     'header' => Yii::app()->params["labelPaginacionTabla"],
@@ -51,9 +51,8 @@ $('.search-form form').submit(function(){
                     'lastPageLabel' => '&gt;&gt;',
                 ),
                 'columns' => array(
-                    'titulo',
+                    'nombre',
                     'descripcion',
-                    'tipo_inmueble',
                     array(
                         'class' => 'CButtonColumn',
                         'template' => '{ver}',
@@ -63,7 +62,7 @@ $('.search-form form').submit(function(){
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaVer"],
                                 'options' => array('title' => 'ver'),
-                                'url' => 'Yii::app()->createUrl("inmueble/view", array("id"=>$data->id))',
+                                'url' => 'Yii::app()->createUrl("tipoNotificacion/view", array("id"=>$data->id))',
                             ),
                         ),
                     ),
@@ -76,7 +75,7 @@ $('.search-form form').submit(function(){
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaEditar"],
                                 'options' => array('title' => 'editar'),
-                                'url' => 'Yii::app()->createUrl("inmueble/update", array("id"=>$data->id))',
+                                'url' => 'Yii::app()->createUrl("tipoNotificacion/update", array("id"=>$data->id))',
                             ),
                         ),
                     ),
@@ -89,14 +88,13 @@ $('.search-form form').submit(function(){
                                 (
                                 'label' => Yii::app()->params["labelBotonGrillaEliminar"],
                                 'options' => array('title' => 'eliminar'),
-                                'url' => 'Yii::app()->createUrl("inmueble/delete", array("id"=>$data->id))',
+                                'url' => 'Yii::app()->createUrl("tipoNotificacion/delete", array("id"=>$data->id))',
                             ),
                         ),
                     ),
                 ),
             ));
             ?>
-
         </div>
     </div>
     <div class="col-lg-2"></div>

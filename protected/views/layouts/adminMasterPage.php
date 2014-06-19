@@ -60,6 +60,7 @@
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">Configurar portada</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">P&aacute;rametros</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('tipoNotificacion/admin'); ?>">Tipos de notificaci&oacute;n</a></li>
                             </ul>
                         </li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "usuarios") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
