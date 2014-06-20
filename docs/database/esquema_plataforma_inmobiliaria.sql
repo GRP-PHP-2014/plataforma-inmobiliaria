@@ -131,3 +131,15 @@ create table imagenes_inmueble (
     ruta varchar(512) not null,
 	foreign key (id_inmueble) references inmuebles(id)
 );
+
+alter table auditoria add descripcion varchar(512);
+
+alter table auditoria add usuario varchar(50) not null;
+
+create table tipo_notificacion
+(
+    id bigint not null AUTO_INCREMENT,
+    nombre varchar(64) not null,
+    descripcion varchar(512),
+    primary key (id)
+);

@@ -11,6 +11,7 @@ return array(
     "labelBotonGrillaEditar" => '<span class="glyphicon glyphicon-pencil"></span>',
     "labelBotonGrillaVer" => '<span class="glyphicon glyphicon-search"></span>',
     "labelBotonGrillaEliminar" => '<span class="glyphicon glyphicon-remove"></span>',
+    "labelBotonGrillaResolver" => '<span class="glyphicon glyphicon-check"></span>',
     
     "labelTablaSinResultados" => 'Sin resultados encontrados',
     "labelPaginacionTabla" => '',

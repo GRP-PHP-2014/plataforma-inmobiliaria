@@ -52,8 +52,10 @@ return array(
 
                 'parametro/admin' => 'parametro/admin',
                 'usuario/admin' => 'usuario/admin',
+                'emailNotificacion/admin' => 'emailNotificacion/admin',
                 
                 'image/<id:.*\S.*>' => 'file/display',
+                'emailNotificacion/<id:\w+>' => 'emailNotificacion/view',
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
                 /*'parametro/<id:\w+>' => 'parametro/view',*/
@@ -79,7 +81,7 @@ return array(
         'mongodb' => array(
             'class' => 'EMongoDB',
             'connectionString' => 'mongodb://localhost',
-            'dbName' => 'prueba_yiimongo',
+            'dbName' => 'plataforma_inmobiliaria',
             'fsyncFlag' => true,
             'safeFlag' => true,
             'useCursor' => false
