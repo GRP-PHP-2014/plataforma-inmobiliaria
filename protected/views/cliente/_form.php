@@ -40,7 +40,7 @@
     </div>
     
     <div class="form-group">
-        <?php echo $form->labelEx($model, 'comentarios'); ?>a
+        <?php echo $form->labelEx($model, 'comentarios'); ?>
         <?php echo CHtml::activeTextArea($model, "comentarios", array('size' => 60, 'maxlength' => 1024, "class" => "form-control")) ?>       
         <?php echo $form->error($model, 'comentarios'); ?>
     </div>
