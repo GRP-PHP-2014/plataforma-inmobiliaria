@@ -34,6 +34,119 @@
         </div>
        </div>
     </div>
+<div class="col-md-2">
+<form class="form-horizontal">
+  <fieldset>
+
+  <!-- Form Name -->
+  <legend>Criterios de busqueda</legend>
+
+  <!-- Multiple Checkboxes (inline) -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="">Tipo</label>
+    <div class="col-md-4">
+      <label class="checkbox-inline" for="-0">
+        <input type="checkbox" name="" id="-0" value="Compra">
+        Compra
+      </label>
+      <label class="checkbox-inline" for="-1">
+        <input type="checkbox" name="" id="-1" value="Venta">
+        Venta
+      </label>
+    </div>
+  </div>
+
+  <!-- Button Drop Down -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="buttondropdown">Desde</label>
+    <div class="col-md-4">
+      <div class="input-group">
+        <input id="buttondropdown" name="buttondropdown" class="form-control" placeholder="precio" type="text">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            UYU
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#">UYU</a></li>
+            <li><a href="#">USD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button Drop Down -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="buttondropdownhasta">Hasta</label>
+    <div class="col-md-4">
+      <div class="input-group">
+        <input id="buttondropdownhasta" name="buttondropdownhasta" class="form-control" placeholder="precio" type="text">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            UYU
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#">UYU</a></li>
+            <li><a href="#">USD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="selectrooms">Dormitorios</label>
+    <div class="col-md-2">
+      <select id="selectrooms" name="selectrooms" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4 o mas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="selectbath">Baños</label>
+    <div class="col-md-2">
+      <select id="selectbath" name="selectbath" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3 o mas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Select Multiple -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="selectBarrio">Barrios</label>
+    <div class="col-md-4">
+      <select id="selectBarrio" name="selectBarrio" class="form-control" multiple="multiple">
+        <option value="Colon">Colon</option>
+        <option value="Cordon">Cordon</option>
+        <option value="Union">Union</option>
+        <option value="La Paz">La Paz</option>
+        <option value="Sayago">Sayago</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="goSearch"></label>
+    <div class="col-md-4">
+      <button id="goSearch" name="goSearch" class="btn btn-success">Buscar</button>
+    </div>
+  </div>
+
+  </fieldset>
+</form>
+</div>
+
 
     <div class="container-fluid" style="background-color:#e8e8e8">
       <div class="container container-pad" id="property-listings">      
