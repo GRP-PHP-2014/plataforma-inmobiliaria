@@ -61,3 +61,7 @@ $('.search-form form').submit(function(){
     </div>
     <div class="col-lg-2"></div>
 </div>
+
+    <script type="text/javascript">
+         
+    </script>

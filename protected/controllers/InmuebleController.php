@@ -84,6 +84,7 @@ class InmuebleController extends Controller {
                     }
                 }
                 
+                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_ALTA, $model->id);
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
@@ -108,7 +109,7 @@ class InmuebleController extends Controller {
             if ($model->save()){
                 
                 
-                
+                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_MODIFICACION, $model->id);
                 $this->redirect(array('view', 'id' => $model->id));                
             }
         }

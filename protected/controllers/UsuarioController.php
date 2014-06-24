@@ -188,7 +188,7 @@ class UsuarioController extends Controller {
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login()){
-                (new Auditoria)->registrarAuditoria(Yii::app()->user->title, new DateTime, Constantes::AUDITORIA_OBJETO_USUARIO, Constantes::AUDITORIA_OPERACION_LOGIN, '');
+                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_USUARIO, Constantes::AUDITORIA_OPERACION_LOGIN, '');
                 $this->redirect(Yii::app()->user->returnUrl);
             }
         }
@@ -197,7 +197,7 @@ class UsuarioController extends Controller {
     }
 
     public function actionLogout() {
-        (new Auditoria)->registrarAuditoria(Yii::app()->user->title, new DateTime, Constantes::AUDITORIA_OBJETO_USUARIO, Constantes::AUDITORIA_OPERACION_LOGOUT, '');
+        (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_USUARIO, Constantes::AUDITORIA_OPERACION_LOGOUT, '');
         Yii::app()->user->logout();
         $this->redirect(array('login'));
     }

@@ -59,8 +59,10 @@ class ParametroController extends Controller {
 
         if (isset($_POST['Parametro'])) {
             $model->attributes = $_POST['Parametro'];
-            if ($model->save())
+            if ($model->save()){
+                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_PARAMETRO, Constantes::AUDITORIA_OPERACION_MODIFICACION, "parametro = " . $model->nombre . ", nuevo_valor = " . $model->valor);
                 $this->redirect(array('admin'));
+            }                
         }
 
         $this->render('update', array(

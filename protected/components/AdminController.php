@@ -24,6 +24,11 @@ class AdminController extends CController {
      */
     public $errorMessage;
 
+    /**
+     * Set error message in case of error
+     * @var type string
+     */
+    public $errorFields = array();
     
     protected function setCustomError($message){
         $this->hasError = true; 

@@ -15,6 +15,7 @@ return array(
         'application.models.*',
         'application.models.parametro.*',
         'application.models.usuario.*',
+        'application.models.evento.*',
         'application.models.auditoria.*',
         'application.models.cliente.*',
         'application.models.inmueble.*',
@@ -56,15 +57,16 @@ return array(
                 'parametro/admin' => 'parametro/admin',
                 'usuario/admin' => 'usuario/admin',
                 'emailNotificacion/admin' => 'emailNotificacion/admin',
+                'evento/admin' => 'evento/admin',
                 
                 'image/<id:.*\S.*>' => 'file/display',
-                'emailNotificacion/<id:\w+>' => 'emailNotificacion/view',
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
                 /*'parametro/<id:\w+>' => 'parametro/view',*/
                 /*'usuario/<id:\w+>' => 'usuario/view',*/                
                 
                 'parametro/<action:\w+>/<id:\w+>' => 'parametro/<action>',
+                'evento/<action:\w+>/<id:\w+>' => 'evento/<action>',
                 'usuario/<action:\w+>/<id:\w+>' => 'usuario/<action>',
                 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',                

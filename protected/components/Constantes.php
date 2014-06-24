@@ -33,5 +33,6 @@ class Constantes {
     const AUDITORIA_OBJETO_USUARIO = "usuario";
     const AUDITORIA_OBJETO_INMUEBLE = "inmueble";
     const AUDITORIA_OBJETO_PARAMETRO = "parametro";
+    const AUDITORIA_OBJETO_EVENTO = "evento";
     
 }
