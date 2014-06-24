@@ -68,6 +68,14 @@
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "inmuebles") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "notificaciones") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "calendario") == 0){  echo 'active'; }  ?>"><a href="#">Calendario</a></li>
+                        <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "configuracion") == 0){  echo 'active'; }  ?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mapa<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo Yii::app()->createUrl('departamento/admin'); ?>">Departamentos</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('ciudad/admin'); ?>">Ciudades</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('barrio/admin'); ?>">Barrios</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

@@ -143,3 +143,32 @@ create table tipo_notificacion
     descripcion varchar(512),
     primary key (id)
 );
+
+CREATE TABLE `departamentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `nombre` (`nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `ciudades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(64) NOT NULL,
+  `departamento` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `nombre` (`nombre`),
+  KEY `departamento` (`departamento`),
+  CONSTRAINT `ciudades_ibfk_1` FOREIGN KEY (`departamento`) REFERENCES `departamentos` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `barrios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(64) NOT NULL,
+  `ciudad` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `ciudad` (`ciudad`),
+  CONSTRAINT `barrios_ibfk_1` FOREIGN KEY (`ciudad`) REFERENCES `ciudades` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
