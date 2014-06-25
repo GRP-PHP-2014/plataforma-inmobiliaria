@@ -60,9 +60,21 @@
                     <?php echo $form->error($model, 'tiene_calefaccion'); ?>
                 </div>
 
+                <div id="grp-inmueble-precio_publicacion" class="form-group">
+                    <?php echo $form->labelEx($model, 'precio_publicacion'); ?>
+                    <div class="input-group">
+                        <span class="input-group-addon">U$S</span>
+                        <?php echo $form->textField($model, 'precio_publicacion', array("class" => "form-control")); ?>
+                    </div>
+                    <?php echo $form->error($model, 'precio_publicacion'); ?>
+                </div>
+
                 <div id="grp-inmueble-gastos_comunes" class="form-group">
                     <?php echo $form->labelEx($model, 'gastos_comunes'); ?>
-                    <?php echo $form->textField($model, 'gastos_comunes', array("class" => "form-control")); ?>
+                    <div class="input-group">
+                        <span class="input-group-addon">U$S</span>
+                        <?php echo $form->textField($model, 'gastos_comunes', array("class" => "form-control")); ?>
+                    </div>
                     <?php echo $form->error($model, 'gastos_comunes'); ?>
                 </div>
 
@@ -191,7 +203,10 @@
 
                 <div id="grp-inmueble-potencia_contratada" class="form-group">
                     <?php echo $form->labelEx($model, 'potencia_contratada'); ?>
-                    <?php echo $form->textField($model, 'potencia_contratada', array('size' => 10, 'maxlength' => 10, "class" => "form-control")); ?>
+                    <div class="input-group">                        
+                        <?php echo $form->textField($model, 'potencia_contratada', array('size' => 10, 'maxlength' => 10, "class" => "form-control")); ?>
+                        <span class="input-group-addon">KW</span>
+                    </div>
                     <?php echo $form->error($model, 'potencia_contratada'); ?>
                 </div>
 
@@ -387,36 +402,40 @@
 
 <script type="text/javascript">
 
-$("#tab-ubicacion").on('click', function() {
-    initWithDelay();
-});
-
-function initWithDelay()
-{
-    setTimeout(wrapperInit, 500); //wait ten seconds before continuing
-}
-;
-
-function wrapperInit()
-{
-    initOpenStreetMapIngresoInmueble();
-}
-;
-
-$(document).ready(function() {
-    configurarFormularioSegunTipo();
-
-    $("#inmueble-form").submit(function(event) {
-        var latitud = $("#Inmueble_coord_latitud").val();
-        var longitud = $("#Inmueble_coord_longitud").val();
-        if (longitud !== "" && latitud !== "") {
-            return;
+    var mapaCargado = false;
+    $("#tab-ubicacion").on('click', function() {
+        if (!mapaCargado){
+            initWithDelay();
+            mapaCargado = true;
         }
-        alertify.error("Debe ingresar la ubicaci&oacute;n geogr&aacute;fica del inmueble");
-        event.preventDefault();
     });
 
-});
+    function initWithDelay()
+    {
+        setTimeout(wrapperInit, 500); //wait ten seconds before continuing
+    }
+    ;
+
+    function wrapperInit()
+    {
+        initOpenStreetMapIngresoInmueble();
+    }
+    ;
+
+    $(document).ready(function() {
+        configurarFormularioSegunTipo();
+
+        $("#inmueble-form").submit(function(event) {
+            var latitud = $("#Inmueble_coord_latitud").val();
+            var longitud = $("#Inmueble_coord_longitud").val();
+            if (longitud !== "" && latitud !== "") {
+                return;
+            }
+            alertify.error("Debe ingresar la ubicaci&oacute;n geogr&aacute;fica del inmueble");
+            event.preventDefault();
+        });
+
+    });
 
 </script>
 

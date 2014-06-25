@@ -124,6 +124,7 @@ create table inmuebles (
 
 alter table inmuebles add fk_estado integer not null;
 alter table inmuebles add foreign key (fk_estado) references estados_inmueble(id);
+alter table inmuebles add precio_publicacion float;
 
 create table imagenes_inmueble (
     id integer not null primary key auto_increment unique,
