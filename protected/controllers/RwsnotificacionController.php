@@ -10,14 +10,14 @@ class RwsnotificacionController extends RWSController {
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
-    public function actionIngresarNotificacion($id) {
+    public function actionIngresarNotificacion() {
 
         $ntf = new EmailNotificacion;
-        $ntf->email = $this->arguments["email"];
-        $ntf->cliente = $this->arguments["cliente"];
+        $ntf->email = $this->arguments["mensaje"];
+        $ntf->cliente = $this->arguments["emailCliente"];
         $ntf->tipoNotificacion = $this->arguments["tipoNotificacion"];
-        $ntf->tipoNotificacion = $this->arguments["tipoNotificacion"];
-        $ntf->fechaHoraEnvio = $this->arguments["fechaHoraEnvio"];
+        $ntf->fechaHoraEnvio = (new DateTime)->format(Constantes::DATETIME_STRING_FORMAT);
+        $ntf->estado = Constantes::ESTADO_NOTIFICACION_PENDIENTE;
         
         if ($ntf->save()){
             Response::ok(CJSON::encode(array("resultado" => "exito", "mensaje" => "notificacion con id = {$ntf->_id} ingresada con exito")));

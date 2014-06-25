@@ -1,0 +1,11 @@
+/* email es string */
+/* tipoNotificacion es string y puede tomar alguno de los valores { "solicitud_informacion" , "solicitud_publicacion" } */
+
+URL: http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotificacion
+(puede ser por post o get)
+
+{
+    "emailCliente": "", 
+    "tipoNotificacion" : "",
+    "mensaje" : ""
+}

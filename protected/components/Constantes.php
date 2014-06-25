@@ -20,6 +20,8 @@ class Constantes {
     
     const DATETIME_STRING_FORMAT = 'Y-m-d H:i:s';
     
+    const ESTADO_NOTIFICACION_PENDIENTE = "pendiente";
+    const ESTADO_NOTIFICACION_RESUELTA = "resulta";
     
     /* OPERACIONES DE AUDITORIA */
     const AUDITORIA_OPERACION_ALTA = "alta";
