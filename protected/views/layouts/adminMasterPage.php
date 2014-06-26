@@ -61,7 +61,12 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl('auditoria/admin'); ?>">Auditor&iacute;a</a></li>
-                                <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">Configurar portada</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('barrio/admin'); ?>">Gesti&oacute;n de barrios</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('ciudad/admin'); ?>">Gesti&oacute;n de ciudades</a></li>
+                                <li><a href="<?php echo Yii::app()->createUrl('departamento/admin'); ?>">Gesti&oacute;n de departamentos</a></li>
+                                <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('parametro/admin'); ?>">P&aacute;rametros</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('tipoNotificacion/admin'); ?>">Tipos de notificaci&oacute;n</a></li>
@@ -72,14 +77,7 @@
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "inmuebles") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "notificaciones") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "eventos") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('evento/admin'); ?>">Calendario</a></li>
-                        <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "configuracion") == 0){  echo 'active'; }  ?>">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mapa<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo Yii::app()->createUrl('departamento/admin'); ?>">Departamentos</a></li>
-                                <li><a href="<?php echo Yii::app()->createUrl('ciudad/admin'); ?>">Ciudades</a></li>
-                                <li><a href="<?php echo Yii::app()->createUrl('barrio/admin'); ?>">Barrios</a></li>
-                            </ul>
-                        </li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "usuarios") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Portada</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

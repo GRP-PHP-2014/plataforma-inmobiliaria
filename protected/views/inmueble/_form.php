@@ -31,6 +31,16 @@
                     <?php echo $form->error($model, 'titulo'); ?>
                 </div>
 
+                <div class="form-group">
+                    <?php echo $form->labelEx($model, 'operacion_publicacion'); ?>        
+                    <?php echo CHtml::dropDownList('Inmueble[operacion_publicacion]', 
+                            $model->operacion_publicacion, array(
+                                Constantes::OPERACION_PUBLICACION_ALQUILER => 'Alquiler', 
+                                Constantes::OPERACION_PUBLICACION_VENTA => 'Venta'), 
+                            array("class" => "form-control"));
+                    ?>       
+                </div>
+
                 <div id="grp-inmueble-descripcion" class="form-group">
                     <?php echo $form->labelEx($model, 'descripcion'); ?>
                     <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 2048, "class" => "form-control")); ?>
@@ -404,7 +414,7 @@
 
     var mapaCargado = false;
     $("#tab-ubicacion").on('click', function() {
-        if (!mapaCargado){
+        if (!mapaCargado) {
             initWithDelay();
             mapaCargado = true;
         }

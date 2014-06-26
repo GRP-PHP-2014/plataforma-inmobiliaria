@@ -56,7 +56,7 @@ class Inmueble extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('titulo, descripcion, tipo_inmueble, fk_estado', 'required'),
+            array('titulo, descripcion, tipo_inmueble, fk_estado,operacion_publicacion', 'required'),
             array('vista_al_mar, tiene_calefaccion, anio_construccion_aproximado, cant_banios, mts2_edificados, cant_plantas_casa, es_propiedad_horizontal, cant_dormitorios, numero_de_piso, tiene_ascensor, tiene_porteria, tiene_portero_electrico, tiene_vigilancia, tiene_planta_alta, altura_salon_principal, cant_plantas_local, tiene_estacionamiento, tiene_deposito, fk_estado', 'numerical', 'integerOnly' => true),
             array('gastos_comunes, precio_publicacion', 'numerical'),
             array('titulo', 'length', 'max' => 100),
@@ -118,6 +118,7 @@ class Inmueble extends CActiveRecord {
             'potencia_contratada' => 'Potencia Contratada',
             'fk_estado' => 'Estado del inmueble',
             'precio_publicacion' => 'Precio',
+            'operacion_publicacion' => 'Operaci&oacute;n'
         );
     }
 

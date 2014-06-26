@@ -1,7 +1,7 @@
 /* email es string */
 /* tipoNotificacion es string y puede tomar alguno de los valores { "solicitud_informacion" , "solicitud_publicacion" } */
 
-URL: http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotificacion
+http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotificacion?mensaje=holisss&tipoNotificacion=solicitud%20de%20publicacion&emailCliente=pelogay@gmail.com
 (puede ser por post o get)
 
 {

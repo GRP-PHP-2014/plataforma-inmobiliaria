@@ -37,4 +37,7 @@ class Constantes {
     const AUDITORIA_OBJETO_PARAMETRO = "parametro";
     const AUDITORIA_OBJETO_EVENTO = "evento";
     
+    const OPERACION_PUBLICACION_ALQUILER = "alquiler";
+    const OPERACION_PUBLICACION_VENTA = "venta";
+    
 }

@@ -33,6 +33,12 @@
                             <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 100, "class" => "form-control", "disabled" => "true")); ?>
                         </div>
 
+                        <div id="grp-inmueble-operacion_publicacion" class="form-group">
+                            <?php echo $form->labelEx($model, 'operacion_publicacion'); ?>
+                            <?php echo $form->textField($model, 'operacion_publicacion', array('size' => 60, 'maxlength' => 100, "class" => "form-control", "disabled" => "true")); ?>
+                            <?php echo $form->error($model, 'operacion_publicacion'); ?>
+                        </div>
+
                         <div id="grp-inmueble-descripcion" class="form-group">
                             <?php echo $form->labelEx($model, 'descripcion'); ?>
                             <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 2048, "class" => "form-control", "disabled" => "true")); ?>
