@@ -192,10 +192,20 @@ class Inmueble extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
-        $criteria->compare('titulo', $filtros["titulo"], true);
-        $criteria->compare('descripcion', $filtros["descripcion"], true);
+        $criteria->addInCondition('tipo_inmueble',$filtros["tipoBien"]); 
+        $criteria->addInCondition('operacion_publicacion',$filtros["tipoTransaccion"]); 
+        
+        
+        // condicion para busqueda por texto coincidente a titulo o descripcion
+        $filtroStr1  = new CDbCriteria;
+        $filtroStr1->compare('titulo', $filtros["filtroStr"],true);
+        $filtroStr2  = new CDbCriteria;
+        $filtroStr2->compare('descripcion', $filtros["filtroStr"],true);
+        $filtroStr1->mergeWith($filtroStr2, 'OR');
+        
+        $criteria->mergeWith($filtroStr1, 'AND');
 
-        return Inmueble::model()->findAll($criteria); 
+        return Inmueble::model()->findAll($criteria);
     }
 
     /**

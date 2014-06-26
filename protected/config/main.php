@@ -60,6 +60,7 @@ return array(
                 'evento/admin' => 'evento/admin',
                 
                 'image/<id:.*\S.*>' => 'file/display',
+                'propertyImage/<idInmueble:\w+>/<idArchivo:.*\S.*>' => 'file/displayInmuebleImage',
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
                 /*'parametro/<id:\w+>' => 'parametro/view',*/

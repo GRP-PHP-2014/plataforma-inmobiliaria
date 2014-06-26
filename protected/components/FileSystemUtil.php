@@ -46,6 +46,12 @@ class FileSystemUtil {
         $file = join(DIRECTORY_SEPARATOR, array($rutaBase, 'tmp', Yii::app()->user->title, $fileName));
         return $file;
     }
+    
+    function getInmuebleFile($idInmueble, $fileName) {
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        $file = join(DIRECTORY_SEPARATOR, array($rutaBase, 'inmuebles', $idInmueble , $fileName));
+        return $file;
+    }
 
     function clearUserTmpFolder() {
         $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;

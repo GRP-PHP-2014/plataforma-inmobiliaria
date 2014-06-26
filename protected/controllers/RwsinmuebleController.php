@@ -1,6 +1,6 @@
 <?php
 
-class RwsinmuebleController extends Controller {
+class RwsinmuebleController extends CController {
 
     /**
      * Displays a particular model.
@@ -31,7 +31,11 @@ class RwsinmuebleController extends Controller {
     public function actionFindbyfilters($filters) {
         //http://localhost/plataforma-inmobiliaria/index.php/rwsinmueble/findbyfilters/{'titulo' : '', 'descripcion' : ''}?XDEBUG_SESSION_START=netbeans-xdebug
         $filtros = CJSON::decode($filters);
-        if (!array_key_exists("titulo", $filtros) || !array_key_exists("descripcion", $filtros)){
+        if (!array_key_exists("tipoBien", $filtros) || !array_key_exists("filtroStr", $filtros)
+                || !array_key_exists("tipoTransaccion", $filtros) || !array_key_exists("cantidadBanios", $filtros)
+                || !array_key_exists("cantidadHabitaciones", $filtros) || !array_key_exists("cantidadHabitaciones", $filtros)
+                || !array_key_exists("barrios", $filtros) || !array_key_exists("precioDesde", $filtros)
+                || !array_key_exists("precioHasta", $filtros)){
             Response::ok(CJSON::encode(array("resultado" => "falla","mensaje" => "estructura de filtros invalida")));
             return;
         }

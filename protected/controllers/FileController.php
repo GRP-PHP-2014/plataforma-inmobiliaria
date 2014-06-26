@@ -1,6 +1,6 @@
 <?php
 
-class FileController extends Controller {
+class FileController extends CController {
 
     public function actionUpload() {
         error_reporting(E_ALL | E_STRICT);
@@ -10,6 +10,11 @@ class FileController extends Controller {
     
     public function actionDisplay($id){
         $file = (new FileSystemUtil)->getTmpFile($id);
+        Response::sendImage($file);
+    }
+    
+    public function actionDisplayInmuebleImage($idInmueble,$idArchivo){
+        $file = (new FileSystemUtil)->getInmuebleFile($idInmueble, $idArchivo);
         Response::sendImage($file);
     }
 
