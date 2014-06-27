@@ -174,7 +174,7 @@ class Inmueble extends CActiveRecord {
             'criteria' => $criteria,
         ));
     }
-    
+
     /**
      * Retrieves a list of models based on the current search/filter conditions.
      *
@@ -192,18 +192,64 @@ class Inmueble extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
-        $criteria->addInCondition('tipo_inmueble',$filtros["tipoBien"]); 
-        $criteria->addInCondition('operacion_publicacion',$filtros["tipoTransaccion"]); 
-        
-        
+        $criteria->addInCondition('tipo_inmueble', $filtros["tipoBien"]);
+        $criteria->addInCondition('operacion_publicacion', $filtros["tipoTransaccion"]);
+
+
         // condicion para busqueda por texto coincidente a titulo o descripcion
-        $filtroStr1  = new CDbCriteria;
-        $filtroStr1->compare('titulo', $filtros["filtroStr"],true);
-        $filtroStr2  = new CDbCriteria;
-        $filtroStr2->compare('descripcion', $filtros["filtroStr"],true);
+        $filtroStr1 = new CDbCriteria;
+        $filtroStr1->compare('titulo', $filtros["filtroStr"], true);
+        $filtroStr2 = new CDbCriteria;
+        $filtroStr2->compare('descripcion', $filtros["filtroStr"], true);
         $filtroStr1->mergeWith($filtroStr2, 'OR');
-        
+
         $criteria->mergeWith($filtroStr1, 'AND');
+
+        if (in_array($filtros["cantidadBanios"], array(1, 2, 3))) {
+            $criteriaCantBanios = new CDbCriteria;
+            if (in_array($filtros["cantidadBanios"], array(1, 2))) {
+                $criteriaCantBanios->addCondition('cant_banios = :cantidadBanios');
+            } else {
+                $criteriaCantBanios->addCondition('cant_banios >= :cantidadBanios');
+            }
+
+            $criteriaCantBanios->params = array(
+                ':cantidadBanios' => $filtros["cantidadBanios"]
+            );
+            $criteria->mergeWith($criteriaCantBanios, 'AND');
+        }
+
+        if (in_array($filtros["cantidadHabitaciones"], array(1, 2, 3, 4))) {
+            $criteriaCantHabitaciones = new CDbCriteria;
+            if (in_array($filtros["cantidadHabitaciones"], array(1, 2, 3))) {
+                $criteriaCantHabitaciones->addCondition('cant_dormitorios = :cantidadHabitaciones');
+            } else {
+                $criteriaCantHabitaciones->addCondition('cant_dormitorios >= :cantidadHabitaciones');
+            }
+
+            $criteriaCantHabitaciones->params = array(
+                ':cantidadHabitaciones' => $filtros["cantidadHabitaciones"]
+            );
+            $criteria->mergeWith($criteriaCantHabitaciones, 'AND');
+        }
+
+        $criteriaPrecioDesde = new CDbCriteria;
+        if ($filtros["precioDesde"] > 0) {
+            $criteriaPrecioDesde->addCondition('precio_publicacion >= :precioDesde');
+            $criteriaPrecioDesde->params = array(
+                ':precioDesde' => $filtros["precioDesde"]
+            );
+            $criteria->mergeWith($criteriaPrecioDesde, 'AND');
+        }
+        
+        $criteriaPrecioHasta = new CDbCriteria;
+        if ($filtros["precioHasta"] > 0) {
+            $criteriaPrecioHasta->addCondition('precio_publicacion <= :precioHasta');
+            $criteriaPrecioHasta->params = array(
+                ':precioHasta' => $filtros["precioHasta"]
+            );
+            $criteria->mergeWith($criteriaPrecioHasta, 'AND');
+        }
 
         return Inmueble::model()->findAll($criteria);
     }
@@ -221,4 +267,5 @@ class Inmueble extends CActiveRecord {
     public function getListaEstadosInmueble() {
         return CHtml::listData(EstadoInmueble::model()->findAll(), 'id', 'nombre');
     }
+
 }
