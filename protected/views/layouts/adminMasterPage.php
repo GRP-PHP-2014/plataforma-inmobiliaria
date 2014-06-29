@@ -57,7 +57,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">                        
-                        <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "configuracion") == 0){  echo 'active'; }  ?>">
+                        <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CONFIGURACION) == 0){  echo 'active'; }  ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl('auditoria/admin'); ?>">Auditor&iacute;a</a></li>
@@ -72,12 +72,12 @@
                                 <li><a href="<?php echo Yii::app()->createUrl('tipoNotificacion/admin'); ?>">Tipos de notificaci&oacute;n</a></li>
                             </ul>
                         </li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "usuarios") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "clientes") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "inmuebles") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "notificaciones") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "eventos") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('evento/admin'); ?>">Calendario</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], "usuarios") == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Portada</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_USUARIOS) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CLIENTES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_INMUEBLES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_NOTIFICACIONES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CALENDARIO) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('evento/admin'); ?>">Calendario</a></li>
+                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_PORTADA) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('portada/admin'); ?>">Portada</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

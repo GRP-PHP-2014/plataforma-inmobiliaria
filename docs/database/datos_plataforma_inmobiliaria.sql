@@ -28,3 +28,10 @@ insert into parametros(nombre,descripcion,valor) values ('directorioBaseImagenes
 
 
 
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (1,1,'2014-06-28');
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (2,1,'2014-06-28');
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (3,1,'2014-06-28');
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (4,1,'2014-06-28');
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (5,1,'2014-06-28');
+insert into destacado_inmueble (id,id_inmueble,update_timestamp) values (6,1,'2014-06-28');
+

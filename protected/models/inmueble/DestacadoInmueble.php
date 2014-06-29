@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "imagenes_inmueble".
+ * This is the model class for table "destacado_inmueble".
  *
- * The followings are the available columns in table 'imagenes_inmueble':
+ * The followings are the available columns in table 'destacado_inmueble':
  * @property integer $id
  * @property integer $id_inmueble
- * @property string $ruta
+ * @property string $update_timestamp
  *
  * The followings are the available model relations:
  * @property Inmuebles $idInmueble
  */
-class ImagenInmueble extends CActiveRecord {
+class DestacadoInmueble extends CActiveRecord {
 
     /**
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'imagenes_inmueble';
+        return 'destacado_inmueble';
     }
 
     /**
@@ -27,12 +27,11 @@ class ImagenInmueble extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id_inmueble, ruta', 'required'),
+            array('id_inmueble, update_timestamp', 'required'),
             array('id_inmueble', 'numerical', 'integerOnly' => true),
-            array('ruta', 'length', 'max' => 512),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, id_inmueble, ruta', 'safe', 'on' => 'search'),
+            array('id, id_inmueble, update_timestamp', 'safe', 'on' => 'search'),
         );
     }
 
@@ -54,7 +53,7 @@ class ImagenInmueble extends CActiveRecord {
         return array(
             'id' => 'ID',
             'id_inmueble' => 'Id Inmueble',
-            'ruta' => 'Ruta',
+            'update_timestamp' => 'Update Timestamp',
         );
     }
 
@@ -77,7 +76,7 @@ class ImagenInmueble extends CActiveRecord {
 
         $criteria->compare('id', $this->id);
         $criteria->compare('id_inmueble', $this->id_inmueble);
-        $criteria->compare('ruta', $this->ruta, true);
+        $criteria->compare('update_timestamp', $this->update_timestamp, true);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -88,19 +87,10 @@ class ImagenInmueble extends CActiveRecord {
      * Returns the static model of the specified AR class.
      * Please note that you should have this exact method in all your CActiveRecord descendants!
      * @param string $className active record class name.
-     * @return ImagenInmueble the static model class
+     * @return DestacadoInmueble the static model class
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
-    }
-    
-    public static function findAllByInmueble($idInmueble){
-        return ImagenInmueble::model()->findAll(
-            array(
-                'condition'=>'id_inmueble=:idInmueble', 
-                'params'=>array(':idInmueble'=>$idInmueble)
-            )
-        );
     }
 
 }

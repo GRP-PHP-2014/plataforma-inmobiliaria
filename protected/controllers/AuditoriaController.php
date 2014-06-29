@@ -3,15 +3,10 @@
 class AuditoriaController extends AdminController {
 
     /**
-     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-     * using two-column layout. See 'protected/views/layouts/column2.php'.
-     */
-    public $layout = '//layouts/adminMasterPage';
-
-    /**
      * @return array action filters
      */
     public function filters() {
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] =  Constantes::ITEM_MENU_CONFIGURACION ;
         return array(
             'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
@@ -24,7 +19,6 @@ class AuditoriaController extends AdminController {
      * @return array access control rules
      */
     public function accessRules() {
-        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = "configuracion";
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin'),

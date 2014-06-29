@@ -241,7 +241,7 @@ class Inmueble extends CActiveRecord {
             );
             $criteria->mergeWith($criteriaPrecioDesde, 'AND');
         }
-        
+
         $criteriaPrecioHasta = new CDbCriteria;
         if ($filtros["precioHasta"] > 0) {
             $criteriaPrecioHasta->addCondition('precio_publicacion <= :precioHasta');
@@ -266,6 +266,31 @@ class Inmueble extends CActiveRecord {
 
     public function getListaEstadosInmueble() {
         return CHtml::listData(EstadoInmueble::model()->findAll(), 'id', 'nombre');
+    }
+
+    public function findDestacados() {
+        $destacados = DestacadoInmueble::model()->findAll(
+                array('order' => 'id')
+        );
+
+        $inmuebles = array();
+        foreach ($destacados as $dest) {
+            array_push($inmuebles, Inmueble::model()->findByPk($dest->id_inmueble));
+        }
+
+        return $inmuebles;
+    }
+
+    public function toArray() {
+        
+        $arr = $this->attributes;
+        $imagenes = ImagenInmueble::findAllByInmueble($this->id);
+        $imgsArr = array();
+        foreach ($imagenes as $img) {
+            array_push($imgsArr, "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta);
+        }
+        $arr["imagenes"] = $imgsArr; 
+        return $arr;
     }
 
 }

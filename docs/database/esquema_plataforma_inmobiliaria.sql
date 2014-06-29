@@ -174,3 +174,12 @@ CREATE TABLE `barrios` (
   KEY `ciudad` (`ciudad`),
   CONSTRAINT `barrios_ibfk_1` FOREIGN KEY (`ciudad`) REFERENCES `ciudades` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE destacado_inmueble (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  id_inmueble integer NOT NULL,
+  update_timestamp datetime NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_destacado_inmueble FOREIGN KEY (id_inmueble) REFERENCES inmuebles (id)
+);
+

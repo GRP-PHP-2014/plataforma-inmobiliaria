@@ -11,6 +11,6 @@
     "cantidadBanios" : 4,
     "cantidadHabitaciones" : 6,
     "barrios" : [],
-    "precioDesde" : 1600,
+    "precioDesde" : 0,
     "precioHasta" : 0,
 }

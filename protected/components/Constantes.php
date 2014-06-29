@@ -40,4 +40,12 @@ class Constantes {
     const OPERACION_PUBLICACION_ALQUILER = "alquiler";
     const OPERACION_PUBLICACION_VENTA = "venta";
     
+    const ITEM_MENU_CONFIGURACION = "configuracion";
+    const ITEM_MENU_USUARIOS = "usuarios";
+    const ITEM_MENU_INMUEBLES = "inmuebles";
+    const ITEM_MENU_NOTIFICACIONES = "notificaciones";
+    const ITEM_MENU_CALENDARIO = "calendario";
+    const ITEM_MENU_CLIENTES = "clientes";
+    const ITEM_MENU_PORTADA = "portada";
+    
 }

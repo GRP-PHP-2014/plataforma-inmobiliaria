@@ -46,7 +46,16 @@ class RwsinmuebleController extends CController {
         foreach ($inmuebles as $inm){
             
             
-            array_push($arrInmuebles, $inm->attributes);           
+            array_push($arrInmuebles, $inm->toArray());           
+        }
+        Response::ok(CJSON::encode($arrInmuebles));
+    }
+    
+    public function actionGetInmueblesDestacados(){
+        $inmuebles = Inmueble::findDestacados();        
+        $arrInmuebles = array();
+        foreach ($inmuebles as $inm){           
+            array_push($arrInmuebles, $inm->toArray());
         }
         Response::ok(CJSON::encode($arrInmuebles));
     }
