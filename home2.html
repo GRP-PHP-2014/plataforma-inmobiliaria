@@ -7,6 +7,7 @@
 
     <script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
+    <script src="/plataforma-inmobiliaria/assets/javascript/objets.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap.min.css" media="screen"/> 
   <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/bootstrap-inmobiliaria.css" media="screen"/>
@@ -124,7 +125,7 @@
     </div>
   </div>
 
-  <div class="blurb bright" id="users">
+<!--   <div class="blurb bright" id="users">
     <div class="row">
       <div class="col-md-6 col-md-offset-3 text-center">
         <h3>Acceso de usuarios</h3>
@@ -150,8 +151,39 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+<!-- SUSCRIBIRSE - PUBLICAR -->
+  <div class="blurb bright" id="users">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h3>Notificaciones</h3>
+        <br>
+      </div>
+    </div>
+    <div class="row" id="secRegisterLogin">
+      <div class="col-sm-4 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center"><h2><i class="icon-chevron-left"></i>Suscribirse</h2></div>
+          <div class="panel-body text-center">Suscribite para enterarte de todas las novedades. Oportunidades, nuevas publicaciones, etc.<hr>
+            <a href="#solicitud_informacion" role="button" class="btn btn-lg btn-success btn-block" data-toggle="modal">Suscribirse</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center"><h2>Publicar<i class="icon-chevron-right"></i></h2></div>
+            <div class="panel-body text-center">Si queres publicar una propiedad envianos tu informacion atraves de este medio y nos contactaremos contigo.<hr>
+              <a href="#solicitud_publicacion" role="button" class="btn btn-lg btn-success btn-block" data-toggle="modal">Publicar</a>
+            </div>
+        </div>
+      </div>
+    
+    </div>
   </div>
 
+<!-- DONDE ESTAMOS -->
   <div class="LocationSec" style="height:100%" id="local">
     <div class="container">
         <div class="col-md-12">
@@ -161,6 +193,7 @@
     </div>
   </div>
 
+<!-- EL EQUIPO -->
   <div class="callout" id="team">
     <div class="vert">
       <div class="col-md-12 text-center"><h2>Un exelente equipo humano a tu disposicion</h2></div>
@@ -184,6 +217,8 @@
     </div>
   </div>
 
+
+<!-- CONTACTANOS -->
    <div id="contact">
     <div class="container">
       <div class="row">
@@ -260,6 +295,74 @@
     <ul class="nav pull-right scroll-top">
       <li><a href="#" title="Scroll to top"><i class="icon-chevron-up icon-3x"></i></a></li>
     </ul>
+
+<!-- SUSCRIBIRSE -->
+<div id="solicitud_informacion" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="suscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="suscribeModalLabel">Suscribirse</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="email">Su correo</label>
+            <input class="form-control email" type="email" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="message">Su mensaje</label>
+            <textarea placeholder="Mensaje" class="form-control msg" rows="5"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-success" onclick="crearNotificacion('solicitud_informacion')">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PUBLICAR -->
+<div id="solicitud_publicacion" class="modal fade" tabindex="-1" role="dialog" 
+    aria-labelledby="suscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="suscribeModalLabel">Publicar</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="name">Su nombre</label>
+            <input class="form-control name" type="text" name="name" placeholder="Nombre">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="email">Su correo</label>
+            <input class="form-control email" type="email" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="message">Su mensaje</label>
+            <textarea placeholder="Mensaje" class="form-control msg" rows="5"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-success" onclick="crearNotificacion('solicitud_publicacion')">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   </body>
 </html>

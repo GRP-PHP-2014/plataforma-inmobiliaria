@@ -9,3 +9,6 @@ http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotif
     "tipoNotificacion" : "",
     "mensaje" : ""
 }
+
+
+{"emailCliente":"pelo8888@gmail.com","tipoNotificacion":"1","mensaje":"Hola"}
