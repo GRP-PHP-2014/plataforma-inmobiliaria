@@ -5,12 +5,49 @@
 /* el filtro cantidadHabilitaciones puede tenener los valores {1,2,3,4} (siendo 4, 4 o mas)*/
 /* el filtro barrios es un array con los ids de los barrios */
 {
-    "tipoBien": ["apartamento","casa"], 
-    "filtroStr" : "",
-    "tipoTransaccion" : ["alquiler","venta"],
-    "cantidadBanios" : 4,
-    "cantidadHabitaciones" : 6,
-    "barrios" : [],
-    "precioDesde" : 0,
-    "precioHasta" : 0,
+    tipoBien: ["apartamento","casa"], 
+    filtroStr: "",
+    tipoTransaccion : ["alquiler","venta"],
+    cantidadBanios : 4,
+    cantidadHabitaciones : 6,
+    barrios : [],
+    precioDesde : 0,
+    precioHasta : 0,
+}
+
+
+// RESPUESTA
+{
+	altura_salon_principal: null
+	anio_construccion_aproximado: null
+	cant_banios: "3"
+	cant_dormitorios: null
+	cant_plantas_casa: null
+	cant_plantas_local: null
+	coord_latitud: ""
+	coord_longitud: ""
+	descripcion: "asdasdasd"
+	es_propiedad_horizontal: "0"
+	fk_estado: "1"
+	gastos_comunes: null
+	id: "12"
+	imagenes: Array[0]
+	mts2_edificados: null
+	numero_de_piso: null
+	operacion_publicacion: "venta"
+	potencia_contratada: ""
+	precio_publicacion: "1600"
+	tiene_ascensor: "0"
+	tiene_calefaccion: "0"
+	tiene_deposito: "0"
+	tiene_estacionamiento: "0"
+	tiene_planta_alta: "0"
+	tiene_porteria: "0"
+	tiene_portero_electrico: "0"
+	tiene_vigilancia: "0"
+	tipo_inmueble: "apartamento"
+	tipo_local: ""
+	tipo_local_observacion: ""
+	titulo: "bbbbb"
+	vista_al_mar: "0"
 }

@@ -13,6 +13,8 @@
 
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/busqueda.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/LlamadasAjax.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/objets.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/alertify.min.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
@@ -35,14 +37,14 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
-            <li><a href="#">Aca buscador</a></li>
+            <li><a href="#" onclick="showFilters()">cambiar criterios de busqueda</a></li>
           </ul>
         </div>
        </div>
     </div>
 
 <!-- FILTROS -->
-<div class="row">
+<div id="filterDiv" class="row">
   <form class="form-horizontal">
     <fieldset>
       <legend>Criterios de busqueda</legend>
@@ -58,7 +60,7 @@
           <label class="col-md-4 control-label" for="buttondropdown">Desde</label>
           <div class="col-md-4">
             <div class="input-group">
-              <input id="buttondropdown" name="buttondropdown" class="form-control" placeholder="precio" type="text">
+              <input id="priceDesde" name="buttondropdown" class="form-control" placeholder="precio" type="text">
             </div>
           </div>
         </div>
@@ -67,7 +69,7 @@
           <label class="col-md-4 control-label" for="buttondropdownhasta">Hasta</label>
           <div class="col-md-4">
             <div class="input-group">
-              <input id="buttondropdownhasta" name="buttondropdownhasta" class="form-control" placeholder="precio" type="text">
+              <input id="priceHasta" name="buttondropdownhasta" class="form-control" placeholder="precio" type="text">
             </div>
           </div>
         </div>
@@ -102,7 +104,7 @@
         </div>
         
         <label class="col-md-4 control-label" for="goSearch"></label>
-        <div class="col-md-8"><button id="goSearch" name="goSearch" class="btn btn-success">Buscar</button></div>
+        <div class="col-md-8"><button onclick="Buscar()" class="btn btn-success">Buscar</button></div>
     </fieldset>
   </form>
 </div>
@@ -117,7 +119,8 @@
           </div>
         </div>
           
-        <div class="row">
+        <div id="searchResult" class="row">
+<!--          
           <div class="col-sm-6"> 
             <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
               <div class="media">
@@ -291,8 +294,8 @@
                 </div>
               </div>
             </div>
-          </div>
-
+          </div> 
+-->
         </div>
       </div>
     </div>
