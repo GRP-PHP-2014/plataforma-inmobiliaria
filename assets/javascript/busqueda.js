@@ -7,6 +7,33 @@ function hideFilters() {
 }
 
 function Buscar() {
+
+  filterSearch.precioDesde = parseInt($('#priceDesde').val());
+  filterSearch.precioHasta = parseInt($('#priceHasta').val());
+  filterSearch.cantidadBanios = parseInt($('#selectbath')[0].value);
+  filterSearch.cantidadHabitaciones = parseInt($('#selectrooms')[0].value);
+  filterSearch.filtroStr = $('#strBusqueda').val();
+
+  filterSearch.tipoBien = [];
+  if ($('#checkApto')[0].checked) 
+    filterSearch.tipoBien.push("apartamento");  
+
+  if ($('#checkCasa')[0].checked) 
+    filterSearch.tipoBien.push("casa");
+
+  filterSearch.tipoTransaccion = [];
+  if ($('#checkAlquiler')[0].checked) 
+    filterSearch.tipoTransaccion.push("alquiler");  
+
+  if ($('#checkVenta')[0].checked) 
+    filterSearch.tipoTransaccion.push("venta");
+  
+  filterSearch.barrios = [];
+  var barrios = $('#selectBarrio')[0].selectedOptions;
+  for (var i = barrios.length - 1; i >= 0; i--) {
+    filterSearch.barrios.push(parseInt(barrios[i].value));
+  };
+
   buscarContenidos(filterSearch);
   hideFilters();
 }

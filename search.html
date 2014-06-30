@@ -45,15 +45,30 @@
 
 <!-- FILTROS -->
 <div id="filterDiv" class="row">
-  <form class="form-horizontal">
+  <div class="form-horizontal">
     <fieldset>
       <legend>Criterios de busqueda</legend>
       <div class="form-group">
       
+        <div class="col-md-12 ">
+          <label class="col-md-4 control-label" for="buttondropdownhasta">Palabra Clave</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <input id="strBusqueda" class="form-control" placeholder="Palabra Clave" type="text">
+            </div>
+          </div>
+        </div>
+
+        <label class="col-md-4 control-label" for="checkboxes">Transaccion</label>
+        <div class="col-md-8">
+          <label class="checkbox-inline" for="checkAlquiler"><input type="checkbox" id="checkAlquiler" selected>Alquiler</label>
+          <label class="checkbox-inline" for="checkVenta"><input type="checkbox" id="checkVenta" selected>Venta</label>
+        </div>
+
         <label class="col-md-4 control-label" for="checkboxes">Tipo</label>
         <div class="col-md-8">
-          <label class="checkbox-inline" for="checkboxes-0"><input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Alquiler</label>
-          <label class="checkbox-inline" for="checkboxes-1"><input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">Venta</label>
+          <label class="checkbox-inline" for="checkApto"><input type="checkbox" id="checkApto" selected>Casa</label>
+          <label class="checkbox-inline" for="checkCasa"><input type="checkbox" id="checkCasa" selected>Apto</label>
         </div>
 
         <div class="col-md-12">
@@ -106,7 +121,7 @@
         <label class="col-md-4 control-label" for="goSearch"></label>
         <div class="col-md-8"><button onclick="Buscar()" class="btn btn-success">Buscar</button></div>
     </fieldset>
-  </form>
+  </div>
 </div>
 
 <!-- FILTROS -->
