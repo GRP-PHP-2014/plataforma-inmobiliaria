@@ -43,8 +43,10 @@ class InmuebleController extends AdminController {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $model = $this->loadModel($id);
+        $model->strArrayImagenes = $model->imagesToStringArray();
         $this->render('view', array(
-            'model' => $this->loadModel($id),
+            'model' => $model,
         ));
     }
 
@@ -55,9 +57,6 @@ class InmuebleController extends AdminController {
     public function actionCreate() {
         $model = new Inmueble;
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
         $fsUtil = new FileSystemUtil;        
         
         if (isset($_POST['Inmueble'])) {
@@ -65,7 +64,7 @@ class InmuebleController extends AdminController {
             if ($model->save()){
                 
                 //creo el directorio para las imagenes del inmueble
-                $fsUtil->createInmuebleImageFolder($model->id);
+                $fsUtil->createPropertyFoderIfNotExists($model->id);
                 
                 //guardo las imagenes para el inmueble
                 $images = $fsUtil->getTmpFilesNames();
@@ -93,24 +92,39 @@ class InmuebleController extends AdminController {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+         
         $model = $this->loadModel($id);
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
+        $fsUtil = new FileSystemUtil;   
+        $fsUtil->createPropertyFoderIfNotExists($id);
+        
         if (isset($_POST['Inmueble'])) {
             $model->attributes = $_POST['Inmueble'];
             if ($model->save()){
                 
+                //elimino las imagenes viejas de el sistema de archivos y de la bd (las referencias)
+                $fsUtil->deleteImagesFromProperty($id);
+                ImagenInmueble::deleteImagenFromProperty($id);
                 
-                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_MODIFICACION, $model->id);
-                $this->redirect(array('view', 'id' => $model->id));                
+                //guardo las imagenes nuevas para el inmueble
+                $images = $fsUtil->getTmpFilesNames();
+                foreach($images as $img){
+                    $imgInm = new ImagenInmueble;
+                    $imgInm->id_inmueble = $model->id;
+                    $imgInm->ruta = $img;
+                    if ($imgInm->save()){
+                        $fsUtil->copyFileFromTmpToFs($imgInm->ruta, $model->id);
+                    }
+                }
+                
+                (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_ALTA, $model->id);
+                $this->redirect(array('view', 'id' => $model->id));
             }
         }
 
-        $this->render('update', array(
-            'model' => $model,
-        ));
+        $fsUtil->clearUserTmpFolder();
+        $fsUtil->copyAllFilesFromFsToTmp($id);        
+        $this->render('update', array('model' => $model));
     }
 /*
     public function actionUploadImages() {

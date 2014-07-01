@@ -40,7 +40,8 @@
  */
 class Inmueble extends CActiveRecord {
 
-    private $modelImagenes;
+    public $modelImagenes;
+    public $strArrayImagenes;
 
     /**
      * @return string the associated database table name
@@ -281,16 +282,26 @@ class Inmueble extends CActiveRecord {
         return $inmuebles;
     }
 
-    public function toArray() {
-        
+    public function toArray() {        
         $arr = $this->attributes;
-        $imagenes = ImagenInmueble::findAllByInmueble($this->id);
-        $imgsArr = array();
-        foreach ($imagenes as $img) {
-            array_push($imgsArr, "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta);
-        }
-        $arr["imagenes"] = $imgsArr; 
+        $arr["imagenes"] = $this->imagesToArray(); 
         return $arr;
+    }
+    
+    public function imagesToArray(){
+        $imgsArr = array();
+        foreach ($this->imagenesInmuebles as $img) {
+            array_push($imgsArr, "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta);
+        }    
+        return $imgsArr;
+    }
+    
+    public function imagesToStringArray(){
+        $imgsStrArr = "";
+        foreach ($this->imagenesInmuebles as $img) {
+            $imgsStrArr .= "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta . "|";
+        }   
+        return substr($imgsStrArr, 0, -1);
     }
 
 }
