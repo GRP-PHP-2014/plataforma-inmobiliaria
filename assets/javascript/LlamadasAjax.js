@@ -47,10 +47,12 @@ function getPropiedad(id) {
   $.ajax({
       url: CONF['ip'] + '/rwsinmueble/' + id,
       type: 'GET',
+      async: 'false',
       dataType: 'json',
   })
   .done(function(msg) {
     console.log(msg);
+    GLOBAL = { propiedad : msg };
   })
   .fail(function(msg) {
     console.error(msg);

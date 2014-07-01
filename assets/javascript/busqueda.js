@@ -62,7 +62,7 @@ function cargarResultadoBusqueda(Result){
                   '<div class="media-body fnt-smaller">' + 
                     '<a href="#" target="_parent"></a>' + 
                     '<h4 class="media-heading">' + 
-                      '<a href="#" target="_parent">$ ' + elem.precio_publicacion + '<small class="pull-right">' + 'elem.direccion' + '</small></a>' +
+                      '<a href="#" target="_parent">$ ' + elem.precio_publicacion + '<small class="pull-right">' + elem.direccion_corta + '</small></a>' +
                     '</h4>' + 
                     '<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">' +
                       '<li>' + elem.mts2_edificados + ' mts2</li>' +
