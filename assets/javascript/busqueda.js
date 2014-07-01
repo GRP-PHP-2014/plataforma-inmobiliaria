@@ -56,7 +56,7 @@ function cargarResultadoBusqueda(Result){
       html += '<div class="col-sm-6">' +
               '<div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">' +
                 '<div class="media">' +
-                  '<a class="pull-left" href="propiedad/' + elem.id + '" target="_parent">' +
+                  '<a class="pull-left" href="propiedad.html?id=' + elem.id + '" target="_parent">' +
                   '<img alt="image" class="img-responsive" src="' + foto + '"></a>' +
                   '<div class="clearfix visible-sm"></div>' + 
                   '<div class="media-body fnt-smaller">' + 

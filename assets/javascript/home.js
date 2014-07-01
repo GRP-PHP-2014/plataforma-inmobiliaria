@@ -34,7 +34,7 @@ function cargarDestacados(Result) {
 
     html += '<div class="col-md-12" style="margin-top:3em">' +
               '<div class="featurette2">' +
-                '<a href="propiedad?id=' + elem.id + '" target="new">' +
+                '<a href="propiedad.html?id=' + elem.id + '" target="new">' +
                 '<img class="featurette-image img-circle img-destacados ' + align +'" src="' + foto + '"></a>' + 
                 '<h2 class="featurette-heading">' + elem.titulo + '. <span class="text-black">' + 
                 		elem.tipo_inmueble + ' | ' + elem.operacion_publicacion + '</span></h2>' +

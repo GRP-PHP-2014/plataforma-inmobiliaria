@@ -13,27 +13,27 @@ $( document ).ready(function() {
 	$('body').scrollspy({ target: '#navbar' })
 });
 
-function bloquearPantalla(){
-    // 'use strict';
-    // $.blockUI({ message: '<p><img src="images/home.gif" />  Cargando...</p>' ,
-    //     css: {
-    //         border: 'none',
-    //         padding: '15px',
-    //         backgroundColor: '#000',
-    //         '-webkit-border-radius': '10px',
-    //         '-moz-border-radius': '10px',
-    //         opacity: .5,
-    //         color: '#fff'
-    //     }
-    // });
+function bloquearPantalla() {
+  'use strict';
+  $.blockUI({ message: '<p><img src="images/home.gif" />  Cargando...</p>' ,
+      css: {
+          border: 'none',
+          padding: '15px',
+          backgroundColor: '#000',
+          '-webkit-border-radius': '10px',
+          '-moz-border-radius': '10px',
+          opacity: .5,
+          color: '#fff'
+      }
+  });
 }
 
-function desbloquearPantalla(){
-    // 'use strict';
-    // $.unblockUI();
+function desbloquearPantalla() {
+  'use strict';
+  $.unblockUI();
 }
 
-function confirmar(){
+function confirmar() {
 	if(confirm('Estas seguro de continuar?'))
 		return true;
 	else
