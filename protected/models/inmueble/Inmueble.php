@@ -60,8 +60,8 @@ class Inmueble extends CActiveRecord {
             array('titulo, descripcion, tipo_inmueble, fk_estado,operacion_publicacion', 'required'),
             array('vista_al_mar, tiene_calefaccion, anio_construccion_aproximado, cant_banios, mts2_edificados, cant_plantas_casa, es_propiedad_horizontal, cant_dormitorios, numero_de_piso, tiene_ascensor, tiene_porteria, tiene_portero_electrico, tiene_vigilancia, tiene_planta_alta, altura_salon_principal, cant_plantas_local, tiene_estacionamiento, tiene_deposito, fk_estado', 'numerical', 'integerOnly' => true),
             array('gastos_comunes, precio_publicacion', 'numerical'),
-            array('titulo', 'length', 'max' => 100),
-            array('descripcion', 'length', 'max' => 2048),
+            array('titulo,direccion_corta', 'length', 'max' => 100),
+            array('descripcion,direccion_larga', 'length', 'max' => 2048),
             array('tipo_inmueble, tipo_local', 'length', 'max' => 50),
             array('tipo_local_observacion', 'length', 'max' => 1024),
             array('potencia_contratada', 'length', 'max' => 10),
@@ -104,7 +104,7 @@ class Inmueble extends CActiveRecord {
             'cant_plantas_casa' => 'Cantidad de plantas',
             'es_propiedad_horizontal' => 'Es propiedad horizontal',
             'cant_dormitorios' => 'Cantidad de dormitorios',
-            'numero_de_piso' => 'Numero de piso',
+            'numero_de_piso' => 'N&uacute;mero de piso',
             'tiene_ascensor' => 'Tiene ascensor',
             'tiene_porteria' => 'Tiene porter&iacute;a',
             'tiene_portero_electrico' => 'Tiene portero el&eacute;ctrico',
@@ -119,7 +119,9 @@ class Inmueble extends CActiveRecord {
             'potencia_contratada' => 'Potencia Contratada',
             'fk_estado' => 'Estado del inmueble',
             'precio_publicacion' => 'Precio',
-            'operacion_publicacion' => 'Operaci&oacute;n'
+            'operacion_publicacion' => 'Operaci&oacute;n',
+            'direccion_corta' => 'Direcci&oacute;n',
+            'direccion_larga' => 'Direcci&oacute;n larga'
         );
     }
 
@@ -169,6 +171,7 @@ class Inmueble extends CActiveRecord {
         $criteria->compare('tiene_deposito', $this->tiene_deposito);
         $criteria->compare('potencia_contratada', $this->potencia_contratada, true);
         $criteria->compare('fk_estado', $this->fk_estado);
+        $criteria->compare('direccion_corta', $this->direccion_corta);
 
         return new CActiveDataProvider($this, array(
             'pagination' => array('pageSize' => 10),

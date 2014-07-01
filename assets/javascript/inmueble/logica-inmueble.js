@@ -30,12 +30,14 @@ function configurarFormularioSegunTipo() {
         $("#grp-inmueble-tiene_porteria").removeClass("hidden");
         $("#grp-inmueble-tiene_portero_electrico").removeClass("hidden");
         $("#grp-inmueble-tiene_vigilancia").removeClass("hidden");
+        $("#grp-inmueble-cant_dormitorios").removeClass("hidden");
     } else {
         $("#grp-inmueble-numero_de_piso").addClass("hidden");
         $("#grp-inmueble-tiene_ascensor").addClass("hidden");
         $("#grp-inmueble-tiene_porteria").addClass("hidden");
         $("#grp-inmueble-tiene_portero_electrico").addClass("hidden");
         $("#grp-inmueble-tiene_vigilancia").addClass("hidden");
+        $("#grp-inmueble-cant_dormitorios").addClass("hidden");
     }
 
 
@@ -48,6 +50,7 @@ function configurarFormularioSegunTipo() {
         $("#grp-inmueble-tiene_estacionamiento").removeClass("hidden");
         $("#grp-inmueble-tiene_deposito").removeClass("hidden");
         $("#grp-inmueble-potencia_contratada").removeClass("hidden");
+        $("#grp-inmueble-cant_dormitorios").addClass("hidden");
     } else {
         $("#grp-inmueble-tipo_local").addClass("hidden");
         $("#grp-inmueble-tipo_local_observacion").addClass("hidden");
@@ -57,6 +60,7 @@ function configurarFormularioSegunTipo() {
         $("#grp-inmueble-tiene_estacionamiento").addClass("hidden");
         $("#grp-inmueble-tiene_deposito").addClass("hidden");
         $("#grp-inmueble-potencia_contratada").addClass("hidden");
+        $("#grp-inmueble-cant_dormitorios").removeClass("hidden");
     }
 
 }

@@ -1,9 +1,8 @@
-
--- CREACION DE LA BASE DE DATOS
-create database plataforma_inmobiliaria;
-use plataforma_inmobiliaria;
+CREATE DATABASE  IF NOT EXISTS `plataforma_inmobiliaria` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `plataforma_inmobiliaria`;
 
 -- CREACION DE LAS TABLAS NECESARIAS PARA EL MANEJO DE PERMISOS EN YII
+DROP TABLE IF EXISTS `AuthItem`;
 create table AuthItem
 (
    name                 varchar(64) not null,
@@ -14,6 +13,7 @@ create table AuthItem
    primary key (name)
 );
  
+DROP TABLE IF EXISTS `AuthItemChild`;
 create table AuthItemChild
 (
    parent               varchar(64) not null,
@@ -23,6 +23,7 @@ create table AuthItemChild
    foreign key (child) references AuthItem (name) on delete cascade on update cascade
 );
  
+DROP TABLE IF EXISTS `AuthAssignment`;
 create table AuthAssignment
 (
    itemname             varchar(64) not null,
@@ -35,6 +36,7 @@ create table AuthAssignment
 
 
 -- TABLA DE USUARIOS
+DROP TABLE IF EXISTS `usuarios`;
 create table usuarios (
     usuario varchar(64) not null,
     email varchar(64) not null,
@@ -49,6 +51,7 @@ create table usuarios (
 
 alter table usuarios add column rol varchar(50);
 
+DROP TABLE IF EXISTS `parametros`;
 create table parametros (
     nombre varchar(64) not null,
     descripcion varchar(1024),
@@ -57,6 +60,7 @@ create table parametros (
 );
 
 -- TABLA DE AUDITORIA DEL SISTEMA
+DROP TABLE IF EXISTS `auditoria`;
 create table auditoria (
     id bigint not null AUTO_INCREMENT,
     fecha datetime not null,
@@ -66,6 +70,7 @@ create table auditoria (
 );
 
 -- TABLA DE CLIENTES
+DROP TABLE IF EXISTS `clientes`;
 create table clientes (
     id integer not null primary key auto_increment unique,
     email varchar(64) not null unique,
@@ -77,12 +82,14 @@ alter table clientes add direccion varchar(2048);
 
 alter table clientes add comentarios varchar(2048);
 
+DROP TABLE IF EXISTS `estados_inmueble`;
 create table estados_inmueble (
     id integer not null primary key auto_increment unique,
     nombre varchar(100) not null unique,
     descripcion varchar(1024)
 );
 
+DROP TABLE IF EXISTS `inmuebles`;
 create table inmuebles (
     id integer not null primary key auto_increment unique,
     titulo varchar(100) not null,
@@ -126,7 +133,10 @@ alter table inmuebles add fk_estado integer not null;
 alter table inmuebles add foreign key (fk_estado) references estados_inmueble(id);
 alter table inmuebles add precio_publicacion float;
 alter table inmuebles add operacion_publicacion varchar(50);
+alter table inmuebles add direccion_corta varchar(128);
+alter table inmuebles add direccion_larga varchar(2048);
 
+DROP TABLE IF EXISTS `imagenes_inmueble`;
 create table imagenes_inmueble (
     id integer not null primary key auto_increment unique,
     id_inmueble integer not null,
@@ -138,6 +148,7 @@ alter table auditoria add descripcion varchar(512);
 
 alter table auditoria add usuario varchar(50) not null;
 
+DROP TABLE IF EXISTS `tipo_notificacion`;
 create table tipo_notificacion
 (
     id bigint not null AUTO_INCREMENT,
@@ -146,6 +157,7 @@ create table tipo_notificacion
     primary key (id)
 );
 
+DROP TABLE IF EXISTS `departamentos`;
 CREATE TABLE `departamentos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(64) NOT NULL,
@@ -154,6 +166,7 @@ CREATE TABLE `departamentos` (
   UNIQUE KEY `nombre` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `ciudades`;
 CREATE TABLE `ciudades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(64) NOT NULL,
@@ -165,6 +178,7 @@ CREATE TABLE `ciudades` (
   CONSTRAINT `ciudades_ibfk_1` FOREIGN KEY (`departamento`) REFERENCES `departamentos` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `barrios`;
 CREATE TABLE `barrios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(64) NOT NULL,
@@ -175,6 +189,7 @@ CREATE TABLE `barrios` (
   CONSTRAINT `barrios_ibfk_1` FOREIGN KEY (`ciudad`) REFERENCES `ciudades` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `destacado_inmueble`;
 CREATE TABLE destacado_inmueble (
   id int(11) NOT NULL AUTO_INCREMENT,
   id_inmueble integer NOT NULL,

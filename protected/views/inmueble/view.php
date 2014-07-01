@@ -39,6 +39,11 @@
                             <?php echo $form->error($model, 'operacion_publicacion'); ?>
                         </div>
 
+                        <div id="grp-inmueble-direccion_corta" class="form-group">
+                            <?php echo $form->labelEx($model, 'direccion_corta'); ?>
+                            <?php echo $form->textArea($model, 'direccion_corta', array('size' => 60, 'maxlength' => 2048, "class" => "form-control", "disabled" => "true")); ?>
+                        </div>
+                        
                         <div id="grp-inmueble-descripcion" class="form-group">
                             <?php echo $form->labelEx($model, 'descripcion'); ?>
                             <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 2048, "class" => "form-control", "disabled" => "true")); ?>
