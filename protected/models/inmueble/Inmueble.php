@@ -222,7 +222,7 @@ class Inmueble extends CActiveRecord {
 
         if (in_array($filtros["cantidadHabitaciones"], array(1, 2, 3, 4))) {
             $criteriaCantHabitaciones = new CDbCriteria;
-            if (in_array($filtros["cantidadHabitaciones"], array(1, 2, 3))) {
+            if (in_array($filtros["cantidadHabitaciones"], array(1, 2, 3,4))) {
                 $criteriaCantHabitaciones->addCondition('cant_dormitorios = :cantidadHabitaciones');
             } else {
                 $criteriaCantHabitaciones->addCondition('cant_dormitorios >= :cantidadHabitaciones');
