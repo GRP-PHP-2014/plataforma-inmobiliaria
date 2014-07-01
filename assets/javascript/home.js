@@ -24,8 +24,8 @@ function cargarDestacados(Result) {
   for (var i = 0; i < Result.length; i++) {
 
     var elem = Result[i];
-    var foto = '/plataforma-inmobiliaria/images/placehold/512.gif'; 
-    // var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[0];
+    // var foto = '/plataforma-inmobiliaria/images/placehold/512.gif'; 
+    var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[0];
 
     if (i % 2 === 0)
     	align = 'pull-right';
