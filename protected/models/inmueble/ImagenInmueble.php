@@ -93,13 +93,20 @@ class ImagenInmueble extends CActiveRecord {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-    
-    public static function findAllByInmueble($idInmueble){
+
+    public static function findAllByInmueble($idInmueble) {
         return ImagenInmueble::model()->findAll(
-            array(
-                'condition'=>'id_inmueble=:idInmueble', 
-                'params'=>array(':idInmueble'=>$idInmueble)
-            )
+                        array(
+                            'condition' => 'id_inmueble=:idInmueble',
+                            'params' => array(':idInmueble' => $idInmueble)
+                        )
+        );
+    }
+
+    public static function deleteImagenFromProperty($idInmueble) {
+        ImagenInmueble::model()->deleteAll(
+                'id_inmueble = :idInmueble', 
+                array('idInmueble' => $idInmueble)
         );
     }
 

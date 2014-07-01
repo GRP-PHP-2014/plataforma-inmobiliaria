@@ -188,6 +188,7 @@
                         <a href="<?php echo Yii::app()->createUrl("inmueble/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
                     </div>
                 </div>
+                <?php echo $form->textField($model, 'strArrayImagenes', array("class" => "form-control", "disabled" => "true")); ?>
                 <?php $this->endWidget(); ?>
             </div>
             <div class="tab-pane fade in inmueble-tab-container" id="ubicacion">
@@ -251,7 +252,7 @@
 
     $(document).ready(function() {
         configurarFormularioSegunTipo();
-        // aca se deberia cargar las imagenes y la ubicacion geografica
+        loadImagenesInmueble();
     });
 
 </script>
