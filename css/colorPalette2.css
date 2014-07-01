@@ -254,6 +254,15 @@ img.grayscale {
   margin: 10px;
 }
 
+.img-destacados {
+  height: 512px !important;
+  width: 512px !important;
+}
+
+.text-black {
+  color: #000;
+}
+
 footer {
   padding: 100px 0;
 }

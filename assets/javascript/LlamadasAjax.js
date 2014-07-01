@@ -10,7 +10,7 @@ function buscarContenidos(filterSearch){
 		dataType: 'json',
 	})
 	.done(function(msg) {
-    cargarResultadoBusqueda(msg)
+    cargarResultadoBusqueda(msg);
   })
   .fail(function(msg) {
 		console.error(msg);
@@ -19,6 +19,27 @@ function buscarContenidos(filterSearch){
     desbloquearPantalla();
   });
 }
+
+
+function getDestacados(){
+
+  bloquearPantalla();
+  $.ajax({
+    url: CONF['ip'] + '/rwsinmueble/getInmueblesDestacados',
+    type: 'GET',
+    dataType: 'json',
+  })
+  .done(function(msg) {
+    cargarDestacados(msg);
+  })
+  .fail(function(msg) {
+    console.error(msg);
+  })
+  .always(function(msg) {
+    desbloquearPantalla();
+  });
+}
+
 
 function getPropiedad(id) {
 
