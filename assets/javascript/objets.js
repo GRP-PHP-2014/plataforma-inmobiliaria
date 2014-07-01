@@ -12,8 +12,8 @@ filterSearch = {
 	filtroStr : "",
 	tipoTransaccion : ["alquiler","venta"],
 	cantidadBanios : 4,
-	cantidadHabitaciones : 4,
-	barrios : [],
+	cantidadHabitaciones : 5,
+	barrios : [1,2,3,4,5],
 	precioDesde : 1600,
 	precioHasta : 5000,
 }
