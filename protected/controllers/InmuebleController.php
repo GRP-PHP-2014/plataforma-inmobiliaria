@@ -60,6 +60,7 @@ class InmuebleController extends AdminController {
         $fsUtil = new FileSystemUtil;        
         
         if (isset($_POST['Inmueble'])) {
+            
             $model->attributes = $_POST['Inmueble'];
             if ($model->save()){
                 

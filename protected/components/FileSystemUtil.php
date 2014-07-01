@@ -20,7 +20,7 @@ class FileSystemUtil {
     function checkCurrentUserTmpFolder() {
 
         $currUser = Yii::app()->user->title;
-        $tmpFolder = join(DIRECTORY_SEPARATOR , array(Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor , FileSystemUtil::TMP_FOLDER_NAME));
+        $tmpFolder = join(DIRECTORY_SEPARATOR, array(Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor, FileSystemUtil::TMP_FOLDER_NAME));
 
         if (!file_exists($tmpFolder . $currUser)) {
             mkdir($tmpFolder . $currUser, FileSystemUtil::RIGHTS_MODE, true);
@@ -98,13 +98,13 @@ class FileSystemUtil {
     function copyAllFilesFromFsToTmp($idInmueble) {
         $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
         $tmpFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::TMP_FOLDER_NAME, Yii::app()->user->title)) . DIRECTORY_SEPARATOR;
-        $str =  join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble)) . DIRECTORY_SEPARATOR . '*';
+        $str = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble)) . DIRECTORY_SEPARATOR . '*';
         $fsFiles = glob($str);
         foreach ($fsFiles as $file) {
             if (is_file($file)) {
-                $tmpFile = join(DIRECTORY_SEPARATOR , array ($tmpFolder, $this->getFileName($file)));
+                $tmpFile = join(DIRECTORY_SEPARATOR, array($tmpFolder, $this->getFileName($file)));
                 if (!copy($file, $tmpFile)) {
-                    die ("Error copiando archivo {$file} a directorio temporal");
+                    die("Error copiando archivo {$file} a directorio temporal");
                 }
             }
         }
@@ -121,19 +121,40 @@ class FileSystemUtil {
             mkdir($finalFolder, FileSystemUtil::RIGHTS_MODE);
         }
     }
-    
-    private function getFileName($fullPath){
+
+    private function getFileName($fullPath) {
         $parts = explode(DIRECTORY_SEPARATOR, $fullPath);
         return $parts[count($parts) - 1];
     }
-    
-    public function createPropertyFoderIfNotExists($idInmueble){
+
+    public function createPropertyFoderIfNotExists($idInmueble) {
         $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
-        $propertyFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME,$idInmueble));
+        $propertyFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble));
         if (!file_exists($propertyFolder)) {
             mkdir($propertyFolder, FileSystemUtil::RIGHTS_MODE, true);
         }
         return true;
+    }
+
+    public function getPropertyFolder($idInmueble) {
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        return join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble));
+    }
+
+    public function saveFormImages($files, $idInmueble) {
+
+        $arr = $_FILES;
+        $uploaddir = $this->getPropertyFolder($idInmueble) . DIRECTORY_SEPARATOR;
+
+        foreach ($files['files'] as $item) {
+            $uploadfile = $uploaddir . basename($item['name'][0]);
+
+            if (move_uploaded_file($files['files']['tmp_name'], $uploadfile)) {
+                $echo = "El archivo es válido y fue cargado exitosamente.\n";
+            } else {
+                $echo = "¡Posible ataque de carga de archivos!\n";
+            }
+        }
     }
 
 }
