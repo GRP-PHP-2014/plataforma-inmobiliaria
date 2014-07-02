@@ -32,6 +32,7 @@ class EmailNotificacion extends EMongoDocument // Notice: We extend EMongoDocume
             'fechaHoraEnvio' => 'fechaHoraEnvio',
             'email' => 'email',
             'tipoNotificacion' => 'tipoNotificacion',
+            'cliente' => 'cliente',
         );
     }
     

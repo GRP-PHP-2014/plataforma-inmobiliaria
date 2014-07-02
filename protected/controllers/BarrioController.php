@@ -22,18 +22,18 @@ class BarrioController extends AdminController {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
                 'actions' => array('login'),
-                'users' => array('?'),
+                'roles' => array('?'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array('create', 'update', 'view', 'admin'),
-                'users' => array('director'),
+                'roles' => array('director'),
             ),
             array('allow',
                 'actions' => array('logout'),
-                'users' => array('@'),
+                'roles' => array('@'),
             ),
             array('deny', // deny all users
-                'users' => array('*'),
+                'roles' => array('*'),
             ),
         );
     }

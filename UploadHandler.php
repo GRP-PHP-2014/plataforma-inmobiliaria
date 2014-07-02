@@ -1,6 +1,6 @@
 <?php
 /*
- * jQuery File Upload Plugin PHP Class 8.0.0
+ * jQuery File Upload Plugin PHP Class 8.0.2
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -41,11 +41,11 @@ class UploadHandler
     protected $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
-        $fsu = new FileSystemUtil;
+        error_reporting(0);
         $this->options = array(
-            'script_url' => $this->get_full_url().'/',
-            'upload_dir' => $fsu->getCurrentUserTmpFolder() . DIRECTORY_SEPARATOR,
-            'upload_url' => $this->get_full_url().'/index.php/image/',
+            'script_url' => $this->get_full_url().'/indexFiles.php',
+            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
+            'upload_url' => $this->get_full_url().'/files/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -215,10 +215,8 @@ class UploadHandler
             }
             $version_path = $version.'/';
         }
-        
-        //$dsdd = $this->get_user_path();
-        //return $this->options['upload_dir'].$this->get_user_path().$version_path.$file_name;
-        return join(DIRECTORY_SEPARATOR , array($this->options['upload_dir'] , $file_name));
+        return $this->options['upload_dir'].$this->get_user_path()
+            .$version_path.$file_name;
     }
 
     protected function get_query_separator($url) {
@@ -245,18 +243,15 @@ class UploadHandler
             }
             $version_path = rawurlencode($version).'/';
         }
-        //return $this->options['upload_url'].$this->get_user_path().$version_path.rawurlencode($file_name);
-        return $this->options['upload_url'].rawurlencode($file_name);
+        return $this->options['upload_url'].$this->get_user_path()
+            .$version_path.rawurlencode($file_name);
     }
 
     protected function set_additional_file_properties($file) {
-        /*
         $file->deleteUrl = $this->options['script_url']
             .$this->get_query_separator($this->options['script_url'])
             .$this->get_singular_param_name()
             .'='.rawurlencode($file->name);
-         */
-        $file->deleteUrl = Yii::app()->createUrl("file/upload" , array('file' => rawurlencode($file->name)));
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';
@@ -1024,7 +1019,8 @@ class UploadHandler
         $this->destroy_image_object($file_path);
     }
 
-    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
+    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
+            $index = null, $content_range = null) {
         $file = new \stdClass();
         $file->name = $this->get_file_name($uploaded_file, $name, $size, $type, $error,
             $index, $content_range);
@@ -1083,8 +1079,8 @@ class UploadHandler
             $handle = fopen($file_path, 'rb');
             while (!feof($handle)) {
                 echo fread($handle, $chunk_size);
-                ob_flush();
-                flush();
+                @ob_flush();
+                @flush();
             }
             fclose($handle);
             return $file_size;
@@ -1101,6 +1097,7 @@ class UploadHandler
     }
 
     protected function get_server_var($id) {
+        $aqsd = $_SERVER[$id];
         return isset($_SERVER[$id]) ? $_SERVER[$id] : '';
     }
 
@@ -1138,12 +1135,12 @@ class UploadHandler
 
     protected function get_file_name_param() {
         $name = $this->get_singular_param_name();
-        return isset($_GET[$name]) ? basename(stripslashes($_GET[$name])) : null;
+        return isset($_REQUEST[$name]) ? basename(stripslashes($_REQUEST[$name])) : null;
     }
 
     protected function get_file_names_params() {
-        $params = isset($_GET[$this->options['param_name']]) ?
-            $_GET[$this->options['param_name']] : array();
+        $params = isset($_REQUEST[$this->options['param_name']]) ?
+            $_REQUEST[$this->options['param_name']] : array();
         foreach ($params as $key => $value) {
             $params[$key] = basename(stripslashes($value));
         }
@@ -1315,10 +1312,9 @@ class UploadHandler
             $file_names = array($this->get_file_name_param());
         }
         $response = array();
-        foreach($file_names as $file_name) {            
+        foreach($file_names as $file_name) {
             $file_path = $this->get_upload_path($file_name);
-            $decodedFilePath = urldecode($file_path);
-            $success = is_file($decodedFilePath) && $file_name[0] !== '.' && unlink($decodedFilePath);
+            $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
             if ($success) {
                 foreach($this->options['image_versions'] as $version => $options) {
                     if (!empty($version)) {

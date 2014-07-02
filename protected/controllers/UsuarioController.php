@@ -24,18 +24,18 @@ class UsuarioController extends AdminController {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
                 'actions' => array('login'),
-                'users' => array('?'),
+                'roles' => array('?'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array('create', 'update', 'view', 'admin'),
-                'users' => array('director'),
+                'roles' => array('director'),
             ),
             array('allow', 
                 'actions' => array('logout'),
-                'users' => array('@'),
+                'roles' => array('@'),
             ),                
             array('deny', // deny all users
-                'users' => array('*'),
+                'roles' => array('*'),
             ),
         );
     }
@@ -57,9 +57,6 @@ class UsuarioController extends AdminController {
     public function actionCreate() {
         $model = new Usuario;
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
         if (isset($_POST['Usuario'])) {
             $model->attributes = $_POST['Usuario'];
             $model->contrasenia = $model->usuario;
@@ -68,6 +65,8 @@ class UsuarioController extends AdminController {
                 $authAssign->itemname = $model->rol;
                 $authAssign->userid = $model->usuario;
                 $authAssign->save();
+                $fsu = new FileSystemUtil;
+                $fsu->createUserTmpFoderIfNotExists($model->usuario);
                 $this->redirect(array('view', 'id' => $model->usuario));
             }
         }

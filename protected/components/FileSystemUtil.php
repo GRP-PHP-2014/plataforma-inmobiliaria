@@ -72,8 +72,18 @@ class FileSystemUtil {
     }
 
     function getTmpFilesNames() {
+        /*
         $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
         $tmpFiles = glob(join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::TMP_FOLDER_NAME, Yii::app()->user->title)) . DIRECTORY_SEPARATOR . '*');
+        $filesNames = array();
+        foreach ($tmpFiles as $file) {
+            if (is_file($file)) {
+                array_push($filesNames, $this->getFileName($file));
+            }
+        }
+         * 
+         */
+        $tmpFiles = glob(DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("opt", "lampp", "htdocs","plataforma-inmobiliaria","files")) . DIRECTORY_SEPARATOR . '*');
         $filesNames = array();
         foreach ($tmpFiles as $file) {
             if (is_file($file)) {
@@ -89,8 +99,13 @@ class FileSystemUtil {
      * para el inmueble pasado como parametro {idInmueble}
      */
     function copyFileFromTmpToFs($fileName, $idInmueble) {
+        /*
         $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
         $tmpFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::TMP_FOLDER_NAME, Yii::app()->user->title)) . DIRECTORY_SEPARATOR;
+        $finalFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble)) . DIRECTORY_SEPARATOR;
+        */
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        $tmpFolder = DIRECTORY_SEPARATOR . join(DIRECTORY_SEPARATOR, array("opt", "lampp", "htdocs","plataforma-inmobiliaria","files")) . DIRECTORY_SEPARATOR;
         $finalFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble)) . DIRECTORY_SEPARATOR;
         return copy($tmpFolder . $fileName, $finalFolder . $fileName);
     }
@@ -132,6 +147,15 @@ class FileSystemUtil {
         $propertyFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::IMAGES_FOLDER_NAME, $idInmueble));
         if (!file_exists($propertyFolder)) {
             mkdir($propertyFolder, FileSystemUtil::RIGHTS_MODE, true);
+        }
+        return true;
+    }
+
+    public function createUserTmpFoderIfNotExists($nickUsuario) {
+        $rutaBase = Parametro::model()->findByPk(Constantes::PARAMETRO_RUTA_BASE)->valor;
+        $userTmpFolder = join(DIRECTORY_SEPARATOR, array($rutaBase, FileSystemUtil::TMP_FOLDER_NAME, $nickUsuario));
+        if (!file_exists($userTmpFolder)) {
+            mkdir($userTmpFolder, FileSystemUtil::RIGHTS_MODE, true);
         }
         return true;
     }

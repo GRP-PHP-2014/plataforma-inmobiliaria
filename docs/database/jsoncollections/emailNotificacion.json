@@ -1,0 +1,49 @@
+/* 0 */
+{
+    "_id" : ObjectId("53a35b19648ca11c6379dff2"),
+    "fechaHoraEnvio" : "16-06-2014",
+    "email" : "Busco casa en barrio Parque Rodo",
+    "tipoNotificacion" : "Solicitud de informacion",
+    "cliente" : "porquera@csi.com.uy",
+    "estado" : "pendiente"
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("53a35bfb648ca11c6379dff3"),
+    "fechaHoraEnvio" : "16-06-2014",
+    "email" : "En busqueda de apartamento en zona Paso Molino",
+    "tipoNotificacion" : "Solicitud de informacion",
+    "cliente" : "mravagnolo@csi.com.uy",
+    "estado" : "pendiente"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("53a35c05648ca11c6379dff4"),
+    "fechaHoraEnvio" : "16-06-2014",
+    "email" : "quiero que me publiques un inmueble",
+    "tipoNotificacion" : "Solicitud de publicacion",
+    "cliente" : "smusso@csi.com.uy",
+    "estado" : "pendiente"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("53aa3f75e5974aec0b3c9869"),
+    "fechaHoraEnvio" : "2014-06-25 05:18:13",
+    "email" : "Publicacion de Salon de baile",
+    "tipoNotificacion" : "solicitud_publicacion",
+    "cliente" : "fgonzalez@gmail.com",
+    "estado" : "pendiente"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("53ab85cce5974adb1a3c9869"),
+    "fechaHoraEnvio" : "2014-06-26 04:30:36",
+    "email" : "Necesito urgente la publicacion de una propiedad en carrasco",
+    "tipoNotificacion" : "solicitud de publicacion",
+    "cliente" : "aaldao@gmail.com",
+    "estado" : "pendiente"
+}

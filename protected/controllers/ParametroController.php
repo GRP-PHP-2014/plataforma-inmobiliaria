@@ -28,10 +28,10 @@ class ParametroController extends AdminController {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'update'),
-                'users' => array('director'),
+                'roles' => array('director'),
             ),
             array('deny', // deny all users
-                'users' => array('*'),
+                'roles' => array('*'),
             ),
         );
     }

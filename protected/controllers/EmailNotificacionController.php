@@ -22,10 +22,10 @@ class EmailNotificacionController extends AdminController {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'create', 'view', 'delete','update'),
-                'users' => array('director'),
+                'roles' => array('director'),
             ),
             array('deny', // deny all users
-                'users' => array('*'),
+                'roles' => array('*'),
             ),
         );
     }

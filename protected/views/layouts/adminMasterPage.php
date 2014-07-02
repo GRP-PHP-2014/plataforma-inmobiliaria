@@ -51,7 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo Yii::app()->createUrl('admin/index'); ?>">Inmobiliaria</a>
+                    <a class="navbar-brand" href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmobiliaria</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +61,6 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl('auditoria/admin'); ?>">Auditor&iacute;a</a></li>
-                                <li><a href="<?php echo Yii::app()->createUrl('estadoInmueble/admin'); ?>">Estados de Inmuebles</a></li>
                                 <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('barrio/admin'); ?>">Gesti&oacute;n de barrios</a></li>
                                 <li><a href="<?php echo Yii::app()->createUrl('ciudad/admin'); ?>">Gesti&oacute;n de ciudades</a></li>
@@ -84,8 +83,6 @@
                         <li class="dropdown">                            
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span><?php echo Yii::app()->user->title ?></span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">mi perfil</a></li>
-                                <li class="divider"></li>
                                 <li><a href="<?php echo Yii::app()->createUrl("usuario/logout")?>">salir</a></li>
                             </ul>
                         </li>
