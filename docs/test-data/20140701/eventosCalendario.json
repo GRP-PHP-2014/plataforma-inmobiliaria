@@ -1,0 +1,307 @@
+/* 0 */
+{
+    "_id" : ObjectId("53a8fd35e5974ae4243c9869"),
+    "titulo" : "visita en casa 1",
+    "descripcion" : "sdfsdfsdf",
+    "fechaHoraDesde" : "06/24/2014 3:31 AM",
+    "fechaHoraHasta" : "06/24/2014 3:31 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("53a8fd5de5974a46253c9869"),
+    "titulo" : "titulo evento",
+    "descripcion" : "asdasdasdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 3:30 AM",
+    "fechaHoraHasta" : "06/24/2014 3:30 AM",
+    "idInmueble" : "31",
+    "tituloInmueble" : "una linda casa",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("53a90631e5974aa6263c9869"),
+    "titulo" : "ALguna cosa",
+    "descripcion" : "asdasdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 2:00 AM",
+    "fechaHoraHasta" : "06/24/2014 9:00 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("53a9177ee5974a3a283c9869"),
+    "titulo" : "Visita a apto",
+    "descripcion" : "asdasdasdasdasdasd",
+    "fechaHoraDesde" : "06/11/2014 3:14 AM",
+    "fechaHoraHasta" : "06/25/2014 3:14 AM",
+    "idInmueble" : "10",
+    "tituloInmueble" : "Casa de la barra",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("53a91840e5974a5d283c9869"),
+    "titulo" : "titulo evento",
+    "descripcion" : "alguna descripcion",
+    "fechaHoraDesde" : "08/04/2015 12:00 AM",
+    "fechaHoraHasta" : "09/03/2015 12:00 AM",
+    "idInmueble" : "32",
+    "tituloInmueble" : "Apto de Rivera y Soca",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("53a9185de5974a3a283c986a"),
+    "titulo" : "Confirmacion venta",
+    "descripcion" : "asdasdasdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 3:18 AM",
+    "fechaHoraHasta" : "06/26/2014 3:18 AM",
+    "idInmueble" : "31",
+    "tituloInmueble" : "una linda casa",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("53a91879e5974a98283c9869"),
+    "titulo" : "Consulta a domicilio",
+    "descripcion" : "alguna descripcion",
+    "fechaHoraDesde" : "08/03/2015 12:00 AM",
+    "fechaHoraHasta" : "09/10/2015 12:00 AM",
+    "idInmueble" : "32",
+    "tituloInmueble" : "Apto de Rivera y Soca",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("53a91899e5974a90273c9869"),
+    "titulo" : "Confirmacion venta",
+    "descripcion" : ".kjshldajhlsd lkjhasdljkhasdl lkjashdljkahsd hklasdhlkashdlaskhdlask lkjhalskjdhalkj lkjhasldkhalkjsdhaslkjhaslkj lkjhasdkl",
+    "fechaHoraDesde" : "06/18/2014 3:19 AM",
+    "fechaHoraHasta" : "06/26/2014 3:19 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("53a918b1e5974aed273c9869"),
+    "titulo" : "Consulta",
+    "descripcion" : "alguna descripcion",
+    "fechaHoraDesde" : "08/04/2015 12:00 AM",
+    "fechaHoraHasta" : "09/04/2015 12:00 AM",
+    "idInmueble" : "32",
+    "tituloInmueble" : "Apto de Rivera y Soca",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("53a918d5e5974a72283c9869"),
+    "titulo" : "Compra inmueble",
+    "descripcion" : "asdasd asdasd asdas asdasd asdasdasdasd",
+    "fechaHoraDesde" : "06/11/2014 3:20 AM",
+    "fechaHoraHasta" : "06/26/2014 3:21 AM",
+    "idInmueble" : "14",
+    "tituloInmueble" : "asdasdasdasdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("53a918f2e5974a28283c9869"),
+    "titulo" : "titulo evento",
+    "descripcion" : "asdasda asdasd asdasd",
+    "fechaHoraDesde" : "06/10/2014 3:21 AM",
+    "fechaHoraHasta" : "06/11/2014 3:21 AM",
+    "idInmueble" : "10",
+    "tituloInmueble" : "Casa de la barra",
+    "idCliente" : "3",
+    "emailCliente" : "jsuarez@gmail.com",
+    "idUsuario" : "director"
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("53a9191ee5974a3a283c986b"),
+    "titulo" : "titulo evento",
+    "descripcion" : "asdsadds",
+    "fechaHoraDesde" : "06/19/2014 3:22 AM",
+    "fechaHoraHasta" : "06/20/2014 3:22 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("53a91944e5974aed273c986a"),
+    "titulo" : "titulo evento",
+    "descripcion" : "",
+    "fechaHoraDesde" : "06/24/2014 3:22 AM",
+    "fechaHoraHasta" : "06/24/2014 3:22 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("53a9197fe5974a72283c986a"),
+    "titulo" : "visita a una linda casa",
+    "descripcion" : "asdasdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 3:32 AM",
+    "fechaHoraHasta" : "06/24/2014 3:32 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("53a8e2c3e5974a28203c9869"),
+    "titulo" : "titulo evento",
+    "descripcion" : "asdasdsad asdasd",
+    "fechaHoraDesde" : "06/24/2014 3:29 AM",
+    "fechaHoraHasta" : "06/24/2014 3:29 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("53a8f633e5974a29223c9869"),
+    "titulo" : "Confirmacion venta",
+    "descripcion" : "",
+    "fechaHoraDesde" : "06/24/2014 3:29 AM",
+    "fechaHoraHasta" : "06/24/2014 3:29 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("53a8f818e5974a29223c986a"),
+    "titulo" : "visita en casa 1",
+    "descripcion" : "asdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 3:29 AM",
+    "fechaHoraHasta" : "06/24/2014 3:29 AM",
+    "idInmueble" : "31",
+    "tituloInmueble" : "una linda casa",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("53a8f665e5974acc233c9869"),
+    "titulo" : "Confirmacion venta",
+    "descripcion" : "",
+    "fechaHoraDesde" : "06/24/2014 3:30 AM",
+    "fechaHoraHasta" : "06/24/2014 3:30 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("53a8f6aae5974aa7223c9869"),
+    "titulo" : "sdasdasdasd",
+    "descripcion" : "",
+    "fechaHoraDesde" : "06/24/2014 3:31 AM",
+    "fechaHoraHasta" : "06/24/2014 3:31 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("53a8f7bee5974a26203c9869"),
+    "titulo" : "visita a una linda casa",
+    "descripcion" : "asdasdasdasdasd",
+    "fechaHoraDesde" : "06/24/2014 3:31 AM",
+    "fechaHoraHasta" : "06/24/2014 3:31 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("53a8e3b6e5974a17203c9869"),
+    "titulo" : "titulo evento",
+    "descripcion" : "alguna descripcion",
+    "fechaHoraDesde" : "08/05/2015 12:00 AM",
+    "fechaHoraHasta" : "09/11/2015 12:00 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("53a91aa0e5974a5d283c986a"),
+    "titulo" : "sdasdasdasd",
+    "descripcion" : "",
+    "fechaHoraDesde" : "06/24/2014 3:32 AM",
+    "fechaHoraHasta" : "06/24/2014 3:32 AM",
+    "idInmueble" : "1",
+    "tituloInmueble" : "asdasd",
+    "idCliente" : "1",
+    "emailCliente" : "sadasd",
+    "idUsuario" : "director"
+}
