@@ -18,7 +18,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/inmueble/logica-inmueble.js"></script>     
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/on-start.js"></script>
         
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/bootstrap.min.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-inmobiliaria.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/alertify.core.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/alertify.bootstrap.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/bootstrap-combobox.css" media="screen, projection" />
@@ -41,7 +41,7 @@
 
     <body>
 
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-inverse" role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -56,7 +56,8 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">                        
+                    <ul class="nav navbar-nav">   
+                        <?php if (Yii::app()->user->hasRole(Constantes::USER_ROLE_DIRECTOR)){ ?>
                         <li class="dropdown <?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CONFIGURACION) == 0){  echo 'active'; }  ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuracion<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -71,6 +72,7 @@
                                 <li><a href="<?php echo Yii::app()->createUrl('tipoNotificacion/admin'); ?>">Tipos de notificaci&oacute;n</a></li>
                             </ul>
                         </li>
+                        <?php } ?>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_USUARIOS) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CLIENTES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_INMUEBLES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
@@ -81,7 +83,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">                            
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span><?php echo Yii::app()->user->title ?></span><b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span><?php echo Yii::app()->user->getTitle() ?></span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl("usuario/logout")?>">salir</a></li>
                             </ul>

@@ -15,19 +15,19 @@
 
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'titulo'); ?>
-        <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 512, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 512, "class" => "form-control input-sm")); ?>
     </div>
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'descripcion'); ?>
-        <?php echo $form->textField($model, 'descripcion', array('size' => 60, 'maxlength' => 512, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'descripcion', array('size' => 60, 'maxlength' => 512, "class" => "form-control input-sm")); ?>
     </div>
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'fechaHoraDesde'); ?>
-        <?php echo $form->textField($model, 'fechaHoraDesde', array('size' => 60, 'maxlength' => 512, "class" => "form-control date-input")); ?>
+        <?php echo $form->textField($model, 'fechaHoraDesde', array('size' => 60, 'maxlength' => 512, "class" => "form-control date-input input-sm")); ?>
     </div>
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'titulo'); ?>
-        <?php echo $form->textField($model, 'fechaHoraHasta', array('size' => 60, 'maxlength' => 512, "class" => "form-control date-input")); ?>
+        <?php echo $form->textField($model, 'fechaHoraHasta', array('size' => 60, 'maxlength' => 512, "class" => "form-control date-input input-sm")); ?>
     </div>
 
     <div class="form-group col-lg-12">

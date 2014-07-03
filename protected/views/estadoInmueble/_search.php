@@ -15,12 +15,12 @@
 
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'nombre'); ?>
-        <?php echo $form->textField($model, 'nombre', array('size' => 60, 'maxlength' => 100, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'nombre', array('size' => 60, 'maxlength' => 100, "class" => "form-control input-sm")); ?>
     </div>
 
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'descripcion'); ?>
-        <?php echo $form->textField($model, 'descripcion', array('size' => 60, 'maxlength' => 1024, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'descripcion', array('size' => 60, 'maxlength' => 1024, "class" => "form-control input-sm")); ?>
     </div>
 
     <div class="form-group col-lg-6">

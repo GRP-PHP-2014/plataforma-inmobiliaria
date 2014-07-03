@@ -19,7 +19,7 @@ $('.search-form form').submit(function(){
 <div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-        <div class="row">
+        <div class="row top-admin-row">
             <div class="col-lg-12">
                 <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Mis eventos<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
@@ -36,89 +36,92 @@ $('.search-form form').submit(function(){
                 <div class="pull-right"><a href="<?php echo Yii::app()->createUrl('evento/create'); ?>"><span title="nuevo" class="glyphicon glyphicon-plus"></span></a></div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <?php
-            $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'notificacion-grid',
-                'dataProvider' => $model->search(),
-                'summaryText' => '',
-                'emptyText' => Yii::app()->params["labelTablaSinResultados"],
-                'pager' => array(
-                    'header' => Yii::app()->params["labelPaginacionTabla"],
-                    'firstPageLabel' => '&lt;&lt;',
-                    'prevPageLabel' => Yii::app()->params["prevPageLabel"],
-                    'nextPageLabel' => Yii::app()->params["nextPageLabel"],
-                    'lastPageLabel' => '&gt;&gt;',
-                ),
-                'columns' => array(
-                    array(
-                        'name' => 'Inicio',
-                        'value' => '$data->fechaHoraDesde',
-                        'type' => 'raw',
+        <div class="row">
+            <div class="col-lg-12">
+                <?php
+                $this->widget('zii.widgets.grid.CGridView', array(
+                    'id' => 'notificacion-grid',
+                    'dataProvider' => $model->search(),
+                    'summaryText' => '',
+                    'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                    'emptyText' => Yii::app()->params["labelTablaSinResultados"],
+                    'pager' => array(
+                        'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
                     ),
-                    array(
-                        'name' => 'Fin',
-                        'value' => '$data->fechaHoraHasta',
-                        'type' => 'raw',
-                    ),
-                    array(
-                        'name' => 'Titulo',
-                        'value' => '$data->titulo',
-                        'type' => 'raw',
-                    ),
-                    array(
-                        'name' => 'Cliente',
-                        'value' => 'CHtml::link($data->emailCliente, Yii::app()->createUrl("cliente/view",array("id"=>$data->idCliente)))',
-                        'type' => 'raw',
-                    ),
-                    array(
-                        'name' => 'Inmueble',
-                        'value' => 'CHtml::link($data->tituloInmueble, Yii::app()->createUrl("inmueble/view",array("id"=>$data->idInmueble)))',
-                        'type' => 'raw',
-                    ),
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{ver}',
-                        'buttons' => array
-                            (
-                            'ver' => array
+                    'columns' => array(
+                        array(
+                            'name' => 'Inicio',
+                            'value' => '$data->fechaHoraDesde',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'name' => 'Fin',
+                            'value' => '$data->fechaHoraHasta',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'name' => 'Titulo',
+                            'value' => '$data->titulo',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'name' => 'Cliente',
+                            'value' => 'CHtml::link($data->emailCliente, Yii::app()->createUrl("cliente/view",array("id"=>$data->idCliente)))',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'name' => 'Inmueble',
+                            'value' => 'CHtml::link($data->tituloInmueble, Yii::app()->createUrl("inmueble/view",array("id"=>$data->idInmueble)))',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'class' => 'CButtonColumn',
+                            'template' => '{ver}',
+                            'buttons' => array
                                 (
-                                'label' => Yii::app()->params["labelBotonGrillaVer"],
-                                'options' => array('title' => 'ver'),
-                                'url' => 'Yii::app()->createUrl("evento/view", array("id"=>$data->_id))',
+                                'ver' => array
+                                    (
+                                    'label' => Yii::app()->params["labelBotonGrillaVer"],
+                                    'options' => array('title' => 'ver'),
+                                    'url' => 'Yii::app()->createUrl("evento/view", array("id"=>$data->_id))',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'class' => 'CButtonColumn',
+                            'template' => '{editar}',
+                            'buttons' => array
+                                (
+                                'editar' => array
+                                    (
+                                    'label' => Yii::app()->params["labelBotonGrillaEditar"],
+                                    'options' => array('title' => 'editar'),
+                                    'url' => 'Yii::app()->createUrl("evento/update", array("id"=>$data->_id))',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'class' => 'CButtonColumn',
+                            'template' => '{eliminar}',
+                            'buttons' => array
+                                (
+                                'eliminar' => array
+                                    (
+                                    'label' => Yii::app()->params["labelBotonGrillaEliminar"],
+                                    'options' => array('title' => 'eliminar'),
+                                    'url' => 'Yii::app()->createUrl("evento/delete", array("id"=>$data->_id))',
+                                ),
                             ),
                         ),
                     ),
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{editar}',
-                        'buttons' => array
-                            (
-                            'editar' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaEditar"],
-                                'options' => array('title' => 'editar'),
-                                'url' => 'Yii::app()->createUrl("evento/update", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ),
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{eliminar}',
-                        'buttons' => array
-                            (
-                            'eliminar' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaEliminar"],
-                                'options' => array('title' => 'eliminar'),
-                                'url' => 'Yii::app()->createUrl("evento/delete", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ),
-                ),
-            ));
-            ?>
+                ));
+                ?>
+            </div>
         </div>
     </div>
-    <div class="col-lg-2"></div>
 </div>

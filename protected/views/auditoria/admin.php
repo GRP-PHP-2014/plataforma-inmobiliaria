@@ -19,8 +19,8 @@ $('.search-form form').submit(function(){
 <div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="row top-admin-row">
+            <div class="col-lg-12 ">
                 <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Consulta de auditor&iacute;a<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
@@ -33,35 +33,34 @@ $('.search-form form').submit(function(){
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <?php
-            $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'auditoria-grid',
-                'dataProvider' => $model->search(),
-                'emptyText' => Yii::app()->params["labelTablaSinResultados"],
-                'summaryText' => '',
-                'pager' => array(
-                    'header' => Yii::app()->params["labelPaginacionTabla"],
-                    'firstPageLabel' => '&lt;&lt;',
-                    'prevPageLabel' => Yii::app()->params["prevPageLabel"],
-                    'nextPageLabel' => Yii::app()->params["nextPageLabel"],
-                    'lastPageLabel' => '&gt;&gt;',
-                ),
-                'columns' => array(
-                    'fecha',
-                    'usuario',
-                    'objeto',
-                    'operacion',
-                    'descripcion'
-                ),
-            ));
-            ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <?php
+                $this->widget('zii.widgets.grid.CGridView', array(
+                    'id' => 'auditoria-grid',
+                    'dataProvider' => $model->search(),
+                    'emptyText' => Yii::app()->params["labelTablaSinResultados"],
+                    'summaryText' => '',
+                    'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                    'pager' => array(
+                        'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
+                    ),
+                    'columns' => array(
+                        'fecha',
+                        'usuario',
+                        'objeto',
+                        'operacion',
+                        'descripcion'
+                    ),
+                ));
+                ?>
 
+            </div>
         </div>
     </div>
-    <div class="col-lg-2"></div>
 </div>
-
-    <script type="text/javascript">
-         
-    </script>

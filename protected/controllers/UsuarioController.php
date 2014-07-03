@@ -59,7 +59,7 @@ class UsuarioController extends AdminController {
 
         if (isset($_POST['Usuario'])) {
             $model->attributes = $_POST['Usuario'];
-            $model->contrasenia = $model->usuario;
+            $model->contrasenia = crypt($model->usuario);
             if ($model->save()) {
                 $authAssign = new AuthAssignment();
                 $authAssign->itemname = $model->rol;

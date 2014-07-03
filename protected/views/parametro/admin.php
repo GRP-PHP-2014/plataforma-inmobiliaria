@@ -19,7 +19,7 @@ $('.search-form form').submit(function(){
 <div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-        <div class="row">
+        <div class="row top-admin-row">
             <div class="col-lg-12">
                 <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar par&aacute;metros<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
@@ -32,13 +32,15 @@ $('.search-form form').submit(function(){
                     ?>
                 </div>
             </div>
-
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <?php
                 $this->widget('zii.widgets.grid.CGridView', array(
                     'id' => 'parametro-grid',
                     'dataProvider' => $model->search(),
                     'summaryText' => '',
+                    'cssFile' => Yii::app()->params["gridViewStyleSheet"],
                     'columns' => array(
                         'nombre',
                         'descripcion',
@@ -61,6 +63,5 @@ $('.search-form form').submit(function(){
                 ?>
             </div>
         </div>
-        <div class="col-lg-2"></div>
     </div>
 </div>

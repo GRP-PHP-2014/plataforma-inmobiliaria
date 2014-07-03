@@ -44,9 +44,10 @@ return array(
     // application components
     'components' => array(
         'user' => array(
+            'class' => 'WebUser',
             'loginUrl' => array('usuario/login'),
-            // enable cookie-based authentication
             'allowAutoLogin' => true,
+            
         ),
         // uncomment the following to enable URLs in path-format
         'defaultController' => 'usuario',

@@ -48,4 +48,9 @@ class Constantes {
     const ITEM_MENU_CLIENTES = "clientes";
     const ITEM_MENU_PORTADA = "portada";
     
+    const USER_ROLE_ADMINISTRATIVO = "administrativo";
+    const USER_ROLE_DIRECTOR = "director";
+    const USER_ROLE_AGENTE = "agente";
+    
 }
+

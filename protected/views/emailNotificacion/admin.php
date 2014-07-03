@@ -19,9 +19,9 @@ $('.search-form form').submit(function(){
 <div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
-        <div class="row">
+        <div class="row top-admin-row">
             <div class="col-lg-12">
-                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar tipos de notificaci&oacute;n<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Notificaciones<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
@@ -33,53 +33,63 @@ $('.search-form form').submit(function(){
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <?php
-            $this->widget('zii.widgets.grid.CGridView', array(
-                'id' => 'notificacion-grid',
-                'dataProvider' => $model->search(),
-                'summaryText' => '',
-                'emptyText' => Yii::app()->params["labelTablaSinResultados"],
-                'pager' => array(
-                    'header' => Yii::app()->params["labelPaginacionTabla"],
-                    'firstPageLabel' => '&lt;&lt;',
-                    'prevPageLabel' => Yii::app()->params["prevPageLabel"],
-                    'nextPageLabel' => Yii::app()->params["nextPageLabel"],
-                    'lastPageLabel' => '&gt;&gt;',
-                ),
-                'columns' => array(
-                    'cliente',
-                    'tipoNotificacion',
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{ver}',
-                        'buttons' => array
-                            (
-                            'ver' => array
+        <div class="row">
+            <div class="col-lg-12">
+                <?php
+                $this->widget('zii.widgets.grid.CGridView', array(
+                    'id' => 'notificacion-grid',
+                    'dataProvider' => $model->search(),
+                    'summaryText' => '',
+                    'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                    'emptyText' => Yii::app()->params["labelTablaSinResultados"],
+                    'pager' => array(
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
+                    ),
+                    'columns' => array(
+                        array(
+                            'name' => 'Cliente',
+                            'value' => '$data->cliente',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'name' => 'Tipo de notificaci&oacute;n',
+                            'value' => '$data->tipoNotificacion',
+                            'type' => 'raw',
+                        ),
+                        array(
+                            'class' => 'CButtonColumn',
+                            'template' => '{ver}',
+                            'buttons' => array
                                 (
-                                'label' => Yii::app()->params["labelBotonGrillaVer"],
-                                'options' => array('title' => 'ver'),
-                                'url' => 'Yii::app()->createUrl("emailNotificacion/view", array("id"=>$data->_id))',
+                                'ver' => array
+                                    (
+                                    'label' => Yii::app()->params["labelBotonGrillaVer"],
+                                    'options' => array('title' => 'ver'),
+                                    'url' => 'Yii::app()->createUrl("emailNotificacion/view", array("id"=>$data->_id))',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'class' => 'CButtonColumn',
+                            'template' => '{resolver}',
+                            'buttons' => array
+                                (
+                                'resolver' => array
+                                    (
+                                    'label' => Yii::app()->params["labelBotonGrillaResolver"],
+                                    'options' => array('title' => 'resolver'),
+                                    'url' => 'Yii::app()->createUrl("emailNotificacion/resolve", array("id"=>$data->_id))',
+                                ),
                             ),
                         ),
                     ),
-                    array(
-                        'class' => 'CButtonColumn',
-                        'template' => '{resolver}',
-                        'buttons' => array
-                            (
-                            'resolver' => array
-                                (
-                                'label' => Yii::app()->params["labelBotonGrillaResolver"],
-                                'options' => array('title' => 'resolver'),
-                                'url' => 'Yii::app()->createUrl("emailNotificacion/resolve", array("id"=>$data->_id))',
-                            ),
-                        ),
-                    ), 
-                ),
-            ));
-            ?>
+                ));
+                ?>
+            </div>
         </div>
     </div>
-    <div class="col-lg-2"></div>
 </div>

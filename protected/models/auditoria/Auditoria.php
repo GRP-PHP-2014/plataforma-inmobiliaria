@@ -11,6 +11,9 @@
  * @property string $descripcion
  */
 class Auditoria extends CActiveRecord {
+    
+    public $fechaDesde;
+    public $fechaHasta;
 
     /**
      * @return string the associated database table name

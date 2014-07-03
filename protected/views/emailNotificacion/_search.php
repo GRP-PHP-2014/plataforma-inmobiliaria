@@ -15,7 +15,7 @@
 
     <div class="form-group col-lg-6">
         <?php echo $form->label($model, 'tipoNotificacion'); ?>
-        <?php echo $form->textField($model, 'tipoNotificacion', array('size' => 60, 'maxlength' => 512, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'tipoNotificacion', array('size' => 60, 'maxlength' => 512, "class" => "form-control input-sm")); ?>
     </div>
 
     <div class="form-group col-lg-12">

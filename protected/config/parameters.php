@@ -20,5 +20,5 @@ return array(
     
     "UiHeadersWrapperOMarkup" => '<h3>',
     "UiHeadersWrapperCMarkup" => '</h3>',
-    
+    "gridViewStyleSheet" => '/plataforma-inmobiliaria/css/gridViewStyle/gridView.css',
 );
