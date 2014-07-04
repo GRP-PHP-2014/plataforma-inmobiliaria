@@ -16,7 +16,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<div class="row-fluid">
+<div class="row-fluid"> 
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
         <div class="row top-admin-row">
@@ -43,12 +43,23 @@ $('.search-form form').submit(function(){
                 $this->widget('zii.widgets.grid.CGridView', array(
                     'id' => 'cliente-grid',
                     'summaryText' => '',
+                    'pager' => array(
+                        'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
+                    ),
                     'cssFile' => Yii::app()->params["gridViewStyleSheet"],
                     'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                     'dataProvider' => $model->search(),
                     'columns' => array(
                         'nombre',
-                        'ciudad',
+                        array(            
+                            'name'=>'Ciudad',
+                            'value'=>array($this,'renderNombreCiudad')
+                        ),
                         array(
                             'class' => 'CButtonColumn',
                             'template' => '{ver}',

@@ -25,13 +25,13 @@
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'nombre'); ?>
-        <?php echo $form->textField($model, 'nombre', array('size' => 60, 'maxlength' => 64, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'nombre', array('size' => 60, 'maxlength' => 64, "class" => "form-control input-sm")); ?>
         <?php echo $form->error($model, 'nombre'); ?>
     </div>
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'descripcion'); ?>
-        <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 512, "class" => "form-control")); ?>
+        <?php echo $form->textArea($model, 'descripcion', array('size' => 60, 'maxlength' => 512, "class" => "form-control input-sm")); ?>
         <?php echo $form->error($model, 'descripcion'); ?>
     </div>
 

@@ -46,9 +46,20 @@ $('.search-form form').submit(function(){
                     'cssFile' => Yii::app()->params["gridViewStyleSheet"],
                     'emptyText' => Yii::app()->params["labelTablaSinResultados"],
                     'dataProvider' => $model->search(),
+                    'pager' => array(
+                        'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
+                    ),
                     'columns' => array(
                         'nombre',
-                        'departamento',
+                        array(            
+                            'name'=>'Departamento',
+                            'value'=>array($this,'renderNombreDepartamento')
+                        ),
                         array(
                             'class' => 'CButtonColumn',
                             'template' => '{ver}',

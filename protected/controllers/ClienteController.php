@@ -21,7 +21,7 @@ class ClienteController extends AdminController {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('admin', 'delete'),
+                'actions' => array('admin', 'delete', 'view', 'create' , 'update'),
                 'roles' => array(Constantes::USER_ROLE_DIRECTOR,  Constantes::USER_ROLE_ADMINISTRATIVO),
             ),
             array('deny',

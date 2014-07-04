@@ -21,14 +21,14 @@
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'titulo'); ?>
-        <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 100, "class" => "form-control")); ?>
+        <?php echo $form->textField($model, 'titulo', array('size' => 60, 'maxlength' => 100, "class" => "form-control input-sm")); ?>
         <?php echo $form->error($model, 'titulo'); ?>
     </div>
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'fechaHoraDesde'); ?>
         <div class='input-group date'>
-            <?php echo $form->textField($model, "fechaHoraDesde", array('size' => 60, 'maxlength' => 1024, "class" => "form-control")) ?>       
+            <?php echo $form->textField($model, "fechaHoraDesde", array('size' => 60, 'maxlength' => 1024, "class" => "form-control input-sm")) ?>       
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
             </span>
         </div>        
@@ -38,7 +38,7 @@
     <div class="form-group">
         <?php echo $form->labelEx($model, 'fechaHoraHasta'); ?>
         <div class='input-group date' >
-            <?php echo $form->textField($model, "fechaHoraHasta", array('size' => 60, 'maxlength' => 1024, "class" => "form-control")) ?>       
+            <?php echo $form->textField($model, "fechaHoraHasta", array('size' => 60, 'maxlength' => 1024, "class" => "form-control input-sm")) ?>       
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
             </span>
         </div>          
@@ -47,17 +47,17 @@
 
     <div id="grp-inmueble-fk_estado" class="form-group">
         <?php echo $form->labelEx($model, 'idCliente'); ?>
-        <?php echo $form->dropDownList($model, 'idCliente', $model->getListaClientes(), array("class" => "form-control combo-suggest")); ?>
+        <?php echo $form->dropDownList($model, 'idCliente', $model->getListaClientes(), array("class" => "form-control combo-suggest input-sm")); ?>
     </div>
     
     <div id="grp-inmueble-fk_estado" class="form-group">
         <?php echo $form->labelEx($model, 'idInmueble'); ?>
-        <?php echo $form->dropDownList($model, 'idInmueble', $model->getListaInmuebles(), array("class" => "form-control combo-suggest")); ?>
+        <?php echo $form->dropDownList($model, 'idInmueble', $model->getListaInmuebles(), array("class" => "form-control combo-suggest input-sm")); ?>
     </div>
 
     <div class="form-group">
         <?php echo $form->labelEx($model, 'descripcion'); ?>
-        <?php echo CHtml::activeTextArea($model, "descripcion", array('size' => 60, 'maxlength' => 1024, "class" => "form-control")) ?>       
+        <?php echo CHtml::activeTextArea($model, "descripcion", array('size' => 60, 'maxlength' => 1024, "class" => "form-control input-sm")) ?>       
         <?php echo $form->error($model, 'descripcion'); ?>
     </div>
 

@@ -45,6 +45,14 @@ $('.search-form form').submit(function(){
                     'dataProvider' => $model->search(),
                     'cssFile' => Yii::app()->params["gridViewStyleSheet"],
                     'summaryText' => '',
+                    'pager' => array(
+                        'cssFile' => Yii::app()->params["gridViewStyleSheet"],
+                        'header' => Yii::app()->params["labelPaginacionTabla"],
+                        'firstPageLabel' => '&lt;&lt;',
+                        'prevPageLabel' => Yii::app()->params["prevPageLabel"],
+                        'nextPageLabel' => Yii::app()->params["nextPageLabel"],
+                        'lastPageLabel' => '&gt;&gt;',
+                    ),
                     'columns' => array(
                         'usuario',
                         'nombre',

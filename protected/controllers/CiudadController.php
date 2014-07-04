@@ -131,6 +131,7 @@ class CiudadController extends AdminController {
         $model = Ciudad::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
+        $model->departamento = Departamento::model()->findByPk($model->id_departamento);
         return $model;
     }
 
@@ -143,6 +144,15 @@ class CiudadController extends AdminController {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+    
+    public function getListaDepartamentos() {
+        return CHtml::listData(Departamento::model()->findAll(), 'id', 'nombre');
+    }
+    
+    protected function renderNombreDepartamento($data,$row)
+    {
+       return Departamento::model()->findByPk($data->id_departamento)->nombre;            
     }
 
 }

@@ -10,16 +10,12 @@
 
         <form role="form">
             <div class="form-group">
-                <label for="inputId">Id</label>
-                <input disabled="true" type="text" class="form-control" id="inputId" value="<?php echo $model->id; ?>">
-            </div>
-            <div class="form-group">
                 <label for="inputNombre">Nombre</label>
-                <input disabled="true" type="text" class="form-control" id="inputNombre" value="<?php echo $model->nombre; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputNombre" value="<?php echo $model->nombre; ?>">
             </div>
             <div class="form-group">
-                <label for="inputCiudad">Departamento</label>
-                <input disabled="true" type="text" class="form-control" id="inputCiudad" value="<?php echo $model->ciudad; ?>">
+                <label for="inputCiudad">Ciudad</label>
+                <input disabled="true" type="text" class="form-control input-sm" id="inputCiudad" value="<?php echo $model->ciudad; ?>">
             </div>
             <a href="<?php echo Yii::app()->createUrl("barrio/admin") ?>"><?php echo Yii::app()->params["labelBotonVolver"] ?></a>
         </form>

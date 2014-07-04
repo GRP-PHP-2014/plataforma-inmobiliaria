@@ -25,7 +25,7 @@ class BarrioController extends AdminController {
                 'roles' => array(Constantes::USER_ROLE_DIRECTOR),
             ),
             array('deny',
-                'users  ' => array('*'),
+                'users' => array('*'),
             ),
         );
     }
@@ -131,6 +131,7 @@ class BarrioController extends AdminController {
         $model = Barrio::model()->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
+        $model->ciudad = Ciudad::model()->findByPk($model->id_ciudad)->nombre  ;
         return $model;
     }
 
@@ -143,6 +144,14 @@ class BarrioController extends AdminController {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    protected function renderNombreCiudad($data, $row) {
+        return Ciudad::model()->findByPk($data->id_ciudad)->nombre;
+    }
+
+    public function getListaCiudades() {
+        return CHtml::listData(Ciudad::model()->findAll(), 'id', 'nombre');
     }
 
 }

@@ -11,23 +11,23 @@
         <form role="form">
             <div class="form-group">
                 <label for="inputUsuario">Usuario</label>
-                <input disabled="true" type="text" class="form-control" id="inputUsuario" value="<?php echo $model->usuario; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputUsuario" value="<?php echo $model->usuario; ?>">
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input disabled="true" type="text" class="form-control" id="inputEmail" value="<?php echo $model->email; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputEmail" value="<?php echo $model->email; ?>">
             </div>
             <div class="form-group">
                 <label for="inputNombre">Nombre</label>
-                <input disabled="true" type="text" class="form-control" id="inputNombre" value="<?php echo $model->nombre; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputNombre" value="<?php echo $model->nombre; ?>">
             </div>
             <div class="form-group">
                 <label for="inputApellido">Apellido</label>
-                <input disabled="true" type="text" class="form-control" id="inputApellido" value="<?php echo $model->apellido; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputApellido" value="<?php echo $model->apellido; ?>">
             </div>
             <div class="form-group">
                 <label for="inputRol">Rol</label>
-                <input disabled="true" type="text" class="form-control" id="inputApellido" value="<?php echo $model->rol; ?>">
+                <input disabled="true" type="text" class="form-control input-sm" id="inputApellido" value="<?php echo $model->rol; ?>">
             </div>
             <div class="checkbox">
                 <label>

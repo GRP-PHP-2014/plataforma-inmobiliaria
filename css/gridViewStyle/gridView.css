@@ -71,7 +71,8 @@ tr.odd
 
 .grid-view table.items tr.selected
 {
-    background:#9eec55;
+    background: #ADADAD;
+
 }
 
 .grid-view table.items tr:hover td, .grid-view table.items tr:hover td a
