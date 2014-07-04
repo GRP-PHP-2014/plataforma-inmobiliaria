@@ -20,12 +20,12 @@ class InmuebleController extends AdminController {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',
                 'actions' => array('view','update' , 'admin', 'delete', 'upload', 'uploadImages'),
-                'roles' => array('director'),
+                'roles' => array(Constantes::USER_ROLE_DIRECTOR, Constantes::USER_ROLE_ADMINISTRATIVO),
             ),
-            array('deny', // deny all users
-                'roles' => array('*'),
+            array('deny',
+                'users' => array('*'),
             ),
         );
     }

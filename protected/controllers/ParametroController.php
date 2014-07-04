@@ -3,19 +3,13 @@
 class ParametroController extends AdminController {
 
     /**
-     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-     * using two-column layout. See 'protected/views/layouts/column2.php'.
-     */
-    public $layout = '//layouts/adminMasterPage';
-
-    /**
      * @return array action filters
      */
     public function filters() {
         Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_CONFIGURACION;
         return array(
-            'accessControl', // perform access control for CRUD operations
-            'postOnly + delete', // we only allow deletion via POST request
+            'accessControl', 
+            'postOnly + delete',
         );
     }
 
@@ -26,12 +20,12 @@ class ParametroController extends AdminController {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',
                 'actions' => array('admin', 'update'),
-                'roles' => array('director'),
+                'roles' => array(Constantes::USER_ROLE_DIRECTOR),
             ),
             array('deny', // deny all users
-                'roles' => array('*'),
+                'users' => array('*'),
             ),
         );
     }
@@ -59,10 +53,10 @@ class ParametroController extends AdminController {
 
         if (isset($_POST['Parametro'])) {
             $model->attributes = $_POST['Parametro'];
-            if ($model->save()){
+            if ($model->save()) {
                 (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_PARAMETRO, Constantes::AUDITORIA_OPERACION_MODIFICACION, "parametro = " . $model->nombre . ", nuevo_valor = " . $model->valor);
                 $this->redirect(array('admin'));
-            }                
+            }
         }
 
         $this->render('update', array(

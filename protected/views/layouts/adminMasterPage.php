@@ -73,17 +73,21 @@
                             </ul>
                         </li>
                         <?php } ?>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_USUARIOS) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CLIENTES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_INMUEBLES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_NOTIFICACIONES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>
+                        <?php if (Yii::app()->user->hasRole(Constantes::USER_ROLE_DIRECTOR)){ ?>
+                            <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_USUARIOS) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('usuario/admin'); ?>">Usuarios</a></li>
+                        <?php } ?>
+                        <?php if (Yii::app()->user->hasRole(Constantes::USER_ROLE_DIRECTOR) || Yii::app()->user->hasRole(Constantes::USER_ROLE_ADMINISTRATIVO)){ ?>
+                            <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CLIENTES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('cliente/admin'); ?>" >Clientes</a></li>
+                            <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_INMUEBLES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('inmueble/admin'); ?>">Inmuebles</a></li>
+                            <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_NOTIFICACIONES) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>">Notificaciones</a></li>                        
+                            <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_PORTADA) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('portada/admin'); ?>">Portada</a></li>
+                        <?php } ?>
                         <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_CALENDARIO) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('evento/admin'); ?>">Calendario</a></li>
-                        <li class="<?php if (strcmp(Yii::app()->session[Constantes::SESSION_CURRENT_TAB], Constantes::ITEM_MENU_PORTADA) == 0){  echo 'active'; }  ?>"><a href="<?php echo Yii::app()->createUrl('portada/admin'); ?>">Portada</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">                            
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span><?php echo Yii::app()->user->getTitle() ?></span><b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span><?php echo Yii::app()->user->getNameAndRole() ?></span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo Yii::app()->createUrl("usuario/logout")?>">salir</a></li>
                             </ul>

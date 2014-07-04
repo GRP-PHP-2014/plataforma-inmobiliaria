@@ -8,8 +8,8 @@ class EventoController extends AdminController {
     public function filters() {
         Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_CALENDARIO;
         return array(
-            'accessControl', // perform access control for CRUD operations
-            'postOnly + delete', // we only allow deletion via POST request
+            'accessControl', 
+            'postOnly + delete', 
         );
     }
 
@@ -20,12 +20,12 @@ class EventoController extends AdminController {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',
                 'actions' => array('admin', 'create', 'view', 'delete','update'),
-                'roles' => array('director'),
+                'roles' => array(Constantes::USER_ROLE_ADMINISTRATIVO,  Constantes::USER_ROLE_AGENTE,  Constantes::USER_ROLE_DIRECTOR),
             ),
-            array('deny', // deny all users
-                'roles' => array('*'),
+            array('deny',
+                'users' => array('*'),
             ),
         );
     }

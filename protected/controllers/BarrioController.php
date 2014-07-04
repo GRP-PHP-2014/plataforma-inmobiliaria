@@ -6,7 +6,7 @@ class BarrioController extends AdminController {
      * @return array action filters
      */
     public function filters() {
-        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] =  Constantes::ITEM_MENU_CONFIGURACION ;
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_CONFIGURACION;
         return array(
             'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
@@ -20,20 +20,12 @@ class BarrioController extends AdminController {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('login'),
-                'roles' => array('?'),
-            ),
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'view', 'admin'),
-                'roles' => array('director'),
-            ),
             array('allow',
-                'actions' => array('logout'),
-                'roles' => array('@'),
+                'actions' => array('create', 'update', 'view', 'admin'),
+                'roles' => array(Constantes::USER_ROLE_DIRECTOR),
             ),
-            array('deny', // deny all users
-                'roles' => array('*'),
+            array('deny',
+                'users  ' => array('*'),
             ),
         );
     }

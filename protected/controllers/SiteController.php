@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends CController {
+class SiteController extends AdminController {
 
     public function actionError() {
         if ($error = Yii::app()->errorHandler->error) {

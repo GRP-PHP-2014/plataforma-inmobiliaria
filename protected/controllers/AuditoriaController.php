@@ -8,8 +8,8 @@ class AuditoriaController extends AdminController {
     public function filters() {
         Yii::app()->session[Constantes::SESSION_CURRENT_TAB] =  Constantes::ITEM_MENU_CONFIGURACION ;
         return array(
-            'accessControl', // perform access control for CRUD operations
-            'postOnly + delete', // we only allow deletion via POST request
+            'accessControl', 
+            'postOnly + delete',
         );
     }
 
@@ -22,10 +22,10 @@ class AuditoriaController extends AdminController {
         return array(
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin'),
-                'roles' => array('director'),
+                'roles' => array(Constantes::USER_ROLE_DIRECTOR),
             ),
             array('deny', // deny all users
-                'roles' => array('*'),
+                'users' => array('*'),
             ),
         );
     }

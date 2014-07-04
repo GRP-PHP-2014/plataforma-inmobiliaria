@@ -20,11 +20,11 @@ class EstadoInmuebleController extends AdminController {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',
                 'actions' => array('admin', 'delete', 'create', 'view' , 'update'),
-                'roles' => array('director'),
+                'roles' => array(Constantes::USER_ROLE_DIRECTOR),
             ),
-            array('deny', // deny all users
+            array('deny',
                 'roles' => array('*'),
             ),
         );

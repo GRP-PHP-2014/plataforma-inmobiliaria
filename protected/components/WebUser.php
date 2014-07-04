@@ -8,9 +8,14 @@ class WebUser extends CWebUser {
     private $_model;
     private $userRoles;
 
-    function getTitle() {
+    function getName() {
         $user = $this->loadUser(Yii::app()->user->id);
         return $user->nombre;
+    }
+    
+    function getNameAndRole() {
+        $user = $this->loadUser(Yii::app()->user->id);
+        return $user->nombre . ' (' . $this->userRoles[0]->itemname . ')';
     }
 
     function hasRole($rolId) {
