@@ -76,11 +76,12 @@ class Inmueble extends CActiveRecord {
      * @return array relational rules.
      */
     public function relations() {
-        // NOTE: you may need to adjust the relation name and the related
-        // class name for the relations automatically generated below.
         return array(
             'imagenesInmuebles' => array(self::HAS_MANY, 'ImagenInmueble', 'id_inmueble'),
             'fkEstado' => array(self::BELONGS_TO, 'EstadosInmueble', 'fk_estado'),
+            'fkDepartamento' => array(self::BELONGS_TO, 'Departamento', 'id_departamento'),
+            'fkCiudad' => array(self::BELONGS_TO, 'Ciudad', 'id_ciudad'),
+            'fkBarrio' => array(self::BELONGS_TO, 'Barrio', 'id_barrio'),
         );
     }
 
@@ -121,6 +122,9 @@ class Inmueble extends CActiveRecord {
             'precio_publicacion' => 'Precio',
             'operacion_publicacion' => 'Operaci&oacute;n',
             'direccion_corta' => 'Direcci&oacute;n',
+            'fkDepartamento' => 'Departamento',
+            'fkCiudad' => 'Ciudad',
+            'fkBarrio' => 'Barrio',
             'direccion_larga' => 'Direcci&oacute;n larga'
         );
     }

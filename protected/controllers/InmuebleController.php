@@ -21,7 +21,7 @@ class InmuebleController extends AdminController {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('view','update' , 'admin', 'delete', 'upload', 'uploadImages'),
+                'actions' => array('barrioDinamico','ciudadDinamica','create', 'view', 'update', 'admin', 'delete', 'upload', 'uploadImages'),
                 'roles' => array(Constantes::USER_ROLE_DIRECTOR, Constantes::USER_ROLE_ADMINISTRATIVO),
             ),
             array('deny',
@@ -49,27 +49,27 @@ class InmuebleController extends AdminController {
     public function actionCreate() {
         $model = new Inmueble;
 
-        $fsUtil = new FileSystemUtil;        
-        
+        $fsUtil = new FileSystemUtil;
+
         if (isset($_POST['Inmueble'])) {
-            
+
             $model->attributes = $_POST['Inmueble'];
-            if ($model->save()){
-                
+            if ($model->save()) {
+
                 //creo el directorio para las imagenes del inmueble
                 $fsUtil->createPropertyFoderIfNotExists($model->id);
-                
+
                 //guardo las imagenes para el inmueble
                 $images = $fsUtil->getTmpFilesNames();
-                foreach($images as $img){
+                foreach ($images as $img) {
                     $imgInm = new ImagenInmueble;
                     $imgInm->id_inmueble = $model->id;
                     $imgInm->ruta = $img;
-                    if ($imgInm->save()){
+                    if ($imgInm->save()) {
                         $fsUtil->copyFileFromTmpToFs($imgInm->ruta, $model->id);
                     }
                 }
-                
+
                 (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_ALTA, $model->id);
                 $this->redirect(array('view', 'id' => $model->id));
             }
@@ -85,47 +85,49 @@ class InmuebleController extends AdminController {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
-         
+
         $model = $this->loadModel($id);
 
-        $fsUtil = new FileSystemUtil;   
+        $fsUtil = new FileSystemUtil;
         $fsUtil->createPropertyFoderIfNotExists($id);
-        
+
         if (isset($_POST['Inmueble'])) {
             $model->attributes = $_POST['Inmueble'];
-            if ($model->save()){
-                
+            if ($model->save()) {
+
                 //elimino las imagenes viejas de el sistema de archivos y de la bd (las referencias)
                 $fsUtil->deleteImagesFromProperty($id);
                 ImagenInmueble::deleteImagenFromProperty($id);
-                
+
                 //guardo las imagenes nuevas para el inmueble
                 $images = $fsUtil->getTmpFilesNames();
-                foreach($images as $img){
+                foreach ($images as $img) {
                     $imgInm = new ImagenInmueble;
                     $imgInm->id_inmueble = $model->id;
                     $imgInm->ruta = $img;
-                    if ($imgInm->save()){
+                    if ($imgInm->save()) {
                         $fsUtil->copyFileFromTmpToFs($imgInm->ruta, $model->id);
                     }
                 }
-                
+
                 (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_ALTA, $model->id);
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
 
         $fsUtil->clearUserTmpFolder();
-        $fsUtil->copyAllFilesFromFsToTmp($id);        
+        $fsUtil->copyAllFilesFromFsToTmp($id);
         $this->render('update', array('model' => $model));
     }
-/*
-    public function actionUploadImages() {
-        error_reporting(E_ALL | E_STRICT);
-        require('UploadHandler.php');
-        $upload_handler = new UploadHandler();
-    }
-*/
+
+    /*
+      public function actionUploadImages() {
+      error_reporting(E_ALL | E_STRICT);
+      require('UploadHandler.php');
+      $upload_handler = new UploadHandler();
+      }
+     */
+
     /**
      * Deletes a particular model.
      * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -153,7 +155,7 @@ class InmuebleController extends AdminController {
      * Manages all models.
      */
     public function actionAdmin() {
-        
+
         $model = new Inmueble('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Inmueble']))
@@ -186,6 +188,30 @@ class InmuebleController extends AdminController {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'inmueble-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+    public function getListaDepartamentos() {
+        return CHtml::listData(Departamento::model()->findAll(), 'id', 'nombre');
+    }
+
+    public function actionCiudadDinamica() {
+        $idDep = $_POST["Inmueble"]["fkDepartamento"];
+        $data = Ciudad::model()->findAll('id_departamento=:id_departamento', array(':id_departamento' => (int)$idDep));
+
+        $data = CHtml::listData($data, 'id', 'nombre');
+        foreach ($data as $value => $name) {
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+        }
+    }
+    
+    public function actionBarrioDinamico() {
+        $idBar = $_POST["Inmueble"]["fkCiudad"];
+        $data = Barrio::model()->findAll('id_ciudad=:id_ciudad', array(':id_ciudad' => (int)$idBar));
+
+        $data = CHtml::listData($data, 'id', 'nombre');
+        foreach ($data as $value => $name) {
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
 

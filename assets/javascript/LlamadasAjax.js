@@ -83,3 +83,30 @@ function confirmarSuscripcion(obj) {
     desbloquearPantalla();
   });
 }
+
+function notificacionCrearNuevoCliente(){
+    bloquearPantalla();
+    $.ajax({
+        url: CONF['ip'] + '/emailNotificacion/createClient',
+        type: 'POST',
+        dataType: 'json',
+        data :{
+            emailCliente : $("#EmailNotificacion_emailCliente").val(),
+            nombreCliente : $("#EmailNotificacion_nombreCliente").val()
+        }
+       
+    })
+    .done(function(msg) {
+        if (msg.resultado === "ok") {
+            alertify.success(msg.detalle);
+        } else if (msg.resultado === "falla"){
+            alertify.error(msg.detalle);
+        }
+    })
+    .fail(function(msg) {
+            console.log(msg);
+    })
+    .always(function(msg) {
+      desbloquearPantalla();
+    });
+}

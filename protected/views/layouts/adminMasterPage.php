@@ -15,8 +15,12 @@
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/moment.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/bootstrap-combobox.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/blockUI.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/inmueble/logica-inmueble.js"></script>     
         <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/on-start.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/main.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/objets.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/LlamadasAjax.js"></script>
         
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-inmobiliaria.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/lib/alertify.core.css" media="screen, projection" />

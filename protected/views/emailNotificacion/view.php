@@ -8,25 +8,39 @@
     <div class="col-lg-4">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Ver notificaci&oacute;n<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
 
-        <form role="form">
+        <?php
+            $form = $this->beginWidget('CActiveForm', array(
+                'id' => 'email-notificacion-form',
+                'enableAjaxValidation' => false,
+            ));
+            ?>
+
+            <?php echo $form->errorSummary($model); ?>
+
             <div class="form-group">
-                <label for="inputCliente">Cliente</label>
-                <input disabled="true" type="text" class="form-control" id="inputCliente" value="<?php echo $model->cliente; ?>">
+                <label for="EmailNotificacion_emailCliente">Email del cliente</label>
+                <?php echo $form->textField($model, 'emailCliente', array('size' => 60, 'maxlength' => 100, "class" => "form-control", "disabled" => "true")); ?>
+            </div>
+
+            <div class="form-group">
+                <label for="EmailNotificacion_nombreCliente">Nombre del cliente</label>
+                <?php echo $form->textField($model, "nombreCliente", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
             </div>
             <div class="form-group">
-                <label for="inputFechaHora">Fecha y hora</label>
-                <input disabled="true" type="text" class="form-control" id="inputFechaHora" value="<?php echo $model->fechaHoraEnvio; ?>">
+                <label for="EmailNotificacion_fechaHoraEnvio">Fecha y hora de enviado</label>
+                <?php echo $form->textField($model, "fechaHoraEnvio", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
             </div>
             <div class="form-group">
-                <label for="inputTipoNotificacion">Tipo de notificaci&oacute;n</label>
-                <input disabled="true" type="text" class="form-control" id="inputTipoNotificacion" value="<?php echo $model->tipoNotificacion; ?>">
+                <label for="EmailNotificacion_tipoNotificacion">Tipo de notificaci&oacute;n</label>
+                <?php echo $form->textField($model, "tipoNotificacion", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
             </div>
             <div class="form-group">
-                <label for="inputDescripcion">Email</label>
-                <textarea disabled="true" type="text" class="form-control" id="inputDescripcion" ><?php echo $model->email; ?></textarea>
+                <label for="EmailNotificacion_mensaje">Mensaje</label>
+                <?php echo $form->textField($model, "mensaje", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
             </div>
             <a href="<?php echo Yii::app()->createUrl("emailNotificacion/admin")?>">Volver</a>
-        </form>
+            <?php echo CHtml::button("Crear usuario", array("class" => "btn btn-default" , "onclick" => "notificacionCrearNuevoCliente()")); ?>
+        <?php $this->endWidget(); ?>
     </div>
     <div class="col-lg-6"></div>
 </div>

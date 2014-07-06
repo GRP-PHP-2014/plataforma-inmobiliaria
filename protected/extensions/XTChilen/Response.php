@@ -11,19 +11,19 @@ class Response {
     public static function send($data , $status = 200, $contentType = 'text/html'){
         header('Content-type: ' . $contentType);
         http_response_code($status);
-        echo $data;
+        die ($data);
     }
     
     public static function ok($data , $contentType = 'text/html'){
         header('Content-type: ' . $contentType);
         http_response_code(200);
-        echo $data;
+        die ($data);
     }
     
     public static function error($data , $contentType = 'text/html'){
         header('Content-type: ' . $contentType);
         http_response_code(500);
-        echo $data;
+        die ($data);
     }
     
     public static function sendImage($imageUrl , $contentType = 'image/jpg'){

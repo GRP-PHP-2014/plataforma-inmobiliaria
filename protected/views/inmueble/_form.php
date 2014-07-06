@@ -14,10 +14,6 @@
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'inmueble-form',
-            // Please note: When you enable ajax validation, make sure the corresponding
-            // controller action is handling ajax validation correctly.
-            // There is a call to performAjaxValidation() commented in generated controller code.
-            // See class documentation of CActiveForm for details on this.
             'enableAjaxValidation' => false,
             'htmlOptions' => array('enctype' => 'multipart/form-data')
         ));
@@ -223,7 +219,45 @@
                     </div>
                     <?php echo $form->error($model, 'potencia_contratada'); ?>
                 </div>
-
+                
+                <div class="form-group">
+                    <?php echo $form->labelEx($model, 'fkDepartamento'); ?>                    
+                    <?php echo $form->dropDownList($model , 'fkDepartamento', $this->getListaDepartamentos(),
+                            array(
+                                'ajax' => array(
+                                    'type'=>'POST',
+                                    'url'=>CController::createUrl('inmueble/ciudadDinamica'),
+                                    'update'=>'#Inmueble_fkCiudad'
+                                ),                            
+                                'class' => 'form-control combo-suggest input-sm',
+                            )
+                        ); 
+                    ?>
+                    <?php echo $form->error($model, 'fkDepartamento'); ?>
+                </div>
+                
+                <div class="form-group">
+                    <?php echo $form->labelEx($model, 'fkCiudad'); ?>                    
+                    <?php echo $form->dropDownList($model , 'fkCiudad', array(),
+                            array(
+                                'ajax' => array(
+                                    'type'=>'POST',
+                                    'url'=>CController::createUrl('inmueble/barrioDinamico'),
+                                    'update'=>'#Inmueble_fkBarrio'
+                                ),                            
+                                'class' => 'form-control combo-suggest input-sm',
+                            )
+                        ); 
+                    ?>
+                    <?php echo $form->error($model, 'fkDepartamento'); ?>
+                </div>
+                
+                <div class="form-group">
+                    <?php echo $form->labelEx($model, 'fkBarrio'); ?>
+                    <?php echo $form->dropDownList($model, 'fkBarrio', array(), array("class" => "form-control")); ?>
+                    <?php echo $form->error($model, 'fkBarrio'); ?>
+                </div>
+                
                 <div id="grp-inmueble-fk_estado" class="form-group">
                     <?php echo $form->labelEx($model, 'fk_estado'); ?>
                     <?php echo $form->dropDownList($model, 'fk_estado', $model->getListaEstadosInmueble(), array("class" => "form-control")); ?>

@@ -8,7 +8,7 @@ class EmailNotificacionController extends AdminController {
     public function filters() {
         Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_NOTIFICACIONES;
         return array(
-            'accessControl', 
+            'accessControl',
             'postOnly + delete',
         );
     }
@@ -21,7 +21,7 @@ class EmailNotificacionController extends AdminController {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('admin', 'create', 'view', 'delete','update'),
+                'actions' => array('admin', 'view', 'resolve', 'createClient'),
                 'roles' => array(Constantes::USER_ROLE_DIRECTOR, Constantes::USER_ROLE_ADMINISTRATIVO),
             ),
             array('deny',
@@ -44,14 +44,36 @@ class EmailNotificacionController extends AdminController {
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionCreate() {
-        $model = new TipoNotificacion;
+    public function actionCreateClient() {
 
+        $hU = new HttpUtils();
+        if ($hU->isAjaxRequest() == false)
+            Response::error("not allowed ;)");
 
-
-        $this->render('create', array(
-            'model' => $model,
-        ));
+        if (isset($_POST["nombreCliente"]) == false || isset($_POST["emailCliente"]) == false)
+            Response::ok(CJSON::encode(array(
+                        "resultado" => Constantes::RESULTADO_OPERACION_FALLA,
+                        "detalle" => "Faltan par&aacute;metros obligatorios")));
+        $cl = Cliente::model()->findAll("email=:email", array(':email' => $_POST["emailCliente"]));
+        if (sizeof($cl) > 0)
+            Response::ok(CJSON::encode(array(
+                        "resultado" => Constantes::RESULTADO_OPERACION_FALLA,
+                        "detalle" => "Cliente {$_POST["emailCliente"]} ya registrado en el sistema")));
+                        
+        $cl = new Cliente;
+        $cl->apellido = "";
+        $cl->comentarios = "";
+        $cl->direccion = "";
+        $cl->nombre = $_POST["nombreCliente"];
+        $cl->email = $_POST["emailCliente"];
+        if ($cl->save())
+            Response::ok(CJSON::encode(array(
+                        "resultado" => Constantes::RESULTADO_OPERACION_EXITO,
+                        "detalle" => "Cliente {$cl->email} registrado con &eacute;xito")));
+        else
+            Response::ok(CJSON::encode(array(
+                        "resultado" => Constantes::RESULTADO_OPERACION_FALLA,
+                        "detalle" => "Error registrando cliente {$cl->email} en el sistema")));
     }
 
     /**
@@ -59,7 +81,7 @@ class EmailNotificacionController extends AdminController {
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id the ID of the model to be updated
      */
-    public function actionUpdate($id) {
+    public function actionResolve($id) {
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed

@@ -52,5 +52,9 @@ class Constantes {
     const USER_ROLE_DIRECTOR = "director";
     const USER_ROLE_AGENTE = "agente";
     
+    const RESULTADO_OPERACION_EXITO = "ok";
+    const RESULTADO_OPERACION_FALLA = "falla";
+
+    
 }
 

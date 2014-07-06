@@ -300,6 +300,15 @@ CREATE TABLE `inmuebles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+alter table inmuebles add column id_departamento int(11) NULL;
+ALTER TABLE inmuebles ADD CONSTRAINT fk_departamento FOREIGN KEY (id_departamento) REFERENCES departamentos(id);
+
+alter table inmuebles add column id_ciudad int(11) NULL;
+ALTER TABLE inmuebles ADD CONSTRAINT fk_ciudad FOREIGN KEY (id_ciudad) REFERENCES ciudades(id);
+
+alter table inmuebles add column id_barrio int(11) NULL;
+ALTER TABLE inmuebles ADD CONSTRAINT fk_barrio FOREIGN KEY (id_barrio) REFERENCES barrios(id);
+
 --
 -- Table structure for table `parametros`
 --

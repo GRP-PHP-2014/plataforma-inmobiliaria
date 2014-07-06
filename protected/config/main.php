@@ -64,8 +64,8 @@ return array(
                 'propertyImage' => 'file/displayInmuebleImage',
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
                 
-                /*'parametro/<id:\w+>' => 'parametro/view',*/
-                /*'usuario/<id:\w+>' => 'usuario/view',*/                
+                'emailNotificacion/createClient' => 'emailNotificacion/createClient',
+                'emailNotificacion/<id:\w+>' => 'emailNotificacion/view',
                 
                 'parametro/<action:\w+>/<id:\w+>' => 'parametro/<action>',
                 'evento/<action:\w+>/<id:\w+>' => 'evento/<action>',
