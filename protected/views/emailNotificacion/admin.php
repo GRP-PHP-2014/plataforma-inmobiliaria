@@ -52,7 +52,7 @@ $('.search-form form').submit(function(){
                     'columns' => array(
                         array(
                             'name' => 'Cliente',
-                            'value' => '$data->cliente',
+                            'value' => '$data->emailCliente',
                             'type' => 'raw',
                         ),
                         array(

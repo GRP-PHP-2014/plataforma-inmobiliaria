@@ -113,15 +113,13 @@ DROP TABLE IF EXISTS `barrios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `barrios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(64) NOT NULL,
-  `ciudad` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `ciudad` (`ciudad`),
-  CONSTRAINT `barrios_ibfk_1` FOREIGN KEY (`ciudad`) REFERENCES `ciudades` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`nombre` varchar(128) DEFAULT NULL,
+	`id_ciudad` int(11) NOT NULL,
+	PRIMARY KEY (`id`),
+	KEY `fk_barrio_ciudad` (`id_ciudad`),
+	CONSTRAINT `fk_barrio_ciudad` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudades` (`id`)
+) ;
 
 --
 -- Dumping data for table `barrios`
@@ -140,16 +138,13 @@ DROP TABLE IF EXISTS `ciudades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ciudades` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(64) NOT NULL,
-  `departamento` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  UNIQUE KEY `nombre` (`nombre`),
-  KEY `departamento` (`departamento`),
-  CONSTRAINT `ciudades_ibfk_1` FOREIGN KEY (`departamento`) REFERENCES `departamentos` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`nombre` varchar(128) DEFAULT NULL,
+	`id_departamento` int(11) NOT NULL,
+	PRIMARY KEY (`id`),
+	KEY `fk_ciudad_departamento` (`id_departamento`),
+	CONSTRAINT `fk_ciudad_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`id`)
+) ;
 
 --
 -- Dumping data for table `ciudades`

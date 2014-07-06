@@ -1,14 +1,12 @@
 /* email es string */
 /* tipoNotificacion es string y puede tomar alguno de los valores { "solicitud_informacion" , "solicitud_publicacion" } */
 
-http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotificacion?mensaje=holisss&tipoNotificacion=solicitud%20de%20publicacion&emailCliente=pelogay@gmail.com
+http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotificacion?mensaje=holisss&tipoNotificacion=solicitud%20de%20publicacion&emailCliente=pelogay@gmail.com&nombreCliente=Alejandro Fontes
 (puede ser por post o get)
 
 {
     "emailCliente": "", 
+    "nombreCliente": "", 
     "tipoNotificacion" : "",
     "mensaje" : ""
 }
-
-
-{"emailCliente":"pelo8888@gmail.com","tipoNotificacion":"1","mensaje":"Hola"}

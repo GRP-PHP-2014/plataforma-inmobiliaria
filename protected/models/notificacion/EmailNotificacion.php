@@ -3,9 +3,10 @@
 class EmailNotificacion extends EMongoDocument // Notice: We extend EMongoDocument class instead of CActiveRecord
 {
     public $fechaHoraEnvio;
-    public $email;
+    public $mensaje;
     public $tipoNotificacion;
-    public $cliente;
+    public $emailCliente;
+    public $nombreCliente;
     public $estado;
  
     /**
@@ -30,9 +31,11 @@ class EmailNotificacion extends EMongoDocument // Notice: We extend EMongoDocume
         return array(
             '_id' => '_id',
             'fechaHoraEnvio' => 'fechaHoraEnvio',
-            'email' => 'email',
+            'mensaje' => 'mensaje',
             'tipoNotificacion' => 'tipoNotificacion',
-            'cliente' => 'cliente',
+            'nombreCliente' => 'nombreCliente',
+            'emailCliente' => 'emailCliente',
+            'estado' => 'estado',
         );
     }
     

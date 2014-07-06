@@ -13,9 +13,10 @@ class RwsnotificacionController extends RWSController {
     public function actionIngresarNotificacion() {
 
         $ntf = new EmailNotificacion;
-        $ntf->email = $this->arguments["mensaje"];
-        $ntf->cliente = $this->arguments["emailCliente"];
-        $ntf->tipoNotificacion = $this->arguments["tipoNotificacion"];
+        $ntf->mensaje = (isset($this->arguments["mensaje"]) ? $this->arguments["mensaje"] : "");
+        $ntf->nombreCliente = (isset($this->arguments["nombreCliente"]) ? $this->arguments["nombreCliente"] : "");
+        $ntf->emailCliente = (isset($this->arguments["emailCliente"]) ? $this->arguments["emailCliente"] : "");
+        $ntf->tipoNotificacion = (isset($this->arguments["tipoNotificacion"]) ? $this->arguments["tipoNotificacion"] : "");
         $ntf->fechaHoraEnvio = (new DateTime)->format(Constantes::DATETIME_STRING_FORMAT);
         $ntf->estado = Constantes::ESTADO_NOTIFICACION_PENDIENTE;
         
