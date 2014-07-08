@@ -21,9 +21,14 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row top-admin-row">
             <div class="col-lg-12">
-                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar par&aacute;metros<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-wrench"></span> <?php echo Yii::app()->params["labelFuncionalidadParametros"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo Yii::app()->createUrl("site/index") ?>">Inicio</a></li>
+                    <li><a href="#">Configuraci&oacute;n</a></li>
+                    <li class="active"><?php echo Yii::app()->params["labelFuncionalidadParametros"] ?></li>
+                </ol>
 
-                <?php echo CHtml::link( (Yii::app()->params["labelDesplegarFiltros"]) , '#', array('class' => 'search-button')); ?>
+                <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php
                     $this->renderPartial('_search', array(
@@ -53,7 +58,7 @@ $('.search-form form').submit(function(){
                                 'editar' => array
                                     (
                                     'label' => Yii::app()->params["labelBotonGrillaEditar"],
-                                    'options'=>array('title'=>'editar'),
+                                    'options' => array('title' => 'editar'),
                                     'url' => 'Yii::app()->createUrl("parametro/update", array("id"=>$data->nombre))',
                                 ),
                             ),

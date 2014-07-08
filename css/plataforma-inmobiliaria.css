@@ -23,3 +23,12 @@ body{
 .top-admin-row{
     margin-bottom: 10px;
 }
+
+#side-menu > li.active {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+#side-menu > li.active > ul > li.active {
+    background-color: #DBDBDB;
+}

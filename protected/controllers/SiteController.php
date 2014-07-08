@@ -10,5 +10,10 @@ class SiteController extends AdminController {
                 $this->render('error', $error);
         }
     }
+    
+    public function actionIndex(){
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] =  Constantes::ITEM_MENU_HOME ;
+        $this->render('index');
+    }
 
 }

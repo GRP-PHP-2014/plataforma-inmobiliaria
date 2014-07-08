@@ -53,13 +53,15 @@
     </div>
 
     <div class="form-group col-lg-12">
-        <?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default")); ?>
+        <button type="submit" class="btn btn-default">
+            <?php echo Yii::app()->params["labelBotonFiltrar"] ?>
+        </button>    
     </div>
 
     <?php $this->endWidget(); ?>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function() {
             //$("#Auditoria_fechaDesde").datetimepicker();
         });
     </script>

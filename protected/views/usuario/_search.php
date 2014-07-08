@@ -27,7 +27,9 @@
 		<?php echo $form->textField($model,'apellido',array('size'=>60,'maxlength'=>100,"class" => "form-control input-sm")); ?>
 	</div>
 	<div class="form-group col-lg-12">
-		<?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default")); ?>
+            <button type="submit" class="btn btn-default">
+                <?php echo Yii::app()->params["labelBotonFiltrar"] ?>
+            </button>             
 	</div>
 <?php $this->endWidget(); ?>
 

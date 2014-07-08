@@ -8,7 +8,7 @@ class EstadoInmuebleController extends AdminController {
      * @return array action filters
      */
     public function filters() {
-        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_CONFIGURACION;
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_ESTADOS_INMUEBLES;
         return array(
             'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request

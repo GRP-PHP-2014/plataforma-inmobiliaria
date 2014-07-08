@@ -47,6 +47,14 @@ class Constantes {
     const ITEM_MENU_CALENDARIO = "calendario";
     const ITEM_MENU_CLIENTES = "clientes";
     const ITEM_MENU_PORTADA = "portada";
+    const ITEM_MENU_HOME = "home";
+    const ITEM_MENU_AUDITORIA = "auditoria";
+    const ITEM_MENU_BARRIOS = "barrios";
+    const ITEM_MENU_CIUDADES = "ciudades";
+    const ITEM_MENU_DEPARTAMENTOS = "departamentos";
+    const ITEM_MENU_PARAMETROS = "parametros";
+    const ITEM_MENU_TIPOS_NOTIFICACION = "tipos_notificacion";
+    const ITEM_MENU_ESTADOS_INMUEBLES = "estados_inmuebles";
     
     const USER_ROLE_ADMINISTRATIVO = "administrativo";
     const USER_ROLE_DIRECTOR = "director";

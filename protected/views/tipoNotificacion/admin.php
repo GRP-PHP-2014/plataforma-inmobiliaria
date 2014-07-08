@@ -21,8 +21,13 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row top-admin-row">
             <div class="col-lg-12">
-                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar tipos de notificaci&oacute;n<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
-
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-comment"></span> <?php echo Yii::app()->params["labelFuncionalidadTiposNotificacion"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo Yii::app()->createUrl("site/index") ?>">Inicio</a></li>
+                    <li><a href="#">Configuraci&oacute;n</a></li>
+                    <li class="active"><?php echo Yii::app()->params["labelFuncionalidadTiposNotificacion"] ?></li>
+                </ol>
+                
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">
                     <?php

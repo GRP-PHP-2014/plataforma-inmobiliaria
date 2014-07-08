@@ -21,7 +21,11 @@ $('.search-form form').submit(function(){
     <div class="col-lg-8">
         <div class="row top-admin-row">
             <div class="col-lg-12">
-                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Administrar usuarios<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-user"></span> <?php echo Yii::app()->params["labelFuncionalidadUsuarios"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo Yii::app()->createUrl("site/index") ?>">Inicio</a></li>
+                    <li class="active"><?php echo Yii::app()->params["labelFuncionalidadUsuarios"] ?></li>
+                </ol>
 
                 <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
                 <div class="search-form" style="display:none">

@@ -8,7 +8,7 @@ class TipoNotificacionController extends AdminController {
      * @return array action filters
      */
     public function filters() {
-        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_NOTIFICACIONES;
+        Yii::app()->session[Constantes::SESSION_CURRENT_TAB] = Constantes::ITEM_MENU_TIPOS_NOTIFICACION;
         return array(
             'accessControl',
             'postOnly + delete',
