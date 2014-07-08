@@ -2,6 +2,9 @@
 
 class EmailNotificacionController extends AdminController {
 
+    protected $pageTitle = ".: Notificaciones :.";
+    
+    
     /**
      * @return array action filters
      */

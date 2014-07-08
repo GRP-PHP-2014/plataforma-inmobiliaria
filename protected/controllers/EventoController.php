@@ -2,7 +2,10 @@
 
 class EventoController extends AdminController {
 
+    protected $pageTitle = ".: Mis eventos :.";
+    
     /**
+     * 
      * @return array action filters
      */
     public function filters() {

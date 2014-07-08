@@ -54,7 +54,10 @@ class Constantes {
     
     const RESULTADO_OPERACION_EXITO = "ok";
     const RESULTADO_OPERACION_FALLA = "falla";
-
+    
+    const TIPO_INMUEBLE_APARTAMENTO = "apartamento";
+    const TIPO_INMUEBLE_CASA = "casa";
+    const TIPO_INMUEBLE_LOCAL = "local";
     
 }
 

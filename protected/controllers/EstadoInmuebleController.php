@@ -2,6 +2,8 @@
 
 class EstadoInmuebleController extends AdminController {
 
+    protected $pageTitle = ".: Estados de inmueble :.";
+    
     /**
      * @return array action filters
      */

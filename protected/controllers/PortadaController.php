@@ -2,6 +2,8 @@
 
 class PortadaController extends AdminController {
 
+    protected $pageTitle = ".: Configurar portada :.";
+    
     /**
      * @return array action filters
      */

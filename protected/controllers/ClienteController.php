@@ -2,6 +2,8 @@
 
 class ClienteController extends AdminController {
 
+    protected $pageTitle = ".: Clientes :.";
+    
     /**
      * @return array action filters
      */

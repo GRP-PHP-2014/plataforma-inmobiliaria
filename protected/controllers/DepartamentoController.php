@@ -2,6 +2,8 @@
 
 class DepartamentoController extends AdminController {
 
+    protected $pageTitle = ".: Departamentos :.";
+    
     /**
      * @return array action filters
      */

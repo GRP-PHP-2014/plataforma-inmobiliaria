@@ -2,6 +2,8 @@
 
 class InmuebleController extends AdminController {
 
+    protected $pageTitle = ".: Inmuebles :.";
+    
     /**
      * @return array action filters
      */
@@ -200,6 +202,7 @@ class InmuebleController extends AdminController {
         $data = Ciudad::model()->findAll('id_departamento=:id_departamento', array(':id_departamento' => (int)$idDep));
 
         $data = CHtml::listData($data, 'id', 'nombre');
+        echo CHtml::tag('option', array('value' => "-1"), CHtml::encode("--  Seleccione  --"), true);
         foreach ($data as $value => $name) {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
@@ -213,6 +216,21 @@ class InmuebleController extends AdminController {
         foreach ($data as $value => $name) {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
+    }
+    
+    public function getTipoOperacion(){
+        $opciones = array();
+        $opciones[Constantes::OPERACION_PUBLICACION_ALQUILER] = CHtml::encode("Alquiler");
+        $opciones[Constantes::OPERACION_PUBLICACION_VENTA] = CHtml::encode("Venta");
+        return $opciones;
+    }
+    
+    public function getTipoInmueble(){
+        $opciones = array();
+        $opciones[Constantes::TIPO_INMUEBLE_APARTAMENTO] = CHtml::encode("Apartamento");
+        $opciones[Constantes::TIPO_INMUEBLE_CASA] = CHtml::encode("Casa");
+        $opciones[Constantes::TIPO_INMUEBLE_LOCAL] = CHtml::encode("Local");
+        return $opciones;
     }
 
 }

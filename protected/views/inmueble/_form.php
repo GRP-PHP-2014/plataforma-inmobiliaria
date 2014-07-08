@@ -30,9 +30,8 @@
                 <div class="form-group">
                     <?php echo $form->labelEx($model, 'operacion_publicacion'); ?>        
                     <?php echo CHtml::dropDownList('Inmueble[operacion_publicacion]', 
-                            $model->operacion_publicacion, array(
-                                Constantes::OPERACION_PUBLICACION_ALQUILER => 'Alquiler', 
-                                Constantes::OPERACION_PUBLICACION_VENTA => 'Venta'), 
+                            $model->operacion_publicacion, 
+                            $this->getTipoOperacion(), 
                             array("class" => "form-control"));
                     ?>       
                 </div>
@@ -50,10 +49,9 @@
                 <div id="grp-inmueble-tipo" class="form-group">
                     <?php echo $form->labelEx($model, 'tipo_inmueble'); ?>
                     <?php
-                    echo CHtml::dropDownList('Inmueble[tipo_inmueble]', $model->tipo_inmueble, array(
-                        'apartamento' => 'APARTAMENTO',
-                        'casa' => 'CASA',
-                        'local' => 'LOCAL COMERCIAL'), array("class" => "form-control", "onchange" => "configurarFormularioSegunTipo()"));
+                    echo $form->dropDownList($model,'tipo_inmueble',
+                            $this->getTipoInmueble(), 
+                            array("class" => "form-control", "onchange" => "configurarFormularioSegunTipo()"));
                     ?>  
                     <?php echo $form->error($model, 'tipo_inmueble'); ?>
                 </div>
@@ -224,6 +222,7 @@
                     <?php echo $form->labelEx($model, 'fkDepartamento'); ?>                    
                     <?php echo $form->dropDownList($model , 'fkDepartamento', $this->getListaDepartamentos(),
                             array(
+                                'empty'=>'--  Seleccione  --',
                                 'ajax' => array(
                                     'type'=>'POST',
                                     'url'=>CController::createUrl('inmueble/ciudadDinamica'),
@@ -240,6 +239,7 @@
                     <?php echo $form->labelEx($model, 'fkCiudad'); ?>                    
                     <?php echo $form->dropDownList($model , 'fkCiudad', array(),
                             array(
+                                'empty'=>'--  Seleccione  --',
                                 'ajax' => array(
                                     'type'=>'POST',
                                     'url'=>CController::createUrl('inmueble/barrioDinamico'),

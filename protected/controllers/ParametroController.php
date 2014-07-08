@@ -2,6 +2,8 @@
 
 class ParametroController extends AdminController {
 
+    protected $pageTitle = ".: Parametros :.";
+    
     /**
      * @return array action filters
      */
