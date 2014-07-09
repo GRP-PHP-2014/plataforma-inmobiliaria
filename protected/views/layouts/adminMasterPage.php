@@ -28,7 +28,7 @@ c<?php /* @var $this Controller */ ?>
                     </head>
 
                     <body>
-                        <div id="wrapper">
+                       
 
                             <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
                                 <div class="navbar-header">
@@ -140,7 +140,7 @@ c<?php /* @var $this Controller */ ?>
                             </div>
                             <!-- /#page-wrapper -->
 
-                        </div>
+                     
 
 
 

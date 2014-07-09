@@ -23,9 +23,11 @@
         <?php echo $form->textField($model, 'departamento', array('size' => 60, 'maxlength' => 64, "class" => "form-control input-sm")); ?>
     </div>
 
-    <div class="form-group col-lg-12">
-        <?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default")); ?>
-    </div>
+	<div class="form-group col-lg-12">
+            <button type="submit" class="btn btn-default">
+                <?php echo Yii::app()->params["labelBotonFiltrar"] ?>
+            </button>             
+	</div>
 
     <?php $this->endWidget(); ?>
 

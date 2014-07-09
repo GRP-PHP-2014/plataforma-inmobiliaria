@@ -16,8 +16,7 @@ $('.search-form form').submit(function(){
 ?>
 
 <div class="row-fluid">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="row top-admin-row">
             <div class="col-lg-12">
                 <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-home"></span> <?php echo Yii::app()->params["labelFuncionalidadInmuebles"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>

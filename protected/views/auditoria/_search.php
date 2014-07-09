@@ -55,7 +55,7 @@
     <div class="form-group col-lg-12">
         <button type="submit" class="btn btn-default">
             <?php echo Yii::app()->params["labelBotonFiltrar"] ?>
-        </button>    
+        </button>             
     </div>
 
     <?php $this->endWidget(); ?>

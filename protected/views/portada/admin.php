@@ -1,7 +1,6 @@
 <?php ?>
 <div class="row-fluid">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-th"></span> <?php echo Yii::app()->params["labelFuncionalidadPortada"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
         <ol class="breadcrumb">
             <li><a href="<?php echo Yii::app()->createUrl("site/index") ?>">Inicio</a></li>

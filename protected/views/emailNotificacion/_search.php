@@ -19,7 +19,9 @@
     </div>
 
     <div class="form-group col-lg-12">
-        <?php echo CHtml::submitButton(Yii::app()->params["labelBotonFiltrar"], array("class" => "btn btn-default", "class" => "btn btn-default")); ?>
+        <button type="submit" class="btn btn-default">
+            <?php echo Yii::app()->params["labelBotonFiltrar"] ?>
+        </button>             
     </div>
 
     <?php $this->endWidget(); ?>

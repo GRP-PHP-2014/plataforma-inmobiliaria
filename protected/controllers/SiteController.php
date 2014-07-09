@@ -1,6 +1,8 @@
 <?php
 
 class SiteController extends AdminController {
+    
+    protected $pageTitle = ".: Home :.";
 
     public function actionError() {
         if ($error = Yii::app()->errorHandler->error) {
