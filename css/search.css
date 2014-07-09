@@ -6,6 +6,13 @@
     padding: 30px 15px;
 }
 
+.descResultSearch {   
+    height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
 
 /**** MODULE ****/
 .bgc-fff {

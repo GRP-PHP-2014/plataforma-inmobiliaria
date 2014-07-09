@@ -39,7 +39,7 @@ function cargarDestacados(Result) {
                 '<h2 class="featurette-heading">' + elem.titulo + '. <span class="text-black">' + 
                 		elem.tipo_inmueble + ' | ' + elem.operacion_publicacion + '</span></h2>' +
                 '<hr class="featurette-divider">' +
-                '<p class="lead">' + elem.descripcion+ '</p>' +
+                '<p class="lead">' + elem.descripcion.toLocaleLowerCase() + '</p>' +
               '</div>' +
             '</div>';
     }

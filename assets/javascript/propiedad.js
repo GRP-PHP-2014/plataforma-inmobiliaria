@@ -4,6 +4,19 @@ $( document ).ready(function() {
 	getPropiedad(idPropiedad);
 
   $('.fb-like')[0].setAttribute('data-href',window.location.toLocaleString());
+
+  String.prototype.toCapitalCase = function() {
+    var re = /\s/;
+    var words = this.split(re);
+    re = /(\S)(\S+)/;
+    for (i = words.length - 1; i >= 0; i--) {
+    re.exec(words[i]);
+    words[i] = RegExp.$1.toUpperCase()
+    + RegExp.$2.toLowerCase();
+    }
+    return words.join(' ');
+  } 
+
 });
 
 function mostrarPropiedad() {
@@ -86,32 +99,27 @@ $(function() {
   });
 });
 
-
-
-// altura_salon_principal: null
 // anio_construccion_aproximado: "1980"
 // cant_banios: "1"
 // cant_dormitorios: "2"
-// cant_plantas_casa: null
-// cant_plantas_local: null
 // coord_latitud: "-4150075.3922056"
 // coord_longitud: "-6253387.7864865"
-// descripcion: ""
 // direccion_corta: "Garzon 1503"
 // direccion_larga: null
 // es_propiedad_horizontal: "0"
-// fk_estado: "4"
+// cant_plantas_casa: null
+// descripcion: ""
 // gastos_comunes: "120"
 // id: "59"
 // id_barrio: null
 // id_ciudad: null
 // id_departamento: null
-// imagenes: Array[2]
 // mts2_edificados: null
+// imagenes: Array[2]
 // numero_de_piso: "4"
 // operacion_publicacion: "venta"
-// potencia_contratada: ""
 // precio_publicacion: "85000"
+
 // tiene_ascensor: "1"
 // tiene_calefaccion: "1"
 // tiene_deposito: "0"
@@ -120,8 +128,15 @@ $(function() {
 // tiene_porteria: "1"
 // tiene_portero_electrico: "0"
 // tiene_vigilancia: "0"
+
 // tipo_inmueble: "apartamento"
-// tipo_local: ""
-// tipo_local_observacion: ""
 // titulo: "BUEN CHALET, AL FRENTE!!"
 // vista_al_mar: "0"
+
+// altura_salon_principal: null
+// cant_plantas_local: null
+// fk_estado: "4"
+// potencia_contratada: ""
+// tipo_local: ""
+// tipo_local_observacion: ""
+

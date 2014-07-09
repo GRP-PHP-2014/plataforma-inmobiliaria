@@ -71,7 +71,7 @@ function cargarResultadoBusqueda(Result){
                       '<li style="list-style: none">|</li>' +
                       '<li>' + elem.cant_banios + ' Baños</li>' +
                     '</ul>' +
-                    '<p class="hidden-xs">' + elem.descripcion + '</p>' +
+                    '<p class="hidden-xs descResultSearch">' + elem.descripcion.toLocaleLowerCase() + '</p>' +
                     '<span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia ' + elem.id + '</span>' + 
                   '</div>' +
                 '</div>' +
