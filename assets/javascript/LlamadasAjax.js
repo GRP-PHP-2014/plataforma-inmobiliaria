@@ -47,7 +47,9 @@
     })
     .done(function(msg) {
       console.log(msg);
+      mostrarPropiedad(msg);
       GLOBAL = { propiedad : msg };
+
     })
     .fail(function(msg) {
       console.error(msg);
@@ -58,8 +60,8 @@
   }
 
   function confirmarSuscripcion(obj) {
-    var query = 'emailCliente=' + obj.mail + 
-                '&tipoNotificacion=' + obj.tipo + 
+    var query = 'emailCliente=' + obj.mail +
+                '&tipoNotificacion=' + obj.tipo +
                 '&mensaje=' + obj.msg;
     bloquearPantalla();
     $.ajax({
@@ -90,7 +92,7 @@
         }
     })
     .done(function(msg) {
-      if (msg.resultado === "ok") 
+      if (msg.resultado === "ok")
         alertify.success(msg.detalle);
       else if (msg.resultado === "falla")
         alertify.error(msg.detalle);

@@ -322,6 +322,10 @@ footer {
   padding: 100px 0;
 }
 
+span img {
+  background-color: transparent !important;
+}
+
 img {
   background-color: green;
 }
