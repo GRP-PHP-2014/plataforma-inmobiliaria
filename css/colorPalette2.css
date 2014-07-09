@@ -167,6 +167,12 @@ img.grayscale {
   background: #11cc45 url(../images/pt_squares_lg.png) repeat center center fixed;
 }
 
+.headerPropiedad {
+  padding-top: 6%;
+  /*height: 100%;*/
+  background: rgb(187, 230, 97) url(../images/pt_squares_lg.png) repeat center center fixed;
+}
+
 .blurb {
   padding: 120px 0;
   background-color:#fefefe;
@@ -241,6 +247,55 @@ img.grayscale {
   background-size: cover;
 }
 
+.bg_night {
+  color: #ffffff;
+  padding-top:7%;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_night.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg_rain {
+  color: #ffffff;
+  padding-top:7%;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_rain.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg_flower {
+  color: #ffffff;
+  padding-top:7%;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_flower.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg_light {
+  color: #ffffff;
+  padding-top:7%;
+  height: 100%;
+  width: 100%;
+  background: url(../images/bg_light.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 .gallery {
   padding: 50px 0;
 }
@@ -267,6 +322,9 @@ footer {
   padding: 100px 0;
 }
 
+img {
+  background-color: green;
+}
 
 /*FREELANCES*/
 hr.star-light,

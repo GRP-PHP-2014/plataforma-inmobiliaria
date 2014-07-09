@@ -1,4 +1,4 @@
-<html>
+﻿<html>
   <head>
     <title>Propiedad </title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -7,20 +7,172 @@
     <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap.min.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/bootstrap-inmobiliaria.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/colorPalette2.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/propiedad.css" media="screen"/>
+
+    <!-- <link rel="stylesheet" href="/plataforma-inmobiliaria/css/desoslide/demo.css" /> -->
+    <link rel="stylesheet" href="/plataforma-inmobiliaria/css/desoslide/animate.min.css">
+    <link rel="stylesheet" href="/plataforma-inmobiliaria/css/desoslide/jquery.desoslide.min.css">
 
     <script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
-
     <script src="/plataforma-inmobiliaria/assets/javascript/propiedad.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
     <script src="/plataforma-inmobiliaria/assets/javascript/objets.js"></script>
-    
     <script src="/plataforma-inmobiliaria/assets/javascript/LlamadasAjax.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/plataforma-inmobiliaria/assets/javascript/lib/highlight.pack.js"></script>
+    <script src="/plataforma-inmobiliaria/assets/javascript/jquery.desoslide.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+    <div class="navbar navbar-fixed-top navbar-bold" data-spy="affix" data-offset-top="1000">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="home.html" class="navbar-brand">Plataforma Inmobiliaria</a>
+        </div>
+      </div>
+    </div>
   </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=461659287217589&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div class="row headerPropiedad" style='background-color: beige;'>
+    <article class="col-lg-12 col-md-12">
+      <h4 id='titlePropiedad'>Propiedad</h4>
+      <div class="container">
+        <div id="slideshow_1_thumbs_1" class="col-lg-3 col-md-3">
+          <ul class="slideshow1_thumbs desoslide-thumbs-vertical list-inline text-center">
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/bick_buck_bunny.jpg">
+                  <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/bick_buck_bunny.jpg" alt="Bick Buck Bunny" data-desoslide-caption-title="Bick Buck Bunny">
+              </a>
+            </li>
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/rinky.jpg">
+                  <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/rinky.jpg" alt="Rinky" data-desoslide-caption-title="Rinky">
+              </a>
+            </li>
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/its_a_trap.jpg">
+                  <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/its_a_trap.jpg" alt="It's a trap!" data-desoslide-caption-title="It's a trap!">
+              </a>
+            </li>
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/evil_frank.jpg">
+                <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/evil_frank.jpg" alt="Evil Frank" data-desoslide-caption-title="Evil Frank">
+              </a>
+            </li>
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/bird.jpg">
+                <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/bird.jpg" alt="Happy Bird" data-desoslide-caption-title="Happy Bird">
+              </a>
+            </li>
+            <li>
+              <a href="/plataforma-inmobiliaria/images/po/bird.jpg">
+                <img class='thumbnail' style="width: 200px;" src="/plataforma-inmobiliaria/images/po/bird.jpg" alt="Happy Bird" data-desoslide-caption-title="Happy Bird">
+              </a>
+            </li>                        
+          </ul>
+        </div>
+
+        <div id="slideshow1" class="col-lg-8 col-md-8">
+          <div class="desoslide-wrapper">
+            <div class="desoslide-controls-wrapper">
+              <a class="desoslide-controls prev" href="#prev"></a>
+              <a class="desoslide-controls pause" href="#pause" style="display: none;"></a>
+              <a class="desoslide-controls play" href="#play"></a>
+              <a class="desoslide-controls next" href="#next"></a>
+            </div>
+          </div>
+        </div>
+
+        <div id="" class="col-lg-8 col-md-8">
+        <h1>Detalles de la propiedad</h1>
+        <div class="fb-like" data-href="" data-layout="button" data-action="like" data-show-faces="false" data-share="true">
+        </div>
+        <hr class=​"featurette-divider">​
+          <h4>Disponible para: <span class="text-muted"> Alquiler / Venta </span></h4>
+          <h4>Precio: <span class="text-muted"> 800 USD / 120000 USD </span></h4>
+          <hr class=​"featurette-divider">​
+          <h4>Baños: <span class="text-muted">2</span></h4>
+          <h4>Dormitorios: <span class="text-muted">4</span></h4>
+          <h4>Mts Cuadrados: <span class="text-muted"></span></h4>
+          <h4>Pisos: <span class="text-muted">1</span></h4>
+          
+          <hr class=​"featurette-divider">Comodidades​
+          <h4>Vista al mar: <span class="text-muted">1</span></h4>
+          <h4>Piscina: <span class="text-muted">1</span></h4>
+          <h4>Garage: <span class="text-muted">1</span></h4>
+          <h4>Es propiedad horizontal: <span class="text-muted">1</span></h4>
+          <h4>Ascensor: <span class="text-muted">1</span></h4>
+          <h4>Calefaccion: <span class="text-muted">1</span></h4>
+          <h4>Deposito: <span class="text-muted">1</span></h4>
+          <h4>Porteria: <span class="text-muted">1</span></h4>
+          <h4>Portero Electrico: <span class="text-muted">1</span></h4>
+          <h4>Deposito: <span class="text-muted">1</span></h4>
+          <h4>Estacionamiento: <span class="text-muted">1</span></h4>
+          <h4>Es planta alta: <span class="text-muted">1</span></h4>
+          <h4>Portero Electrico: <span class="text-muted">1</span></h4>
+          <h4>vigilancia: <span class="text-muted">1</span></h4>
+
+        </div>
+      </div>
+    </article>
+  </div>
+
+
+
+
+
+<!--   <div class="container-fluid">
+      <h1>Bootstrap 3 Lightbox using Modal</h1>
+      <div class="row">
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" href="//placehold.it/1024x768"><img class="thumbnail img-responsive" src="//placehold.it/600x350"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 2" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 3" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 4" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 5" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/2255EE"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 6" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 8" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/777"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 9" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 10" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/EEE"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 11" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/449955/FFF"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 12" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/DDD"></a></div>
+        <div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 13" href="#"><img class="thumbnail img-responsive" src="//placehold.it/600x350/992233"></a></div>
+      </div>
+      <hr>
+      <a href="http://bootply.com/xmgGysNWgn">Edit on Bootply</a>
+      <hr>
+  </div> -->
+  
+  <!-- <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" type="button" data-dismiss="modal">×</button>
+      <h3 class="modal-title"></h3>
+    </div>
+    <div class="modal-body">
+      <div id="modalCarousel" class="carousel">
+            <div class="carousel-inner"></div>
+            <a class="carousel-control left" href="#modaCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <a class="carousel-control right" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+          </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+     </div>
+    </div>
+  </div> -->
 
 </body>
+

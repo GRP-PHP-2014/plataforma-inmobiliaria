@@ -5,8 +5,9 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap.min.css" media="screen"/> 
-<link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/bootstrap-inmobiliaria.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/themes/flatly/bootstrap.min.css" media="screen"/> 
+<link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap-select.min.css" media="screen"/> 
+<!-- <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/bootstrap-inmobiliaria.css" media="screen"/> -->
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/colorPalette2.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/search.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/alertify.bootstrap.css" media="screen"/>
@@ -19,7 +20,6 @@
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/alertify.min.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,10 +44,10 @@
     </div>
 
 <!-- FILTROS -->
-<div id="filterDiv" class="row">
+<div id="filterDiv" class="row" style='pading-top:6%'>
   <div class="form-horizontal">
-    <fieldset>
-      <legend>Criterios de busqueda</legend>
+    <fieldset class="callout" style='height: inherit;'>
+      <h1 style='text-align: center;'>Criterios de busqueda</h1>
       <div class="form-group">
       
         <div class="col-md-12 ">
@@ -58,7 +58,9 @@
             </div>
           </div>
         </div>
-
+        
+        <hr class=​"featurette-divider">​
+        
         <label class="col-md-4 control-label" for="checkboxes">Transaccion</label>
         <div class="col-md-8">
           <label class="checkbox-inline" for="checkAlquiler"><input type="checkbox" id="checkAlquiler" checked>Alquiler</label>
@@ -71,6 +73,8 @@
           <label class="checkbox-inline" for="checkCasa"><input type="checkbox" id="checkCasa" checked="true">Apto</label>
         </div>
 
+      <hr class=​"featurette-divider">​
+        
         <div class="col-md-12">
           <label class="col-md-4 control-label" for="buttondropdown">Desde</label>
           <div class="col-md-4">
@@ -80,7 +84,7 @@
           </div>
         </div>
 
-        <div class="col-md-12 ">
+        <div class="col-md-12">
           <label class="col-md-4 control-label" for="buttondropdownhasta">Hasta</label>
           <div class="col-md-4">
             <div class="input-group">
@@ -88,25 +92,39 @@
             </div>
           </div>
         </div>
+
+        <hr class=​"featurette-divider">​
         
         <div class="col-md-12 ">
           <label class="col-md-4 control-label" for="selectrooms">Dormitorios</label>
           <div class="col-md-4">
-            <select id="selectrooms" name="selectrooms" class="form-control">
-              <option value="1">1</option><option value="2">2</option>
-              <option value="3">3</option><option value="4">4 o mas</option>
-            </select>
+            <div class="input-group">
+              <select id="selectrooms" name="selectrooms" class="form-control">
+                <option value="-1" selected>--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4 o mas</option>
+              </select>
+            </div>
           </div>
         </div>
 
         <div class="col-md-12 ">
           <label class="col-md-4 control-label" for="selectbath">Baños</label>
           <div class="col-md-4">
-            <select id="selectbath" name="selectbath" class="form-control">
-              <option value="1">1</option><option value="2">2</option><option value="3">3 o mas</option>
-            </select>
+            <div class="input-group">
+              <select id="selectbath" name="selectbath" class="form-control">
+                <option value="-1" selected>--</option>              
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3 o mas</option>
+              </select>
+            </div>
           </div>
         </div>
+        
+        <hr class=​"featurette-divider">​
         
         <div class="col-md-12 ">
           <label class="col-md-4 control-label" for="selectBarrio">Barrios</label>
@@ -118,8 +136,10 @@
           </div>
         </div>
         
+        <hr class=​"featurette-divider">​
+
         <label class="col-md-4 control-label" for="goSearch"></label>
-        <div class="col-md-8"><button onclick="Buscar()" class="btn btn-success">Buscar</button></div>
+        <div class="col-md-8 pull-right"><a onclick="Buscar()" class="btn btn-lg btn-success">Buscar</a></div>
     </fieldset>
   </div>
 </div>
@@ -134,184 +154,8 @@
           </div>
         </div>
           
-        <div id="searchResult" class="row">
-<!--          
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop1.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreos y bajo mesada, baño completo, jardín,patio techado con parrillero,opción cochera, fondo y garaje con acceso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop2.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreos y bajo mesada, baño completo, jardín,patio techado con parrillero,opción cochera, fondo y garaje con acceso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop3.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreos y bajo mesada, baño completo, jardín,patio techado con parrillero,opción cochera, fondo y garaje con acceso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop4.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreos y bajo mesada, baño completo, jardín,patio techado con parrillero,opción cochera, fondo y garaje con acceso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop5.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreos y bajo mesada, baño completo, jardín,patio techado con parrillero,opción cochera, fondo y garaje con acceso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop6.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción, ubicada a 1 cuadra de avenida garzón, consta de 2 a 3 dormitorios, living comedor, cocina con placares aéreso por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6"> 
-            <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
-              <div class="media">
-                <a class="pull-left" href="#" target="_parent">
-                <img alt="image" class="img-responsive" src="/plataforma-inmobiliaria/images/prop/prop7.jpg"></a>
-                <div class="clearfix visible-sm"></div>
-                <div class="media-body fnt-smaller">
-                  <a href="#" target="_parent"></a>
-                  <h4 class="media-heading">
-                    <a href="#" target="_parent">$ 275.000 <small class="pull-right">Garzon 6215</small></a>
-                  </h4>
-                  <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
-                    <li>4,820 mts2</li>
-                    <li style="list-style: none">|</li>
-                    <li>3 Habitaciones</li>
-                    <li style="list-style: none">|</li>
-                    <li>1 Baños</li>
-                  </ul>
-                  <p class="hidden-xs">Muy buena propiedad, sólida construcción,so por calle andrés de planchada para 2 autos con mesada. Excelente locomoción y servicios en la zona.</p>
-                  <span class="fnt-smaller fnt-lighter fnt-arial">Codigo de referencia HQJ25</span>
-                </div>
-              </div>
-            </div>
-          </div> 
--->
-        </div>
+        <div id="searchResult" class="row"></div>
+      
       </div>
     </div>
   </body>
