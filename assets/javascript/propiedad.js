@@ -18,88 +18,11 @@ $( document ).ready(function() {
   }
 });
 
-
-/* copy loaded thumbnails into carousel */
-$('.row .thumbnail').on('load', function() {
-
-}).each(function(i) {
-  if(this.complete) {
-    var item = $('<div class="item"></div>');
-    var itemDiv = $(this).parents('div');
-    var title = $(this).parent('a').attr("title");
-
-    item.attr("title",title);
-    $(itemDiv.html()).appendTo(item);
-    item.appendTo('.carousel-inner');
-
-    if (i === 0) // set first item active
-     item.addClass('active');
-
-  }
-});
-
-/* activate the carousel */
-$('#modalCarousel').carousel({interval:false});
-
-/* change modal title when slide changes */
-$('#modalCarousel').on('slid.bs.carousel', function () {
-  $('.modal-title').html($(this).find('.active').attr("title"));
-})
-
-/* when clicking a thumbnail */
-$('.row .thumbnail').click(function(){
-    var idx = $(this).parents('div').index();
-    var id = parseInt(idx);
-    $('#myModal').modal('show'); // show the modal
-    $('#modalCarousel').carousel(id); // slide carousel to selected
-});
-
-/*  */
-
-$(function() {
-  $('a.back-to-top').on('click', function(e) {
-    e.preventDefault();
-
-    $('html, body').stop().animate({
-        scrollTop: $('html, body').offset().top
-    }, 1000);
-  });
-
-  var syntaxHighlight = function() {
-    $('pre code').each(function(i, e) {
-        hljs.highlightBlock(e);
-    });
-  };
-
-  syntaxHighlight();
-
-  var $slideshow1 = $('#slideshow');
-
-  $slideshow1.desoSlide({
-      thumbs: $('#slideshow_thumbs li > a'),
-      overlay: 'always', // How to show overlay ('always', 'hover', 'none')
-      imageClass: 'img-responsive', // Image class(es)
-      interval: 10000, // Interval between each images
-      controls: {
-          show: true,
-          keys: true
-      },
-      auto: {
-        start: true,
-        load:  true // Preloading images
-      },
-      effect: {
-        provider: 'animate', // Effect provider ('animate', 'magic')
-        name: 'fade' // Transition effect
-      }
-  });
-});
-
 function mostrarPropiedad(msg) {
 
   $('#propertyTitle')[0].innerText = msg.titulo;
 
-  // insertImagesProperty(msg);
+  insertImages(msg);
   insertInfoProperty(msg);
   insertComodities(msg);
 }
@@ -145,6 +68,65 @@ function insertComodities(el) {
           '<h4>*Vista al mar <span><img src="' + shUrl + el.vista_al_mar + '.png"></img></span></h4>';
   container.innerHTML = html;
 }
+
+function insertImages(el) {
+  var html = '',
+      shUrl = '/plataforma-inmobiliaria/index.php/',
+      shortUrl = '/plataforma-inmobiliaria/images/',
+      container = document.getElementById('slideshow_thumbs');
+
+  var img = el.imagenes;
+  for (var i = img.length - 1; i >= 0; i--) {
+    // img[i].ruta;     // img[i].titulo;
+    html +=
+      '<li>' +
+        '<a href="' + shortUrl + 'po/bick_buck_bunny.jpg' + '">' +
+          '<img class="thumbnail" style="width: 200px;" src="' + shortUrl + 'po/bick_buck_bunny.jpg' +
+          '" alt="' + 'img[i].titulo' + '" data-desoslide-caption-title="' + 'img[i].titulo' + '">' +
+        '</a>' +
+      '</li>';
+  };
+
+  container.innerHTML = html;
+
+  $('#slideshow').desoSlide({
+      thumbs: $('#slideshow_thumbs li > a'),
+      overlay: 'always', // How to show overlay ('always', 'hover', 'none')
+      imageClass: 'img-responsive', // Image class(es)
+      interval: 10000, // Interval between each images
+      controls: {
+          show: true,
+          keys: true
+      },
+      auto: {
+        start: false,
+        load:  true // Preloading images
+      },
+      effect: {
+        provider: 'animate', // Effect provider ('animate', 'magic')
+        name: 'fade' // Transition effect
+      }
+  });
+}
+
+  $(function() {
+    $('a.back-to-top').on('click', function(e) {
+      e.preventDefault();
+
+      $('html, body').stop().animate({
+          scrollTop: $('html, body').offset().top
+      }, 1000);
+    });
+
+    var syntaxHighlight = function() {
+      $('pre code').each(function(i, e) {
+          hljs.highlightBlock(e);
+      });
+    };
+
+    syntaxHighlight();
+  });
+
 
 // coord_latitud: "-4150075.3922056"
 // coord_longitud: "-6253387.7864865"

@@ -50,14 +50,37 @@ function cargarResultadoBusqueda(Result){
   else {
     for (var i = 0; i < Result.length; i++) {
       var elem = Result[i];
-      // var foto = '/plataforma-inmobiliaria/images/prop/prop1.jpg';
-      var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[0];
+      var htmlimages = '';
+
+      for (var j = elem.imagenes.length - 1; j >= 0; j--) {
+        var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[j];
+
+        if (j === 0) {
+          htmlimages += '<div class="active item img-responsive" data-slide-number="' + j + '">' +
+                            '<img class="img-rounded img-responsive" src="' + foto + '"></div>';
+        }
+        else {
+          htmlimages += '<div class="item" data-slide-number="' + j + '">' +
+                          '<img class="img-rounded img-responsive" src="' + foto + '"></div>';
+        }
+        console.log(htmlimages);
+      }
 
       html += '<div class="col-sm-6">' +
               '<div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">' +
                 '<div class="media">' +
                   '<a class="pull-left" href="propiedad.html?id=' + elem.id + '" target="_parent">' +
-                  '<img alt="image" class="img-responsive" src="' + foto + '"></a>' +
+                   '<div class="col-md-4">' +
+                      '<div id="imgCarousel_' + elem.id + '" class="carousel slide">' +
+                        '<div class="carousel-inner">' +
+                            htmlimages +
+                        '</div>' +
+                      '</div>' +
+                      '<div class="col-md-4 carousel-controls-mini">' +
+                        '<a href="#imgCarousel_' + elem.id + '" data-slide="prev">‹</a>' +
+                        '<a href="#imgCarousel_' + elem.id + '" data-slide="next">›</a>' +
+                      '</div>' +
+                    '</div>' +
                   '<div class="clearfix visible-sm"></div>' +
                   '<div class="media-body fnt-smaller">' +
                     '<a href="#" target="_parent"></a>' +
@@ -77,6 +100,7 @@ function cargarResultadoBusqueda(Result){
                 '</div>' +
               '</div>' +
             '</div>';
+            console.debug(html);
       }
   }
   container.innerHTML = html;
