@@ -28,17 +28,22 @@ function mostrarPropiedad(msg) {
 }
 
 $('#openBtn').click(function(){
-  $('#myModal').modal({show:true})
-  cargarPropiedadenMapa();
+
+  $('#dialog-map').modal({show:true})
+
+  if (!CONF.mapCharged)
+      setTimeout(function() { cargarPropiedadenMapa(); }, 500);
+
 });
 
 
 function cargarPropiedadenMapa() {
-  // var iconoPersonalizado =
-var HomeIcon = new CM.Icon();
-    HomeIcon.image = '/plataforma-inmobiliaria/images/home-blue.png';
-    HomeIcon.iconSize = new CM.Size(32, 37);
-    HomeIcon.iconAnchor = new CM.Point(32, 37);
+
+
+  var HomeIcon = new CM.Icon();
+      HomeIcon.image = CONF.mapIcon;
+      HomeIcon.iconSize = new CM.Size(32, 37);
+      HomeIcon.iconAnchor = new CM.Point(32, 37);
 
   var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
   var map = new CM.Map('map-section', cloudmade);
@@ -51,6 +56,7 @@ var HomeIcon = new CM.Icon();
   map.setCenter(LatLngMarker, 15);
   map.addOverlay(myMarker);
 
+  CONF.mapCharged = true;
 }
 
 
@@ -121,12 +127,12 @@ function insertImages(el) {
       imageClass: 'img-responsive', // Image class(es)
       interval: 10000, // Interval between each images
       controls: {
-          show: true,
-          keys: true
+          show: false,
+          keys: false
       },
       auto: {
         start: false,
-        load:  true // Preloading images
+        load:  false // Preloading images
       },
       effect: {
         provider: 'animate', // Effect provider ('animate', 'magic')
@@ -152,11 +158,6 @@ function insertImages(el) {
 
     syntaxHighlight();
   });
-
-
-// coord_latitud: "-4150075.3922056"
-// coord_longitud: "-6253387.7864865"
-// imagenes: Array[2]
 
 // altura_salon_principal: null
 // cant_plantas_local: null

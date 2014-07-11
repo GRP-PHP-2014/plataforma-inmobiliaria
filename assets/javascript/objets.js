@@ -5,10 +5,14 @@
 /* el filtro cantidadHabilitaciones puede tenener los valores {1,2,3,4} (siendo 4, 4 o mas)*/
 /* el filtro barrios es un array con los ids de los barrios */
 
-CONF = { ip : '/plataforma-inmobiliaria/index.php' };
+CONF = {
+  ip : '/plataforma-inmobiliaria/index.php',
+  mapIcon : '/plataforma-inmobiliaria/images/home-blue.png',
+  mapCharged : false
+};
 
 filterSearch = {
-	tipoBien: ["apartamento","casa"], 
+	tipoBien: ["apartamento","casa"],
 	filtroStr : "",
 	tipoTransaccion : ["alquiler","venta"],
 	cantidadBanios : 4,
