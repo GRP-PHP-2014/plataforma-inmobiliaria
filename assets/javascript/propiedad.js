@@ -27,6 +27,32 @@ function mostrarPropiedad(msg) {
   insertComodities(msg);
 }
 
+$('#openBtn').click(function(){
+  $('#myModal').modal({show:true})
+  cargarPropiedadenMapa();
+});
+
+
+function cargarPropiedadenMapa() {
+  // var iconoPersonalizado =
+var HomeIcon = new CM.Icon();
+    HomeIcon.image = '/plataforma-inmobiliaria/images/home-blue.png';
+    HomeIcon.iconSize = new CM.Size(32, 37);
+    HomeIcon.iconAnchor = new CM.Point(32, 37);
+
+  var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+  var map = new CM.Map('map-section', cloudmade);
+  // var LatLngMarker = new CM.LatLng(GLOBAL.propiedad.coord_latitud,
+  //                                    GLOBAL.propiedad.coord_longitud);
+
+  var LatLngMarker = new CM.LatLng(-34.869839, -56.169007);
+  var myMarker = new CM.Marker(LatLngMarker, { title: GLOBAL.propiedad.titulo,
+                                               icon: HomeIcon });
+  map.setCenter(LatLngMarker, 15);
+  map.addOverlay(myMarker);
+
+}
+
 
 function insertInfoProperty(el) {
   var html = '',
