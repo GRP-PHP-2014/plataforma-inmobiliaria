@@ -9,6 +9,7 @@
   		dataType: 'json',
   	})
   	.done(function(msg) {
+      CONF.searchResult = msg;
       cargarResultadoBusqueda(msg);
     })
     .fail(function(msg) {

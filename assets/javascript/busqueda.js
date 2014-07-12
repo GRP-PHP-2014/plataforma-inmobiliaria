@@ -15,6 +15,38 @@ function hideFilters() {
   $('#filterDiv').fadeOut( 1000, 'linear');
 }
 
+$('#openBtn').click(function(){
+
+  $('#dialog-map').modal({show:true})
+
+  setTimeout(function() { cargarResultadosDeBusquedaenMapa(); }, 500);
+
+});
+
+
+function cargarResultadosDeBusquedaenMapa() {
+
+  var HomeIcon = new CM.Icon();
+      HomeIcon.image = CONF.mapIcon;
+      HomeIcon.iconSize = new CM.Size(32, 37);
+      HomeIcon.iconAnchor = new CM.Point(32, 37);
+
+  var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+  var map = new CM.Map('map-section', cloudmade);
+
+  for (var i = 0; i < CONF.searchResult.length; i++) {
+    CONF.searchResult[i]
+    var LatLngMarker = new CM.LatLng(CONF.searchResult[i].coord_latitud,
+                                     CONF.searchResult[i].coord_longitud);
+
+    var myMarker = new CM.Marker(LatLngMarker, { title: CONF.searchResult[i].titulo,
+                                                 icon: HomeIcon });
+    map.setCenter(LatLngMarker, 15);
+    map.addOverlay(myMarker);
+  };
+}
+
+
 function Buscar() {
 
   filterSearch.precioDesde = parseInt($('#priceDesde').val());
