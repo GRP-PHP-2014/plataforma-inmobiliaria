@@ -32,3 +32,7 @@ body{
 #side-menu > li.active > ul > li.active {
     background-color: #DBDBDB;
 }
+
+.img-circle{
+    width: 50px;
+}

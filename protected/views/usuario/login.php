@@ -1,7 +1,7 @@
 <?php ?>
 <html>
     <head>
-        <title>.:<?php echo CHtml::encode(Yii::app()->name); ?> .: Login :.</title>
+        <title>. : <?php echo CHtml::encode($this->pageTitle); ?> : .</title>
 
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">

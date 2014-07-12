@@ -5,8 +5,9 @@ http://localhost/plataforma-inmobiliaria/index.php/rwsnotificacion/ingresarNotif
 (puede ser por post o get)
 
 {
-    "emailCliente": "", 
-    "nombreCliente": "", 
-    "tipoNotificacion" : "",
-    "mensaje" : ""
+    "mensaje": "",     
+    "nombreCliente" : "",
+    "emailCliente" : "",
+    "telefonoCliente": "", 
+    "tipoNotificacion": ""
 }

@@ -7,6 +7,7 @@ class EmailNotificacion extends EMongoDocument // Notice: We extend EMongoDocume
     public $tipoNotificacion;
     public $emailCliente;
     public $nombreCliente;
+    public $telefonoCliente;
     public $estado;
  
     /**
@@ -35,6 +36,7 @@ class EmailNotificacion extends EMongoDocument // Notice: We extend EMongoDocume
             'tipoNotificacion' => 'tipoNotificacion',
             'nombreCliente' => 'nombreCliente',
             'emailCliente' => 'emailCliente',
+            'telefonoCliente' => 'telefonoCliente',
             'estado' => 'estado',
         );
     }

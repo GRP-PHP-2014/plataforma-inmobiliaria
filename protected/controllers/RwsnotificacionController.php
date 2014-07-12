@@ -14,6 +14,7 @@ class RwsnotificacionController extends RWSController {
 
         $ntf = new EmailNotificacion;
         $ntf->mensaje = (isset($this->arguments["mensaje"]) ? $this->arguments["mensaje"] : "");
+        $ntf->telefonoCliente = (isset($this->arguments["telefonoCliente"]) ? $this->arguments["telefonoCliente"] : "");
         $ntf->nombreCliente = (isset($this->arguments["nombreCliente"]) ? $this->arguments["nombreCliente"] : "");
         $ntf->emailCliente = (isset($this->arguments["emailCliente"]) ? $this->arguments["emailCliente"] : "");
         $ntf->tipoNotificacion = (isset($this->arguments["tipoNotificacion"]) ? $this->arguments["tipoNotificacion"] : "");

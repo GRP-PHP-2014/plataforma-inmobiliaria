@@ -188,6 +188,7 @@ class UsuarioController extends AdminController {
             }
         }
         $this->layout = '//layouts/oneColumn';
+        $this->pageTitle = ". : Login : .";
         $this->render('login', array('model' => $model));
     }
 

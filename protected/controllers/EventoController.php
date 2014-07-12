@@ -2,7 +2,7 @@
 
 class EventoController extends AdminController {
 
-    protected $pageTitle = ".: Mis eventos :.";
+    protected $pageTitle = ". : Mis eventos : .";
     
     /**
      * 

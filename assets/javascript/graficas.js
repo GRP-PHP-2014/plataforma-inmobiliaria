@@ -7,7 +7,7 @@ function loadGraficaInmuebles(){
             plotShadow: false
         },
         title: {
-            text: 'Browser market shares at a specific website, 2014'
+            text: 'Cantidad de inmuebles actualmente publicados por barrio de montevideo'
         },
         tooltip: {
     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -27,19 +27,19 @@ function loadGraficaInmuebles(){
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Proporcion por barrios',
             data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
+                ['La Blanqueada',   45.0],
+                ['Ciudad Vieja',       26.8],
                 {
-                    name: 'Chrome',
+                    name: 'Palermo',
                     y: 12.8,
                     sliced: true,
                     selected: true
                 },
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
+                ['Cordon',    8.5],
+                ['Pocitos',     6.2],
+                ['Colon',   0.7]
             ]
         }]
     });

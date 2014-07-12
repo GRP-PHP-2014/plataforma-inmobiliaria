@@ -43,40 +43,11 @@ c<?php /* @var $this Controller */ ?>
                             </div>
                             <!-- /.navbar-header -->
 
-                            <ul class="nav navbar-top-links navbar-right">
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-messages">
-
-                                    </ul>
-                                    <!-- /.dropdown-messages -->
-                                </li>
+                            <ul class="nav navbar-top-links navbar-right">                               
                                 <!-- /.dropdown -->
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-tasks">
-
-                                    </ul>
-                                    <!-- /.dropdown-tasks -->
-                                </li>
-                                <!-- /.dropdown -->
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-alerts">
-
-                                    </ul>
-                                    <!-- /.dropdown-alerts -->
-                                </li>
-                                <!-- /.dropdown -->
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <span class="glyphicon glyphicon-user"></span>  <i class="fa fa-caret-down"></i>
+                                        <span class="glyphicon glyphicon-user"></span>  <?php echo Yii::app()->user->getNameAndRole(); ?> <i class="fa fa-caret-down"></i>  
                                     </a>
                                     <ul class="dropdown-menu dropdown-user">
                                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi perfil</a>
