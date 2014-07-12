@@ -298,7 +298,10 @@ class Inmueble extends CActiveRecord {
     public function imagesToArray() {
         $imgsArr = array();
         foreach ($this->imagenesInmuebles as $img) {
-            array_push($imgsArr, "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta);
+            $imgArr = array();
+            $imgArr["ruta"] = "propertyImage?idInmueble=" . $this->id . "&idArchivo=" . $img->ruta;
+            $imgArr["titulo"] = "";
+            array_push($imgsArr, $imgArr);
         }
         return $imgsArr;
     }
