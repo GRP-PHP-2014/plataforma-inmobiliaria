@@ -9,16 +9,8 @@ class RwsinmuebleController extends CController {
     public function actionView($id) {
 
         $model = Inmueble::model()->findByPk($id);
-        if ($model !== null) {
-            $marray = $model->attributes;
-            
-            $images = array();
-            foreach ($model->imagenesInmuebles as $img){
-                array_push($images, $img->attributes);
-            }
-            $marray["imagenes"] = $images;
-            
-            Response::ok(CJSON::encode($marray));
+        if ($model !== null) {      
+            Response::ok(CJSON::encode($model->toArray()));
         } else {
             Response::ok(CJSON::encode(array("resultado" => "falla", "mensaje" => "inmueble no encontrado")));
         }        
@@ -46,7 +38,7 @@ class RwsinmuebleController extends CController {
         foreach ($inmuebles as $inm){
             
             
-            array_push($arrInmuebles, $inm->toArray());           
+            array_push($arrInmuebles, $inm->toArray());
         }
         Response::ok(CJSON::encode($arrInmuebles));
     }
