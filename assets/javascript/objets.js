@@ -8,7 +8,8 @@
 CONF = {
   ip : '/plataforma-inmobiliaria/index.php',
   mapIcon : '/plataforma-inmobiliaria/images/home-blue.png',
-  mapCharged : false
+  mapCharged : false,
+  searchResult : ''
 };
 
 filterSearch = {

@@ -12,17 +12,6 @@
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/alertify.bootstrap.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap-slider.min.css" media="screen"/>
 
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/busqueda.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/LlamadasAjax.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/objets.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/alertify.min.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-select.min.js"></script>
-<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-slider.min.js"></script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -139,8 +128,23 @@
                     data-live-search="true"
                     title='Eliga barrios'
                     class="selectpicker" multiple>
-              <option value="1">Colon</option><option value="3">Cordon</option>
-              <option value="2">Union</option><option value="4">La Paz</option><option value="5">Sayago</option>
+              <option value="7">Aguada</option>
+              <option value="1">Centro</option>
+              <option value="10">Ciudad Vieja</option>
+              <option value="2">Colon</option>
+              <option value="17">Cordon</option>
+              <option value="13">Jardines</option>
+              <option value="18">La Blanqueda</option>
+              <option value="11">La Comercial</option>
+              <option value="15">La Paz</option>
+              <option value="4">Palermo</option>
+              <option value="3">Parque Rodo</option>
+              <option value="9">Paso de la Arena</option>
+              <option value="12">Piedras Blancas</option>
+              <option value="8">Pocitos</option>
+              <option value="6">Punta Gorda</option>
+              <option value="5">Sayago</option>
+              <option value="14">Union</option>
             </select>
           </div>
         </div>
@@ -158,6 +162,7 @@
           <div class="col-md-12" style="padding-top: 3%;">
             <h1>Propiedades encontradas</h1>
             <p>Para obtener resultados mas certeros, completa todos los filtros. Y realiza la busqueda con palabras claves</p>
+            <a href="#" class="btn btn-success" id="openBtn" style="margin-bottom: 1em;">Ver en mapa</a>
           </div>
         </div>
           
@@ -166,6 +171,24 @@
       </div>
     </div>
   </body>
+
+  <div id="dialog-map" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Mapa</h3>
+    </div>
+    <div class="modal-body">
+      <p>Esta propiedad se encuentra aqui...</p>
+      <div id="map-section" style="height: 50%;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" data-dismiss="modal">Ocultar</button>
+    </div>
+    </div>
+  </div>
+  </div>
 
   <footer>
     <div class="container">
@@ -185,3 +208,16 @@
   </footer>
 
 </html>
+
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/busqueda.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/LlamadasAjax.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/objets.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/alertify.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-select.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-slider.min.js"></script>
+<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+<!-- <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script> -->

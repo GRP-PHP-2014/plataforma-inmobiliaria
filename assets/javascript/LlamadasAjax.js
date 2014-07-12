@@ -9,6 +9,7 @@
   		dataType: 'json',
   	})
   	.done(function(msg) {
+      CONF.searchResult = msg;
       cargarResultadoBusqueda(msg);
     })
     .fail(function(msg) {
@@ -62,7 +63,10 @@
   function confirmarSuscripcion(obj) {
     var query = 'emailCliente=' + obj.mail +
                 '&tipoNotificacion=' + obj.tipo +
+                '&nombreCliente=' + obj.nombre +
+                '&telefonoCliente=' + obj.tel +
                 '&mensaje=' + obj.msg;
+
     bloquearPantalla();
     $.ajax({
   			url: CONF['ip'] + '/rwsnotificacion/ingresarNotificacion?' + query,
@@ -70,7 +74,8 @@
   			dataType: 'json',
   	})
   	.done(function(msg) {
-  		$('#' + obj.tipo).modal({show:false})
+  		$('#' + obj.tipo).modal({show:false});
+      console.debug(msg);
   	})
   	.fail(function(msg) {
   		console.log(msg);
