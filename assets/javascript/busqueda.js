@@ -1,3 +1,12 @@
+$( document ).ready(function() {
+  $('.selectpicker').selectpicker('refresh');
+  $("input.slider").slider()
+    .on('slide', function(ev){
+        $('#priceDesde')[0].value = ev.value[0];
+        $('#priceHasta')[0].value = ev.value[1];
+    });
+});
+
 function showFilters() {
   $('#filterDiv').fadeIn( 1000, 'linear');
 }
