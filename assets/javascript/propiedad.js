@@ -39,7 +39,6 @@ $('#openBtn').click(function(){
 
 function cargarPropiedadenMapa() {
 
-
   var HomeIcon = new CM.Icon();
       HomeIcon.image = CONF.mapIcon;
       HomeIcon.iconSize = new CM.Size(32, 37);
@@ -47,10 +46,9 @@ function cargarPropiedadenMapa() {
 
   var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
   var map = new CM.Map('map-section', cloudmade);
-  // var LatLngMarker = new CM.LatLng(GLOBAL.propiedad.coord_latitud,
-  //                                    GLOBAL.propiedad.coord_longitud);
+  var LatLngMarker = new CM.LatLng(GLOBAL.propiedad.coord_latitud,
+                                     GLOBAL.propiedad.coord_longitud);
 
-  var LatLngMarker = new CM.LatLng(-34.869839, -56.169007);
   var myMarker = new CM.Marker(LatLngMarker, { title: GLOBAL.propiedad.titulo,
                                                icon: HomeIcon });
   map.setCenter(LatLngMarker, 15);
@@ -58,7 +56,6 @@ function cargarPropiedadenMapa() {
 
   CONF.mapCharged = true;
 }
-
 
 function insertInfoProperty(el) {
   var html = '',
@@ -109,12 +106,14 @@ function insertImages(el) {
 
   var img = el.imagenes;
   for (var i = img.length - 1; i >= 0; i--) {
-    // img[i].ruta;     // img[i].titulo;
+    // img[i].ruta;
+    // img[i].titulo;
+    // 'po/bick_buck_bunny.jpg'
     html +=
       '<li>' +
-        '<a href="' + shortUrl + 'po/bick_buck_bunny.jpg' + '">' +
-          '<img class="thumbnail" style="width: 200px;" src="' + shortUrl + 'po/bick_buck_bunny.jpg' +
-          '" alt="' + 'img[i].titulo' + '" data-desoslide-caption-title="' + 'img[i].titulo' + '">' +
+        '<a href="' + shUrl + img[i].ruta + '">' +
+          '<img class="thumbnail" style="width: 200px;" src="' + shUrl + img[i].ruta +
+          '" alt="' + el.titulo + '" data-desoslide-caption-title="' + el.titulo + '">' +
         '</a>' +
       '</li>';
   };
@@ -165,4 +164,3 @@ function insertImages(el) {
 // potencia_contratada: ""
 // tipo_local: ""
 // tipo_local_observacion: ""
-

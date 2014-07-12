@@ -72,7 +72,6 @@ function cargarResultadoBusqueda(Result){
           htmlimages += '<div class="item" data-slide-number="' + j + '">' +
                           '<img class="img-rounded img-responsive" src="' + foto + '"></div>';
         }
-        console.log(htmlimages);
       }
 
       html += '<div class="col-sm-6">' +
@@ -92,9 +91,10 @@ function cargarResultadoBusqueda(Result){
                     '</div>' +
                   '<div class="clearfix visible-sm"></div>' +
                   '<div class="media-body fnt-smaller">' +
-                    '<a href="#" target="_parent"></a>' +
+                    '<a href="propiedad.html?id=' + elem.id + '" target="_parent"></a>' +
                     '<h4 class="media-heading">' +
-                      '<a href="#" target="_parent">$ ' + elem.precio_publicacion + '<small class="pull-right">' + elem.direccion_corta + '</small></a>' +
+                      '<a href="propiedad.html?id=' + elem.id + '" target="_parent">$ ' + elem.precio_publicacion +
+                      '<small class="pull-right">' + elem.direccion_corta + '</small></a>' +
                     '</h4>' +
                     '<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">' +
                       '<li>' + elem.mts2_edificados + ' mts2</li>' +
@@ -109,7 +109,6 @@ function cargarResultadoBusqueda(Result){
                 '</div>' +
               '</div>' +
             '</div>';
-            console.debug(html);
       }
   }
   container.innerHTML = html;
