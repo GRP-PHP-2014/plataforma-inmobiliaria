@@ -137,7 +137,7 @@
 
 <!-- CONTACTANOS -->
    <div id="contact">
-    <div class="container">
+    <div class="container" id="solicitud_contacto">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2>Contactanos</h2>
@@ -152,35 +152,35 @@
             <div class="row">
               <div class="form-group col-xs-12 floating-label-form-group">
                 <label for="name">Su nombre</label>
-                <input class="form-control" type="text" name="name" placeholder="Nombre">
+                <input class="form-control name" type="text" name="name" placeholder="Nombre">
               </div>
             </div>
 
             <div class="row">
               <div class="form-group col-xs-12 floating-label-form-group">
                 <label for="email">Su correo</label>
-                <input class="form-control" type="email" name="email" placeholder="Email">
+                <input class="form-control email" type="email" name="email" placeholder="Email">
               </div>
             </div>
 
             <div class="row">
               <div class="form-group col-xs-12 floating-label-form-group">
                 <label for="tel">Un telefono</label>
-                <input class="form-control" type="number" name="tel" placeholder="Telefono">
+                <input class="form-control tel" type="tel" name="tel" placeholder="Telefono">
               </div>
             </div>
 
             <div class="row">
               <div class="form-group col-xs-12 floating-label-form-group">
                 <label for="message">Su mensaje</label>
-                <textarea placeholder="Mensaje" class="form-control" rows="5"></textarea>
+                <textarea placeholder="Mensaje" class="form-control msg" rows="5"></textarea>
               </div>
             </div>
             <br>
 
             <div class="row">
               <div class="form-group col-xs-12">
-                  <button type="submit" class="btn btn-lg btn-success">Enviar</button>
+                  <button type="submit" onclick="crearNotificacion('solicitud_contacto')" class="btn btn-lg btn-success">Enviar</button>
               </div>
             </div>
           </form>
@@ -228,6 +228,7 @@
             <input class="form-control email" type="email" name="email" placeholder="Email">
           </div>
         </div>
+
         <div class="row">
           <div class="form-group col-xs-12 floating-label-form-group">
             <label for="message">Su mensaje</label>
@@ -266,6 +267,14 @@
             <input class="form-control email" type="email" name="email" placeholder="Email">
           </div>
         </div>
+        
+        <div class="row">
+          <div class="form-group col-xs-12 floating-label-form-group">
+            <label for="tel">Un telefono</label>
+            <input class="form-control tel" type="tel" name="tel" placeholder="Telefono">
+          </div>
+        </div>
+
         <div class="row">
           <div class="form-group col-xs-12 floating-label-form-group">
             <label for="message">Su mensaje</label>

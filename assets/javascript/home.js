@@ -6,11 +6,18 @@ $(document).ready(function() {
 
 function crearNotificacion(id) {
 	var json = {
-		  nombre : $('#' + id + ' .name').val(),
+      nombre : '',
+      tel : '',
       mail : $('#' + id + ' .email').val(),
-	    msg : $('#' + id + ' .msg').val(),
-	    tipo : id
-	}
+      msg : $('#' + id + ' .msg').val(),
+      tipo : id
+  }
+
+  if (id === 'solicitud_informacion') {
+    json.nombre = $('#' + id + ' .name').val();
+    json.tel = $('#' + id + ' .tel').val();
+  }
+
 	confirmarSuscripcion(json);
 }
 
