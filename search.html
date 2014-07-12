@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/colorPalette2.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/search.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/alertify.bootstrap.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/plataforma-inmobiliaria/css/lib/bootstrap-slider.min.css" media="screen"/>
 
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/jquery1.11.0.min.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/main.js"></script>
@@ -19,6 +20,8 @@
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/alertify.min.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/blockUI.js"></script>
 <script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap3.1.1.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-select.min.js"></script>
+<script src="/plataforma-inmobiliaria/assets/javascript/lib/bootstrap-slider.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -58,27 +61,33 @@
           </div>
         </div>
         
-        <hr class=​"featurette-divider">​
-        
         <label class="col-md-4 control-label" for="checkboxes">Transaccion</label>
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding-left: 1.5em;">
           <label class="checkbox-inline" for="checkAlquiler"><input type="checkbox" id="checkAlquiler" checked>Alquiler</label>
           <label class="checkbox-inline" for="checkVenta"><input type="checkbox" id="checkVenta" checked>Venta</label>
         </div>
 
         <label class="col-md-4 control-label" for="checkboxes">Tipo</label>
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding-left: 1.5em;">
           <label class="checkbox-inline" for="checkApto"><input type="checkbox" id="checkApto" checked>Casa</label>
-          <label class="checkbox-inline" for="checkCasa"><input type="checkbox" id="checkCasa" checked="true">Apto</label>
+          <label class="checkbox-inline" style="padding-left: 2.2em;" for="checkCasa"><input type="checkbox" id="checkCasa" checked>Apto</label>
         </div>
 
-        <hr class=​"featurette-divider">​
+        <div class="col-md-12" style="padding-top: 2em;padding-bottom: 0.5em;">
+          <label class="col-md-4 control-label" style="padding-top: initial;" for="buttondropdown">Rango de precios</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <input id="priceRango" class="slider" value="" data-slider-min="0" data-slider-max="200000" data-slider-step="500" data-slider-value="[0,200000]"/>
+            </div>
+          </div>
+        </div>
+
         
         <div class="col-md-12">
           <label class="col-md-4 control-label" for="buttondropdown">Desde</label>
           <div class="col-md-4">
             <div class="input-group">
-              <input id="priceDesde" name="buttondropdown" class="form-control" placeholder="precio" value="0" type="text">
+              <input id="priceDesde" name="buttondropdown" class="form-control inputRango" placeholder="precio" value="0" type="text">
             </div>
           </div>
         </div>
@@ -87,18 +96,16 @@
           <label class="col-md-4 control-label" for="buttondropdownhasta">Hasta</label>
           <div class="col-md-4">
             <div class="input-group">
-              <input id="priceHasta" name="buttondropdownhasta" class="form-control" placeholder="precio" value="0" type="text">
+              <input id="priceHasta" name="buttondropdownhasta" class="form-control inputRango" placeholder="precio" value="0" type="text">
             </div>
           </div>
         </div>
-
-        <hr class=​"featurette-divider">​
         
-        <div class="col-md-12 ">
+        <div class="col-md-12" style="padding-top: 1em;">
           <label class="col-md-4 control-label" for="selectrooms">Dormitorios</label>
           <div class="col-md-4">
-            <div class="input-group">
-              <select id="selectrooms" name="selectrooms" class="form-control">
+            <div class="input-group inputRango">
+              <select id="selectrooms" data-width="112px" name="selectrooms" class="selectpicker">
                 <option value="-1" selected>--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -112,8 +119,8 @@
         <div class="col-md-12 ">
           <label class="col-md-4 control-label" for="selectbath">Baños</label>
           <div class="col-md-4">
-            <div class="input-group">
-              <select id="selectbath" name="selectbath" class="form-control">
+            <div class="input-group inputRango">
+              <select id="selectbath" name="selectbath" data-width="112px" class="selectpicker">
                 <option value="-1" selected>--</option>              
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -123,22 +130,23 @@
           </div>
         </div>
         
-        <hr class=​"featurette-divider">​
-        
         <div class="col-md-12 ">
           <label class="col-md-4 control-label" for="selectBarrio">Barrios</label>
           <div class="col-md-4">
-            <select id="selectBarrio" name="selectBarrio" class="form-control" multiple="multiple">
+            <select id="selectBarrio" name="selectBarrio"
+                    data-width="210px !important" 
+                    data-selected-text-format="count>3" 
+                    data-live-search="true"
+                    title='Eliga barrios'
+                    class="selectpicker" multiple>
               <option value="1">Colon</option><option value="3">Cordon</option>
               <option value="2">Union</option><option value="4">La Paz</option><option value="5">Sayago</option>
             </select>
           </div>
         </div>
-        
-        <hr class=​"featurette-divider">​
 
         <label class="col-md-4 control-label" for="goSearch"></label>
-        <div class="col-md-8 pull-right"><a onclick="Buscar()" class="btn btn-lg btn-success">Buscar</a></div>
+        <div class="col-md-8 pull-right" style="padding-left: 1.4em;padding-top: 1em;"><a onclick="Buscar()" class="btn btn-lg btn-success">Buscar</a></div>
     </fieldset>
   </div>
 </div>

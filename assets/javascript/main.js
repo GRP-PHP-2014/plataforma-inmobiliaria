@@ -11,6 +11,13 @@ $( document ).ready(function() {
 	})
 
 	$('body').scrollspy({ target: '#navbar' })
+
+  $('.selectpicker').selectpicker('refresh');
+  $("input.slider").slider()
+    .on('slide', function(ev){
+        $('#priceDesde')[0].value = ev.value[0];
+        $('#priceHasta')[0].value = ev.value[1];
+    });
 });
 
 function bloquearPantalla() {

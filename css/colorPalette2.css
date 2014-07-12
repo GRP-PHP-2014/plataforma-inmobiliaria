@@ -326,6 +326,20 @@ span img {
   background-color: transparent !important;
 }
 
+.separadorFiltro {
+
+}
+
+.inputRango {
+  border-radius: 12px !important;
+  width: 112px !important;
+  background-color: #95A5A6;
+  margin-bottom: 0.5em !important;
+  border-color: #95A5A6;
+  color: white;
+}
+
+
 /*img {
   background-color: green;
 }
