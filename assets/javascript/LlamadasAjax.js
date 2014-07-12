@@ -104,3 +104,21 @@
       desbloquearPantalla();
     });
   }
+
+function obtenerNotificacionesPendientes(){
+    bloquearPantalla();
+    $.ajax({
+        url: CONF['ip'] + '/evento/getNotificacionesPendientes',
+        type: 'GET',
+        dataType: 'json'
+    })
+    .done(function(msg) {
+        loadNotificacionesOnIndex(msg);
+    })
+    .fail(function(msg) {
+        console.log(msg);
+    })
+    .always(function(msg) {
+        desbloquearPantalla();
+    });
+}

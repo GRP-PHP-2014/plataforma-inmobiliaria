@@ -24,7 +24,7 @@ class EventoController extends AdminController {
     public function accessRules() {
         return array(
             array('allow',
-                'actions' => array('admin', 'create', 'view', 'delete','update'),
+                'actions' => array('admin', 'create', 'view', 'delete','update', 'getNotificacionesPendientes'),
                 'roles' => array(Constantes::USER_ROLE_ADMINISTRATIVO,  Constantes::USER_ROLE_AGENTE,  Constantes::USER_ROLE_DIRECTOR),
             ),
             array('deny',
@@ -149,6 +149,16 @@ class EventoController extends AdminController {
         return CHtml::listData(Evento::model()->findByAttributes(array('idUsuario'=>$idUsuario)));
     }
     
-    
+    public function actionGetNotificacionesPendientes(){
+        $hU = new HttpUtils();
+        $criteria = new EMongoCriteria;
+        /*
+        if ($hU->isAjaxRequest()){
+            $notificaciones           
+        }
+        */
+        $criteria->estado = 'pendiente'; 
+        Response::ok(CJSON::encode(EmailNotificacion::model()->findAll($criteria)));
+    }
 
 }

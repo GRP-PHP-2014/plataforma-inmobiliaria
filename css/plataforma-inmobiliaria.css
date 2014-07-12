@@ -36,3 +36,7 @@ body{
 .img-circle{
     width: 50px;
 }
+
+.panel-clickleable:hover {
+    cursor: pointer;
+}

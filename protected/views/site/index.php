@@ -19,14 +19,14 @@
         <!-- /.panel -->
     </div>
     <div class="col-lg-6">
-        <div class="chat-panel panel panel-default">
+        <div onclick="window.location='<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>'" class="panel-clickleable chat-panel panel panel-default">
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-envelope"></span>
                 Notificaciones pendientes
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <ul class="chat">
+                <ul id="contenedor-notificaciones" class="chat">
                     <li class="left clearfix">
                         <span class="chat-img pull-left">
                             <img src="/plataforma-inmobiliaria/images/iconoemail.jpg" alt="User Avatar" class="img-circle">
@@ -66,7 +66,8 @@
                             <div class="header">
                                 <strong class="primary-font">Jack Sparrow</strong> 
                                 <small class="pull-right text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
+                                    <i class="fa fa-clock-o fa-fw"></i> 14 mins ago
+                                </small>
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
@@ -80,7 +81,8 @@
                         <div class="chat-body clearfix">
                             <div class="header">
                                 <small class=" text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
+                                    <i class="fa fa-clock-o fa-fw"></i> 15 mins ago
+                                </small>
                                 <strong class="pull-right primary-font">Bhaumik Patel</strong>
                             </div>
                             <p>
@@ -90,17 +92,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.panel-body -->
-            <div class="panel-footer">
-                <div class="input-group">
-                    <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-warning btn-sm" id="btn-chat">
-                            Send
-                        </button>
-                    </span>
-                </div>
-            </div>
             <!-- /.panel-footer -->
         </div>
     </div>
@@ -109,6 +100,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         loadGraficaInmuebles();
+        obtenerNotificacionesPendientes();
     });
 </script>
 
