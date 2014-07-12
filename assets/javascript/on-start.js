@@ -7,7 +7,7 @@ $(document).ready(function(){
         
     }catch (err){
         
-    } 
+    }
     
     if ($(".date-input").length > 0){
         

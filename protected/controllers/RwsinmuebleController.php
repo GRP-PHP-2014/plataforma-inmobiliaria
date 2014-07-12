@@ -59,6 +59,28 @@ class RwsinmuebleController extends CController {
         }
         Response::ok(CJSON::encode($arrInmuebles));
     }
+    
+    public function actionGetInformacionGrafica($grafica){
+        switch($grafica){
+            case "inmueblesPorTipo":
+                Response::ok($this->getInmueblesPorTipo());            
+            default :
+                Response::error(CJSON::encode(array(
+                    "resultado" => Constantes::RESULTADO_OPERACION_FALLA,
+                    "detalle" => "operacion no permitida")));
+        }
+        
+    }
+    
+    private function getInmueblesPorTipo(){
+        $result = array();
+        $arr = (new Inmueble)->countByTipo();
+        foreach (array_key($arr) as $i){
+            
+        }
+        
+        return CJSON::encode($arr);
+    }
 
     /**
      * Performs the AJAX validation.
@@ -69,6 +91,6 @@ class RwsinmuebleController extends CController {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
-    }
+    }  
 
 }

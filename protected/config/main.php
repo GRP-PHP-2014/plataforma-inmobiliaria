@@ -63,6 +63,7 @@ return array(
                 'image/<id:.*\S.*>' => 'file/display',
                 'propertyImage' => 'file/displayInmuebleImage',
                 'rwsinmueble/findbyfilters/<filters:.*\S.*>' => 'rwsinmueble/findbyfilters',
+                'rwsinmueble/getInformacionGrafica/<grafica:\w+>' => 'rwsinmueble/getInformacionGrafica',
                 
                 'emailNotificacion/createClient' => 'emailNotificacion/createClient',
                 'emailNotificacion/<id:\w+>' => 'emailNotificacion/view',
