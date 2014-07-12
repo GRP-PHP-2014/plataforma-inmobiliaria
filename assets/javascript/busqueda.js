@@ -62,7 +62,7 @@ function cargarResultadoBusqueda(Result){
       var htmlimages = '';
 
       for (var j = elem.imagenes.length - 1; j >= 0; j--) {
-        var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[j];
+        var foto = '/plataforma-inmobiliaria/index.php/' + elem.imagenes[j].ruta;
 
         if (j === 0) {
           htmlimages += '<div class="active item img-responsive" data-slide-number="' + j + '">' +
