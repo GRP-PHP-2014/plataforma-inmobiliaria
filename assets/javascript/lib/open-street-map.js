@@ -3,11 +3,11 @@ function initOpenStreetMapIngresoInmueble() {
         controls: [
             new OpenLayers.Control.Navigation(),
             new OpenLayers.Control.PanZoomBar(),
-            new OpenLayers.Control.LayerSwitcher({'ascending': false}),
-            new OpenLayers.Control.Permalink(),
+            //new OpenLayers.Control.LayerSwitcher({'ascending': false}),
+            //new OpenLayers.Control.Permalink(),
             new OpenLayers.Control.ScaleLine(),
-            new OpenLayers.Control.Permalink('permalink'),
-            new OpenLayers.Control.MousePosition(),
+            //new OpenLayers.Control.Permalink('permalink'),
+            //new OpenLayers.Control.MousePosition(),
             new OpenLayers.Control.OverviewMap(),
             new OpenLayers.Control.KeyboardDefaults()
         ]
@@ -18,6 +18,7 @@ function initOpenStreetMapIngresoInmueble() {
     epsg4326 = new OpenLayers.Projection("EPSG:4326");
     epsg900913 = new OpenLayers.Projection("EPSG:900913");
     position = new OpenLayers.LonLat(-56.165025, -34.905808).transform(epsg4326, epsg900913);
+    posparach = new OpenLayers.LonLat(-56.165025, -34.905808);
     zoom = 14;
 
     map.addLayer(layerOSM);
@@ -30,7 +31,7 @@ function initOpenStreetMapIngresoInmueble() {
     var popup = popup = new OpenLayers.Popup("Inmobiliaria",
             position,
             new OpenLayers.Size(200, 200),
-            "Longitud: " + position.lon + "\n" + "Latitud: " + position.lat,
+            "Longitud: " + posparach.lon + "\n" + "Latitud: " + posparach.lat,
             false);
     popup.setOpacity(0.8);
     size = new OpenLayers.Size(21, 25);
