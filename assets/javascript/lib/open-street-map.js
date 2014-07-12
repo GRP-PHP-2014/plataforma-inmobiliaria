@@ -48,7 +48,7 @@ function initOpenStreetMapIngresoInmueble() {
 
         function MapClick(e)
         {
-            lonlat = map.getLonLatFromViewPortPx(e.xy);
+            lonlat = map.getLonLatFromViewPortPx(e.xy).transform(epsg900913, epsg4326);;
 
             opx = map.getLayerPxFromViewPortPx(e.xy);
 

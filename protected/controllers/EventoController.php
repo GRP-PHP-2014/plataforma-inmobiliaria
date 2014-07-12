@@ -144,6 +144,11 @@ class EventoController extends AdminController {
         }
     }
     
+    public function getEventosByUsuario ($idUsuario)
+    {
+        return CHtml::listData(Evento::model()->findByAttributes(array('idUsuario'=>$idUsuario)));
+    }
+    
     
 
 }
