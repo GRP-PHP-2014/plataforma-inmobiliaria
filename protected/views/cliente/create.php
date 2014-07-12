@@ -3,7 +3,7 @@
 /* @var $model Cliente */
 ?>
 
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Nuevo cliente<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>

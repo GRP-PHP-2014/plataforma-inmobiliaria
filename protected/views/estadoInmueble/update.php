@@ -3,7 +3,7 @@
 /* @var $model EstadoInmueble */
 ?>
 
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Modificar estado de inmueble<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>

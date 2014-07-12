@@ -16,7 +16,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-12">
         <div class="row top-admin-row">
             <div class="col-lg-12 ">

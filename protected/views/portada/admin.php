@@ -1,5 +1,5 @@
 <?php ?>
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-12">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?><span class="glyphicon glyphicon-th"></span> <?php echo Yii::app()->params["labelFuncionalidadPortada"] ?><?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
         <ol class="breadcrumb">
@@ -7,7 +7,7 @@
             <li class="active"><?php echo Yii::app()->params["labelFuncionalidadPortada"] ?></li>
         </ol>
         
-        <div class="row-fluid">
+        <div class="row">
             <?php
             $form = $this->beginWidget('CActiveForm', array(
                 'id' => 'portada-form',

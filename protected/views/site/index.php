@@ -1,6 +1,6 @@
 <?php ?>
 
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-12">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?> <span class="glyphicon glyphicon-dashboard"></span>  Resumen<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?> 
     </div>

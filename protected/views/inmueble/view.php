@@ -3,7 +3,7 @@
 /* @var $model Inmueble */
 /* @var $form CActiveForm */
 ?>
-<div class="row-fluid">
+<div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Ver info de inmueble (<?php echo $model->id; ?>)<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
