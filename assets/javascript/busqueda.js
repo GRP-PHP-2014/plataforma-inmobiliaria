@@ -23,8 +23,10 @@ $('#openBtn').click(function(){
 
 });
 
+//Inicializo
+var lastMarker = undefined;
+var map = undefined;
 
-var pelo;
 function cargarResultadosDeBusquedaenMapa() {
 
   var HomeIcon = new CM.Icon();
@@ -32,8 +34,12 @@ function cargarResultadosDeBusquedaenMapa() {
       HomeIcon.iconSize = new CM.Size(32, 37);
       HomeIcon.iconAnchor = new CM.Point(32, 37);
 
-  var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
-  map = new CM.Map('map-section', cloudmade);
+  if (map === undefined) {
+    var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+    map = new CM.Map('map-section', cloudmade);
+  }
+
+  map.clearOverlays();
 
   for (var i = 0; i < CONF.searchResult.length; i++) {
     CONF.searchResult[i]
@@ -46,15 +52,16 @@ function cargarResultadosDeBusquedaenMapa() {
                                                  icon: HomeIcon });
     map.setCenter(LatLngMarker, 15);
     map.addOverlay(myMarker);
-    // pelo = myMarker;
+     lastMarker = myMarker;
 
     myMarker._createMouseHandler(myMarker,'click', function(elem) { console.log('nico pete')})
     CM.Event.addListener(myMarker, 'click', function(elem) {
       console.log('entre en el evento loco');
       console.debug(elem);
-      pelo = elem;
+      // lastMarker = elem;
     });
 
+    map.setCenter(lastMarker.getLatLng(),15);
 // marker.openInfoWindow(
 //             "<img width='200' height='267' src='http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Louvre.jpg/200px-Louvre.jpg'><br />" +
 //             "<h3 style='text-align: center'><a href='http://en.wikipedia.org/wiki/Louvre'>The Louvre Museum</a></h3>", {maxWidth: 220});
@@ -72,8 +79,8 @@ function cargarResultadosDeBusquedaenMapa() {
     titulo = titulo[0].replace(']','').replace('[','');
 
     window.location.href = 'propiedad.html?id=' + titulo;
-    // pelo.evt = evt;
-    // pelo.map = map;
+    // lastMarker.evt = evt;
+    // lastMarker.map = map;
 
   })
 }
