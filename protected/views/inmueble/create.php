@@ -2,7 +2,7 @@
 /* @var $this InmuebleController */
 /* @var $model Inmueble */
 ?>
-
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/open-street-map.js"></script>
 <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">

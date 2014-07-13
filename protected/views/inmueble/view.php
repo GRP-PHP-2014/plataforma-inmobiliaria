@@ -3,6 +3,7 @@
 /* @var $model Inmueble */
 /* @var $form CActiveForm */
 ?>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/open-street-map_ver.js"></script>
 <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
@@ -251,7 +252,7 @@
 
     function wrapperInit()
     {
-        initOpenStreetMapIngresoInmueble();
+        initOpenStreetMapVerInmueble();
     }
     ;
 

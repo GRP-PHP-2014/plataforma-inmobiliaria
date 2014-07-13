@@ -3,7 +3,7 @@
 /* @var $model Usuario */
 ?>
 
-<div class="row">
+<div class="row-fluid">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
         <?php echo Yii::app()->params["UiHeadersWrapperOMarkup"]; ?>Informaci&oacute;n de usuario<?php echo Yii::app()->params["UiHeadersWrapperCMarkup"]; ?>
@@ -38,4 +38,5 @@
         </form>
     </div>
     <div class="col-lg-6"></div>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/open-street-map_ver.js"></script>
 </div>
