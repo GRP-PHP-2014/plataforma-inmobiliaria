@@ -24,6 +24,7 @@ $('#openBtn').click(function(){
 });
 
 
+var pelo;
 function cargarResultadosDeBusquedaenMapa() {
 
   var HomeIcon = new CM.Icon();
@@ -32,18 +33,49 @@ function cargarResultadosDeBusquedaenMapa() {
       HomeIcon.iconAnchor = new CM.Point(32, 37);
 
   var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
-  var map = new CM.Map('map-section', cloudmade);
+  map = new CM.Map('map-section', cloudmade);
 
   for (var i = 0; i < CONF.searchResult.length; i++) {
     CONF.searchResult[i]
     var LatLngMarker = new CM.LatLng(CONF.searchResult[i].coord_latitud,
                                      CONF.searchResult[i].coord_longitud);
 
-    var myMarker = new CM.Marker(LatLngMarker, { title: CONF.searchResult[i].titulo,
+    var tituloId = '[' + CONF.searchResult[i].id + '] ' + CONF.searchResult[i].titulo;
+    var myMarker = new CM.Marker(LatLngMarker, { title: tituloId,
+                                                 url : 'propiedad.html?id=' + CONF.searchResult[i].id,
                                                  icon: HomeIcon });
     map.setCenter(LatLngMarker, 15);
     map.addOverlay(myMarker);
+    // pelo = myMarker;
+
+    myMarker._createMouseHandler(myMarker,'click', function(elem) { console.log('nico pete')})
+    CM.Event.addListener(myMarker, 'click', function(elem) {
+      console.log('entre en el evento loco');
+      console.debug(elem);
+      pelo = elem;
+    });
+
+// marker.openInfoWindow(
+//             "<img width='200' height='267' src='http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Louvre.jpg/200px-Louvre.jpg'><br />" +
+//             "<h3 style='text-align: center'><a href='http://en.wikipedia.org/wiki/Louvre'>The Louvre Museum</a></h3>", {maxWidth: 220});
+
   };
+  map.addControl(new CM.LargeMapControl());
+  map.addControl(new CM.ScaleControl());
+  var bottomleft = new CM.ControlPosition(CM.BOTTOM_RIGHT, new CM.Size(15, 5));
+    map.addControl(new CM.OverviewMapControl(), bottomleft);
+
+  $('img.wml-marker.wml-marker-print').click(function(evt) {
+    console.log('ente en el evento flasero');
+    console.debug(evt);
+    var titulo = evt.target.title.split(' ');
+    titulo = titulo[0].replace(']','').replace('[','');
+
+    window.location.href = 'propiedad.html?id=' + titulo;
+    // pelo.evt = evt;
+    // pelo.map = map;
+
+  })
 }
 
 
