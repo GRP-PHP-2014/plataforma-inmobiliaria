@@ -5,6 +5,9 @@ $( document ).ready(function() {
         $('#priceDesde')[0].value = ev.value[0];
         $('#priceHasta')[0].value = ev.value[1];
     });
+
+  $('#mapita').hide();
+  $('#btnMapa').hide();
 });
 
 function showFilters() {
@@ -17,9 +20,9 @@ function hideFilters() {
 
 $('#openBtn').click(function(){
 
-  $('#dialog-map').modal({show:true})
+  $('#dialog-map').modal({show:true});
 
-  setTimeout(function() { cargarResultadosDeBusquedaenMapa(); }, 500);
+  // setTimeout(function() { cargarResultadosDeBusquedaenMapa(); }, 500);
 
 });
 
@@ -87,6 +90,9 @@ function cargarResultadosDeBusquedaenMapa() {
 
 
 function Buscar() {
+
+  $('#mapita').show();
+  $('#btnMapa').show();
 
   filterSearch.precioDesde = parseInt($('#priceDesde').val());
   filterSearch.precioHasta = parseInt($('#priceHasta').val());

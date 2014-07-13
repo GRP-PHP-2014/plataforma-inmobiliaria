@@ -11,6 +11,7 @@
   	.done(function(msg) {
       CONF.searchResult = msg;
       cargarResultadoBusqueda(msg);
+      setTimeout(function() { cargarResultadosDeBusquedaenMapa(); }, 500);
     })
     .fail(function(msg) {
   		console.error(msg);

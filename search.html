@@ -35,9 +35,9 @@
     </div>
 
 <!-- FILTROS -->
-<div id="filterDiv" class="row" style='pading-top:6%'>
+<div id="filterDiv" class="row" style='padding-top: 4%'>
   <div class="form-horizontal">
-    <fieldset class="callout" style='height: inherit;'>
+    <fieldset class="callout" style='height: inherit;padding-top: 0%'>
       <h1 style='text-align: center;'>Criterios de busqueda</h1>
       <div class="form-group">
       
@@ -163,7 +163,7 @@
             <h1>Propiedades encontradas</h1>
             <p>Para obtener resultados mas certeros, completa todos los filtros. Y realiza la busqueda con palabras claves</p>
             <!-- <a href="#mapita" class="btn btn-success" id="openBtn" style="margin-bottom: 1em;">Ver en mapa</a> -->
-            <a href="#mapita" class="btn btn-success" onclick="cargarResultadosDeBusquedaenMapa();" style="margin-bottom: 1em;">Ver en mapa</a>
+            <a href="#mapita" id="btnMapa" class="btn btn-success" style="margin-bottom: 1em;" hidden>Ver en mapa</a>
           </div>
         </div>
           
@@ -191,12 +191,14 @@
   </div>
   </div>
 
-  <div id="mapita" class="container" style="padding-top: 3%;">
-    <h3>Ubicacion de las propiedades encontradas</h3>
-    <div id="map-section" style="height: 83%;"></div>
+  <div id="mapita" class="row headerPropiedad" style="padding-top: 3%; background-color: #e8e8e8">
+    <div class="container">
+      <h3>Ubicacion de las propiedades encontradas</h3>
+      <div id="map-section" style="height: 83%;"></div>
+    </div>
   </div>
 
-  <footer>
+  <footer class="headerPropiedad" style='background-color: #e8e8e8'>
     <div class="container">
       <div class="row" style='color: black'>
         <div class="col-md-6 col-md-offset-3 text-center">
