@@ -460,7 +460,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('afontes','director@php2014.com','$1$Tjv7tqTJ$.O.123LlOlq6FnNFM7LN8.','Alejandro','Fontes',NULL,1,'director'),('esilvera','esilvera@gmail.com','$1$Boc57cpX$6tmkQMcqgWV3G4Ho/rNu/0','Edwin','Silvera',NULL,NULL,'agente'),('mrodriguez','mrodriguez@gmail.com','$1$UQuRVKk0$wUrX3YsP6/bxHFKToL.7i.','Mauricio','Rodriguez',NULL,NULL,'director'),('msteffen','msteffen@gmail.com','msteffen','Mauro','Steffen',NULL,NULL,'administrativo'),('mterra','mterra@gmail.com','$1$SI0KFvN9$XRuTOJJqkDruEyR.NPz.u0','Maribel','Terra',NULL,NULL,'administrativo'),('pdesosa','pdesosa@gmail.com','$1$TymVjAQg$Qo8A1wC7/nGXArlrJKFx80','Pablo','De Sosa',NULL,NULL,'director');
+INSERT INTO `usuarios` VALUES ('afontes','director@php2014.com','$1$Tjv7tqTJ$.O.123LlOlq6FnNFM7LN8.','Alejandro','Fontes',NULL,1,'director'),('esilvera','esilvera@gmail.com','$1$Boc57cpX$6tmkQMcqgWV3G4Ho/rNu/0','Edwin','Silvera',NULL,NULL,'agente'),('mrodriguez','mrodriguez@gmail.com','$1$UQuRVKk0$wUrX3YsP6/bxHFKToL.7i.','Mauricio','Rodriguez',NULL,NULL,'director'),('msteffen','msteffen@gmail.com','msteffen','Mauro','Steffen',NULL,NULL,'administrativo'),('mterra','mterra@gmail.com','$1$SI0KFvN9$XRuTOJJqkDruEyR.NPz.u0','Maribel','Terra',NULL,NULL,'administrativo'),('pdesosa','pdesosa@gmail.com','$1$TymVjAQg$Qo8A1wC7/nGXArlrJKFx80','Pablo','de Sosa',NULL,NULL,'director');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
