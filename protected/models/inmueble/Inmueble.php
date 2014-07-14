@@ -322,5 +322,37 @@ class Inmueble extends CActiveRecord {
                 ->queryAll();      
         return $data;
     }
+    
+    public function countByEstado() {
+        $data = Yii::app()->db->createCommand()
+                ->select('e.nombre as estado_inmueble, COUNT(*) as count')
+                ->from('inmuebles i,estados_inmueble e')
+                ->where('i.fk_estado = e.id')
+                ->group('e.nombre')
+                ->queryAll();      
+        return $data;
+    }
+    
+    public function countByBarrio(){
+        $sql="select e.nombre as barrio_inmueble, count(*) as count
+            from inmuebles i left join departamentos e on i.id_departamento = e.id
+            group by e.nombre;";
+        $connection=Yii::app()->db; 
+        $command=$connection->createCommand($sql);
+        $data = array();
+        foreach ($command->query() as $row){
+            array_push($data, $row);
+        }
+        return $data;
+    }
+    
+    
+    public function count() {
+        $data = Yii::app()->db->createCommand()
+                ->select('COUNT(*) as count')
+                ->from('inmuebles')
+                ->queryAll();      
+        return $data[0]["count"];
+    }
 
 }

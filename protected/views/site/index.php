@@ -7,19 +7,34 @@
     <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <span class="glyphicon glyphicon-home"></span>
-                Inmuebles por estado
+                <span class="glyphicon glyphicon-home"></span>  Reporte de inmuebles
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            Seleccione el reporte
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li><a onclick="obtenerGraficaCantidadInmueblesPorTipo(backendConstants.GRAFICA_INMUEBLE_POR_TIPO)" href="#">Inmuebles por tipo</a>
+                            </li>
+                            <li><a onclick="obtenerGraficaCantidadInmueblesPorTipo(backendConstants.GRAFICA_INMUEBLE_POR_ESTADO);" href="#">Inmuebles por estado</a>
+                            </li>
+                            <li><a onclick="obtenerGraficaCantidadInmueblesPorTipo(backendConstants.GRAFICA_INMUEBLE_POR_BARRIO);" href="#">Inmuebles por barrio</a>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
             </div>
             <!-- /.panel-heading -->
             <div id="grafica-inmuebles" class="panel-body">
 
-                
+
             </div>
         </div>
         <!-- /.panel -->
     </div>
     <div class="col-lg-6">
-        <div onclick="window.location='<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>'" class="panel-clickleable chat-panel panel panel-default">
+        <div onclick="window.location = '<?php echo Yii::app()->createUrl('emailNotificacion/admin'); ?>'" class="panel-clickleable chat-panel panel panel-default">
             <div class="panel-heading">
                 <span class="glyphicon glyphicon-envelope"></span>
                 Notificaciones pendientes
@@ -27,69 +42,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul id="contenedor-notificaciones" class="chat">
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="/plataforma-inmobiliaria/images/iconoemail.jpg" alt="User Avatar" class="img-circle">
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong> 
-                                <small class="pull-right text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                                </small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                            <img src="/plataforma-inmobiliaria/images/iconoemail.jpg" alt="User Avatar" class="img-circle">
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="/plataforma-inmobiliaria/images/iconoemail.jpg" alt="User Avatar" class="img-circle">
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong> 
-                                <small class="pull-right text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 14 mins ago
-                                </small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 15 mins ago
-                                </small>
-                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
             <!-- /.panel-footer -->
@@ -98,8 +51,8 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        loadGraficaInmuebles();
+    $(document).ready(function() {
+        obtenerGraficaCantidadInmueblesPorTipo(backendConstants.GRAFICA_INMUEBLE_POR_TIPO);
         obtenerNotificacionesPendientes();
     });
 </script>

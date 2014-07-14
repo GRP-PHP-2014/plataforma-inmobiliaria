@@ -1,13 +1,13 @@
 
-function loadGraficaInmuebles(){
-    $('#grafica-inmuebles').highcharts({
+function loadGraficaInmuebles(idContainer,data){
+    $('#' + idContainer).highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: 1,//null,
             plotShadow: false
         },
         title: {
-            text: 'Cantidad de inmuebles actualmente publicados por barrio de montevideo'
+            text: data["titulo"]
         },
         tooltip: {
     	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -27,20 +27,8 @@ function loadGraficaInmuebles(){
         },
         series: [{
             type: 'pie',
-            name: 'Proporcion por barrios',
-            data: [
-                ['La Blanqueada',   45.0],
-                ['Ciudad Vieja',       26.8],
-                {
-                    name: 'Palermo',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
-                ['Cordon',    8.5],
-                ['Pocitos',     6.2],
-                ['Colon',   0.7]
-            ]
+            name: data["nombreSerie"],
+            data: data["data"]
         }]
     });
     

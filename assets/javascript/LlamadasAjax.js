@@ -128,3 +128,21 @@ function obtenerNotificacionesPendientes(){
         desbloquearPantalla();
     });
 }
+
+function obtenerGraficaCantidadInmueblesPorTipo(grafica){
+    bloquearPantalla();
+    $.ajax({
+        url: CONF['ip'] + '/rwsinmueble/getInformacionGrafica/' + grafica,
+        type: 'GET',
+        dataType: 'json'
+    })
+    .done(function(msg) {
+        loadGraficaInmuebles('grafica-inmuebles',msg);
+    })
+    .fail(function(msg) {
+        console.log(msg);
+    })
+    .always(function(msg) {
+        desbloquearPantalla();
+    });
+}

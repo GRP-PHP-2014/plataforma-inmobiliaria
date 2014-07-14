@@ -22,3 +22,11 @@ filterSearch = {
 	precioDesde : 1600,
 	precioHasta : 5000,
 }
+
+function BackendConstants(){
+    this.GRAFICA_INMUEBLE_POR_TIPO = "inmueblesPorTipo";
+    this.GRAFICA_INMUEBLE_POR_ESTADO = "inmueblesPorEstado";
+    this.GRAFICA_INMUEBLE_POR_BARRIO = "inmueblesPorBarrio";
+}
+
+var backendConstants = new BackendConstants();

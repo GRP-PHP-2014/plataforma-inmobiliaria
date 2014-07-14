@@ -55,7 +55,11 @@ class RwsinmuebleController extends CController {
     public function actionGetInformacionGrafica($grafica){
         switch($grafica){
             case "inmueblesPorTipo":
-                Response::ok($this->getInmueblesPorTipo());            
+                Response::ok($this->getInmueblesPorTipo());  
+            case "inmueblesPorEstado":
+                Response::ok($this->getInmueblesPorEstado()); 
+            case "inmueblesPorBarrio":
+                Response::ok($this->getInmueblesPorBarrio()); 
             default :
                 Response::error(CJSON::encode(array(
                     "resultado" => Constantes::RESULTADO_OPERACION_FALLA,
@@ -66,12 +70,59 @@ class RwsinmuebleController extends CController {
     
     private function getInmueblesPorTipo(){
         $result = array();
-        $arr = (new Inmueble)->countByTipo();
-        foreach (array_key($arr) as $i){
-            
+        $data = array();
+        $inm = new Inmueble;
+        $arr = $inm->countByTipo();
+        $count = $inm->count();
+        foreach (array_keys($arr) as $i){
+            $item = array();
+            array_push($item, $arr[$i]["tipo_inmueble"]);
+            array_push($item, (int)$arr[$i]["count"] / (int)$count * 100);
+            array_push($data, $item);
         }
         
-        return CJSON::encode($arr);
+        $result["data"] = $data;
+        $result["titulo"] = "Porcentaje de inmuebles por tipo";
+        $result["nombreSerie"] = "Proporcion por tipo";
+        return CJSON::encode($result);
+    }
+    
+    private function getInmueblesPorEstado(){
+        $result = array();
+        $data = array();
+        $inm = new Inmueble;
+        $arr = $inm->countByEstado();
+        $count = $inm->count();
+        foreach (array_keys($arr) as $i){
+            $item = array();
+            array_push($item, $arr[$i]["estado_inmueble"]);
+            array_push($item, (int)$arr[$i]["count"] / (int)$count * 100);
+            array_push($data, $item);
+        }
+        
+        $result["data"] = $data;
+        $result["titulo"] = "Porcentaje de inmuebles por tipo";
+        $result["nombreSerie"] = "Proporcion por tipo";
+        return CJSON::encode($result);
+    }
+    
+    private function getInmueblesPorBarrio(){
+        $result = array();
+        $data = array();
+        $inm = new Inmueble;
+        $arr = $inm->countByBarrio();
+        $count = $inm->count();
+        foreach (array_keys($arr) as $i){
+            $item = array();
+            array_push($item, $arr[$i]["barrio_inmueble"] == null ? "Sin barrio" : $arr[$i]["barrio_inmueble"]);
+            array_push($item, (int)$arr[$i]["count"] / (int)$count * 100);
+            array_push($data, $item);
+        }
+        
+        $result["data"] = $data;
+        $result["titulo"] = "Porcentaje de inmuebles por tipo";
+        $result["nombreSerie"] = "Proporcion por tipo";
+        return CJSON::encode($result);
     }
 
     /**
