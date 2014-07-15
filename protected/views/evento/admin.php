@@ -64,6 +64,11 @@ $('.search-form form').submit(function(){
                             'type' => 'raw',
                         ),
                         array(
+                            'name' => 'Usuario',
+                            'value' => '$data->idUsuario',
+                            'type' => 'raw',
+                        ),
+                        array(
                             'name' => 'Titulo',
                             'value' => '$data->titulo',
                             'type' => 'raw',

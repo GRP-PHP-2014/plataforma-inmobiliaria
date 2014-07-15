@@ -1,0 +1,65 @@
+/* 0 */
+{
+    "_id" : ObjectId("53aa3f75e5974aec0b3c9869"),
+    "fechaHoraEnvio" : "2014-06-25 05:18:13",
+    "mensaje" : "Publicacion de Salon de baile",
+    "tipoNotificacion" : "solicitud_publicacion",
+    "emailCliente" : "fgonzalez@gmail.com",
+    "nombreCliente" : "Federico Gonzalez",
+    "estado" : "pendiente"
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("53b89b8ce5974a330d3c9869"),
+    "fechaHoraEnvio" : "2014-07-06 02:42:52",
+    "mensaje" : "Necesito locales comerciales cerca de el shopping nuevocentro",
+    "tipoNotificacion" : "solicitud de informacion",
+    "emailCliente" : "pelo8888@gmail.com",
+    "nombreCliente" : "Alejandro Fontes",
+    "estado" : "pendiente"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("53ab85cce5974adb1a3c9869"),
+    "fechaHoraEnvio" : "2014-07-06 02:42:52",
+    "mensaje" : "Contactame para publicar un local en centro, proximo a plaza de los 33",
+    "tipoNotificacion" : "solicitud de publicacion",
+    "emailCliente" : "jfernandez@gmail.com",
+    "nombreCliente" : "Juan Fernandez",
+    "estado" : "pendiente"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("53a35b19648ca11c6379dff2"),
+    "fechaHoraEnvio" : "2014-07-06 02:42:52",
+    "mensaje" : "Necesito informacion de apartamentos cercanos a rambla Ramirez",
+    "tipoNotificacion" : "solicitud de informacion",
+    "emailCliente" : "agustin.paredes@gmail.com",
+    "nombreCliente" : "Agustin Paredes",
+    "estado" : "pendiente"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("53a35c05648ca11c6379dff4"),
+    "fechaHoraEnvio" : "2014-07-06 02:42:52",
+    "mensaje" : "Por publicacion de Casa en Carrasco",
+    "tipoNotificacion" : "solicitud de publicacion",
+    "emailCliente" : "horaciocedres@gmail.com",
+    "nombreCliente" : "Horacio Cedres",
+    "estado" : "pendiente"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("53a35bfb648ca11c6379dff3"),
+    "fechaHoraEnvio" : "2014-07-06 02:42:52",
+    "mensaje" : "Para pedir info de apartametos en Colon",
+    "tipoNotificacion" : "solicitud de informacion",
+    "emailCliente" : "gacosta@gmail.com",
+    "nombreCliente" : "Gustavo Acosta",
+    "estado" : "pendiente"
+}
