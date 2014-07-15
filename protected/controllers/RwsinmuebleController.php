@@ -101,8 +101,8 @@ class RwsinmuebleController extends CController {
         }
         
         $result["data"] = $data;
-        $result["titulo"] = "Porcentaje de inmuebles por tipo";
-        $result["nombreSerie"] = "Proporcion por tipo";
+        $result["titulo"] = "Porcentaje de inmuebles por estado";
+        $result["nombreSerie"] = "Proporcion por estado";
         return CJSON::encode($result);
     }
     
@@ -120,8 +120,8 @@ class RwsinmuebleController extends CController {
         }
         
         $result["data"] = $data;
-        $result["titulo"] = "Porcentaje de inmuebles por tipo";
-        $result["nombreSerie"] = "Proporcion por tipo";
+        $result["titulo"] = "Porcentaje de inmuebles por barrio";
+        $result["nombreSerie"] = "Proporcion por barrio";
         return CJSON::encode($result);
     }
 

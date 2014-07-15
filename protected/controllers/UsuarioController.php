@@ -2,7 +2,7 @@
 
 class UsuarioController extends AdminController {
     
-    protected $pageTitle = ".: Usuarios :.";
+    protected $pageTitle = ". : Usuarios : .";
     
     public $defaultAction = 'admin';
 

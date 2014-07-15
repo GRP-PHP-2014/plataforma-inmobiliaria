@@ -23,16 +23,13 @@ $('.search-form form').submit(function(){
                 <ol class="breadcrumb">
                     <li><a href="<?php echo Yii::app()->createUrl("site/index") ?>">Inicio</a></li>
                     <li class="active"><?php echo Yii::app()->params["labelFuncionalidadInmuebles"] ?></li>
-                </ol>
-
-                <?php echo CHtml::link((Yii::app()->params["labelDesplegarFiltros"]), '#', array('class' => 'search-button')); ?>
-                <div class="search-form" style="display:none">
-                    <?php
-                    $this->renderPartial('_search', array(
-                        'model' => $model,
-                    ));
-                    ?>
-                </div><!-- search-form -->
+                </ol>               
+                <?php
+                $this->renderPartial('_search', array(
+                    'model' => $model,
+                ));
+                ?>
+                
             </div>
             <div class="col-lg-12">
                 <div class="pull-right"><a href="<?php echo Yii::app()->createUrl('inmueble/create'); ?>"><span title="nuevo" class="glyphicon glyphicon-plus"></span></a></div>

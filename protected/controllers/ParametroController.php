@@ -2,7 +2,7 @@
 
 class ParametroController extends AdminController {
 
-    protected $pageTitle = ".: Parametros :.";
+    protected $pageTitle = ". : Parametros : .";
     
     /**
      * @return array action filters

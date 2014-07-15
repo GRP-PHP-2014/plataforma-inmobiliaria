@@ -2,7 +2,7 @@
 
 class AuditoriaController extends AdminController {
 
-    protected $pageTitle = ".: Auditoria :.";
+    protected $pageTitle = ". : Auditoria : .";
     
     /**
      * @return array action filters

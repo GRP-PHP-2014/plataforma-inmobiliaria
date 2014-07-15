@@ -2,7 +2,7 @@
 
 class CiudadController extends AdminController {
 
-    protected $pageTitle = ".: Ciudades :.";
+    protected $pageTitle = ". : Ciudades : .";
     
     /**
      * @return array action filters

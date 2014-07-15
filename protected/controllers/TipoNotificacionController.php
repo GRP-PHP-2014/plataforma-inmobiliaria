@@ -2,7 +2,7 @@
 
 class TipoNotificacionController extends AdminController {
 
-    protected $pageTitle = ".: Tipos de notificacion :.";
+    protected $pageTitle = ". : Tipos de notificacion : .";
     
     /**
      * @return array action filters

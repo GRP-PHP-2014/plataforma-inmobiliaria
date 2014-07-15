@@ -219,43 +219,43 @@
                 </div>
                 
                 <div class="form-group">
-                    <?php echo $form->labelEx($model, 'fkDepartamento'); ?>                    
-                    <?php echo $form->dropDownList($model , 'fkDepartamento', $this->getListaDepartamentos(),
+                    <?php echo $form->labelEx($model, 'id_departamento'); ?>                    
+                    <?php echo $form->dropDownList($model , 'id_departamento', $this->getListaDepartamentos(),
                             array(
                                 'empty'=>'--  Seleccione  --',
                                 'ajax' => array(
                                     'type'=>'POST',
                                     'url'=>CController::createUrl('inmueble/ciudadDinamica'),
-                                    'update'=>'#Inmueble_fkCiudad'
+                                    'update'=>'#Inmueble_id_ciudad'
                                 ),                            
-                                'class' => 'form-control combo-suggest input-sm',
+                                'class' => 'form-control input-sm',
                             )
                         ); 
                     ?>
-                    <?php echo $form->error($model, 'fkDepartamento'); ?>
+                    <?php echo $form->error($model, 'id_departamento'); ?>
                 </div>
                 
                 <div class="form-group">
-                    <?php echo $form->labelEx($model, 'fkCiudad'); ?>                    
-                    <?php echo $form->dropDownList($model , 'fkCiudad', array(),
+                    <?php echo $form->labelEx($model, 'id_ciudad'); ?>                    
+                    <?php echo $form->dropDownList($model , 'id_ciudad', array(),
                             array(
                                 'empty'=>'--  Seleccione  --',
                                 'ajax' => array(
                                     'type'=>'POST',
                                     'url'=>CController::createUrl('inmueble/barrioDinamico'),
-                                    'update'=>'#Inmueble_fkBarrio'
+                                    'update'=>'#Inmueble_id_barrio'
                                 ),                            
-                                'class' => 'form-control combo-suggest input-sm',
+                                'class' => 'form-control input-sm',
                             )
                         ); 
                     ?>
-                    <?php echo $form->error($model, 'fkDepartamento'); ?>
+                    <?php echo $form->error($model, 'id_departamento'); ?>
                 </div>
                 
                 <div class="form-group">
-                    <?php echo $form->labelEx($model, 'fkBarrio'); ?>
-                    <?php echo $form->dropDownList($model, 'fkBarrio', array(), array("class" => "form-control")); ?>
-                    <?php echo $form->error($model, 'fkBarrio'); ?>
+                    <?php echo $form->labelEx($model, 'id_barrio'); ?>
+                    <?php echo $form->dropDownList($model, 'id_barrio', array(), array("class" => "form-control")); ?>
+                    <?php echo $form->error($model, 'id_barrio'); ?>
                 </div>
                 
                 <div id="grp-inmueble-fk_estado" class="form-group">

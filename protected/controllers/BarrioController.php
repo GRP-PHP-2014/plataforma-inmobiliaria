@@ -2,7 +2,7 @@
 
 class BarrioController extends AdminController {
 
-    protected $pageTitle = ".: Barrios :.";
+    protected $pageTitle = ". : Barrios : .";
     
     /**
      * @return array action filters

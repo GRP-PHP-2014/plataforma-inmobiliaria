@@ -59,7 +59,7 @@ class Inmueble extends CActiveRecord {
         return array(
             array('titulo, descripcion, tipo_inmueble, fk_estado,operacion_publicacion', 'required'),
             array('vista_al_mar, tiene_calefaccion, anio_construccion_aproximado, cant_banios, mts2_edificados, cant_plantas_casa, es_propiedad_horizontal, cant_dormitorios, numero_de_piso, tiene_ascensor, tiene_porteria, tiene_portero_electrico, tiene_vigilancia, tiene_planta_alta, altura_salon_principal, cant_plantas_local, tiene_estacionamiento, tiene_deposito, fk_estado', 'numerical', 'integerOnly' => true),
-            array('gastos_comunes, precio_publicacion', 'numerical'),
+            array('gastos_comunes, precio_publicacion,id_departamento,id_ciudad,id_barrio', 'numerical'),
             array('titulo,direccion_corta', 'length', 'max' => 100),
             array('descripcion,direccion_larga', 'length', 'max' => 2048),
             array('tipo_inmueble, tipo_local', 'length', 'max' => 50),
@@ -122,9 +122,9 @@ class Inmueble extends CActiveRecord {
             'precio_publicacion' => 'Precio',
             'operacion_publicacion' => 'Operaci&oacute;n',
             'direccion_corta' => 'Direcci&oacute;n',
-            'fkDepartamento' => 'Departamento',
-            'fkCiudad' => 'Ciudad',
-            'fkBarrio' => 'Barrio',
+            'id_departamento' => 'Departamento',
+            'id_ciudad' => 'Ciudad',
+            'id_barrio' => 'Barrio',
             'direccion_larga' => 'Direcci&oacute;n larga'
         );
     }
@@ -335,7 +335,7 @@ class Inmueble extends CActiveRecord {
     
     public function countByBarrio(){
         $sql="select e.nombre as barrio_inmueble, count(*) as count
-            from inmuebles i left join departamentos e on i.id_departamento = e.id
+            from inmuebles i left join barrios e on i.id_barrio = e.id
             group by e.nombre;";
         $connection=Yii::app()->db; 
         $command=$connection->createCommand($sql);

@@ -2,7 +2,7 @@
 
 class EmailNotificacionController extends AdminController {
 
-    protected $pageTitle = ".: Notificaciones :.";
+    protected $pageTitle = ". : Notificaciones : .";
     
     
     /**
