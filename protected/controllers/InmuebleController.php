@@ -91,18 +91,19 @@ class InmuebleController extends AdminController {
         $model = $this->loadModel($id);
 
         $fsUtil = new FileSystemUtil;
-        $fsUtil->createPropertyFoderIfNotExists($id);
+        //$fsUtil->createPropertyFoderIfNotExists($id);
 
         if (isset($_POST['Inmueble'])) {
             $model->attributes = $_POST['Inmueble'];
             if ($model->save()) {
 
                 //elimino las imagenes viejas de el sistema de archivos y de la bd (las referencias)
-                $fsUtil->deleteImagesFromProperty($id);
-                ImagenInmueble::deleteImagenFromProperty($id);
+                //$fsUtil->deleteImagesFromProperty($id);
+                //ImagenInmueble::deleteImagenFromProperty($id);
 
                 //guardo las imagenes nuevas para el inmueble
-                $images = $fsUtil->getTmpFilesNames();
+                //$images = $fsUtil->getTmpFilesNames();
+                /*
                 foreach ($images as $img) {
                     $imgInm = new ImagenInmueble;
                     $imgInm->id_inmueble = $model->id;
@@ -111,14 +112,14 @@ class InmuebleController extends AdminController {
                         $fsUtil->copyFileFromTmpToFs($imgInm->ruta, $model->id);
                     }
                 }
-
+                */
                 (new Auditoria)->registrarAuditoria(Yii::app()->user->id, new DateTime, Constantes::AUDITORIA_OBJETO_INMUEBLE, Constantes::AUDITORIA_OPERACION_ALTA, $model->id);
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
 
-        $fsUtil->clearUserTmpFolder();
-        $fsUtil->copyAllFilesFromFsToTmp($id);
+        //$fsUtil->clearUserTmpFolder();
+        //$fsUtil->copyAllFilesFromFsToTmp($id);
         $this->render('update', array('model' => $model));
     }
 

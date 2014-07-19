@@ -1,10 +1,7 @@
 <?php ?>
 <html>
     <head>
-        <title>. : <?php echo CHtml::encode($this->pageTitle); ?> : .</title>
-
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/jquery1.11.0.min.js"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/assets/javascript/lib/bootstrap3.1.1.min.js"></script>

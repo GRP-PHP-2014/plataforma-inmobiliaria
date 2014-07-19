@@ -34,7 +34,7 @@
                     Habilitado <input type="checkbox">
                 </label>
             </div>
-            <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=usuario/admin">Volver</a>
+            <a href="<?php echo Yii::app()->createUrl("usuario/admin"); ?>">Volver</a>
         </form>
     </div>
     <div class="col-lg-6"></div>

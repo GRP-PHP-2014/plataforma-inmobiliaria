@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="EmailNotificacion_mensaje">Mensaje</label>
-                <?php echo $form->textField($model, "mensaje", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
+                <?php echo CHtml::activeTextArea($model, "mensaje", array('size' => 60, 'maxlength' => 1024, "class" => "form-control", "disabled" => "true")) ?>       
             </div>
             <a href="<?php echo Yii::app()->createUrl("emailNotificacion/admin")?>">Volver</a>
             <?php echo CHtml::button("Crear usuario", array("class" => "btn btn-default" , "onclick" => "notificacionCrearNuevoCliente()")); ?>

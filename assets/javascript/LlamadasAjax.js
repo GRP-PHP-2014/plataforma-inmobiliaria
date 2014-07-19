@@ -75,8 +75,10 @@
   			dataType: 'json',
   	})
   	.done(function(msg) {
-  		$('#' + obj.tipo).modal({show:false});
-      console.debug(msg);
+  		//$('#' + obj.tipo).modal({show:false});
+            $('#' + obj.tipo + ' .cancelBtn').click();    
+            
+            console.debug(msg);
   	})
   	.fail(function(msg) {
   		console.log(msg);
